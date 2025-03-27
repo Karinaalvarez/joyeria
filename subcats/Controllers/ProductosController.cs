@@ -27,7 +27,7 @@ namespace subcats.Controllers
         }
 
         // GET: Productos
-        public IActionResult Index()
+        public IActionResult Index(string searchString)
         {
             // Verificar si el usuario está autenticado
             if (HttpContext.Session.GetString("UserId") == null)
@@ -38,6 +38,12 @@ namespace subcats.Controllers
             try
             {
                 var productos = _db.GetAllProductos();
+                
+                // Filtrar productos por nombre si se proporciona un término de búsqueda
+                if (!string.IsNullOrEmpty(searchString))
+                {
+                    productos = productos.Where(p => p.Nombre.Contains(searchString, StringComparison.OrdinalIgnoreCase)).ToList();
+                }
                 
                 // Verificar el rol del usuario
                 var role = HttpContext.Session.GetString("Role");
