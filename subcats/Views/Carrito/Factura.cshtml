@@ -1,0 +1,99 @@
+@model subcats.dto.Orden
+@{
+    ViewData["Title"] = "Factura";
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header bg-success text-white">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3><i class="bi bi-receipt"></i> Factura #@Model.Id_orden</h3>
+                <button class="btn btn-light" onclick="window.print()">
+                    <i class="bi bi-printer"></i> Imprimir
+                </button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <h5 class="mb-3">Datos del Cliente</h5>
+                    <p><strong>Nombre:</strong> @Model.Cliente.Nombre @Model.Cliente.Apellido</p>
+                    <p><strong>Email:</strong> @Model.Cliente.Email</p>
+                    <p><strong>Teléfono:</strong> @Model.Cliente.Telefono</p>
+                    <p><strong>Dirección:</strong> @Model.Cliente.Direccion</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5 class="mb-3">Datos de la Orden</h5>
+                    <p><strong>Número de Orden:</strong> #@Model.Id_orden</p>
+                    <p><strong>Fecha:</strong> @Model.Fecha_Orden.ToString("dd/MM/yyyy HH:mm")</p>
+                    <p><strong>Estado:</strong> <span class="badge bg-success">@Model.Estado</span></p>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th class="text-center">Cantidad</th>
+                            <th class="text-end">Precio Unitario</th>
+                            <th class="text-end">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var detalle in Model.Detalles)
+                        {
+                            <tr>
+                                <td>@detalle.Producto.Nombre</td>
+                                <td class="text-center">@detalle.Cantidad</td>
+                                <td class="text-end">L @detalle.Precio_Unitario.ToString("N2")</td>
+                                <td class="text-end">L @detalle.Subtotal.ToString("N2")</td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3" class="text-end fw-bold">Total:</td>
+                            <td class="text-end fw-bold">L @Model.Total.ToString("N2")</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div class="mt-4 border-top pt-3">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Términos y Condiciones</h5>
+                        <p class="small">
+                            El pago debe realizarse en el momento de la entrega. Los productos están sujetos a disponibilidad.
+                            Para cualquier consulta o reclamo, por favor contacte a nuestro servicio de atención al cliente.
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <p class="mb-0">Gracias por su compra</p>
+                        <p class="small text-muted">Mi Catálogo - Tienda Online</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="d-flex justify-content-between">
+                <a href="/Productos/Index" class="btn btn-primary">
+                    <i class="bi bi-cart"></i> Seguir Comprando
+                </a>
+                <a href="/" class="btn btn-secondary">
+                    <i class="bi bi-house"></i> Ir al Inicio
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Limpiar el carrito después de mostrar la factura
+            localStorage.removeItem('carrito');
+        });
+    </script>
+}

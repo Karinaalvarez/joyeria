@@ -48,9 +48,9 @@
                         <button id="vaciar-carrito" class="btn btn-danger me-2">
                             <i class="bi bi-trash"></i> Vaciar Carrito
                         </button>
-                        <button id="procesar-compra" class="btn btn-success">
+                        <a id="procesar-compra" href="/Carrito/Checkout" class="btn btn-success">
                             <i class="bi bi-check-circle"></i> Procesar Compra
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -77,26 +77,6 @@
     </div>
 </div>
 
-<!-- Modal de confirmación de compra -->
-<div class="modal fade" id="confirmarCompraModal" tabindex="-1" aria-labelledby="confirmarCompraModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="confirmarCompraModalLabel">Confirmar compra</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>¿Estás seguro que deseas procesar tu compra?</p>
-                <p>Total a pagar: <strong id="modal-total">L 0.00</strong></p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success" id="confirmar-compra">Confirmar Compra</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 @section Scripts {
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -107,12 +87,9 @@
             const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
             const confirmarVaciarBtn = document.getElementById('confirmar-vaciar');
             const procesarCompraBtn = document.getElementById('procesar-compra');
-            const confirmarCompraBtn = document.getElementById('confirmar-compra');
-            const modalTotal = document.getElementById('modal-total');
             
             // Modal de Bootstrap
             const vaciarCarritoModal = new bootstrap.Modal(document.getElementById('vaciarCarritoModal'));
-            const confirmarCompraModal = new bootstrap.Modal(document.getElementById('confirmarCompraModal'));
             
             // Cargar el carrito
             cargarCarrito();
@@ -131,24 +108,15 @@
             });
             
             // Evento para procesar compra
-            procesarCompraBtn.addEventListener('click', function() {
+            procesarCompraBtn.addEventListener('click', function(e) {
                 const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
                 if (carrito.length === 0) {
+                    e.preventDefault();
                     mostrarMensaje('No hay productos en el carrito', 'danger');
-                    return;
+                    return false;
                 }
                 
-                modalTotal.textContent = carritoTotal.textContent;
-                confirmarCompraModal.show();
-            });
-            
-            // Confirmar compra
-            confirmarCompraBtn.addEventListener('click', function() {
-                const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-                
-                // Aquí se enviaría la información al servidor
-                // Por ahora solo mostramos un mensaje y vaciamos el carrito
-                
+                // Guardar los datos del carrito en la sesión antes de ir al checkout
                 fetch('/Carrito/Procesar', {
                     method: 'POST',
                     headers: {
@@ -159,17 +127,20 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        localStorage.removeItem('carrito');
-                        cargarCarrito();
-                        confirmarCompraModal.hide();
-                        mostrarMensaje('¡Compra realizada con éxito! Gracias por tu pedido.');
+                        // Continuar con la redirección al checkout
+                        window.location.href = '/Carrito/Checkout';
                     } else {
-                        mostrarMensaje('Error al procesar la compra: ' + data.message, 'danger');
+                        mostrarMensaje('Error: ' + data.message, 'danger');
+                        e.preventDefault();
                     }
                 })
                 .catch(error => {
-                    mostrarMensaje('Error al procesar la compra: ' + error, 'danger');
+                    mostrarMensaje('Error: ' + error, 'danger');
+                    e.preventDefault();
                 });
+                
+                // Prevenir la navegación automática hasta que se complete la petición
+                e.preventDefault();
             });
             
             // Función para cargar el carrito

@@ -1,0 +1,163 @@
+@model subcats.dto.Cliente
+@{
+    ViewData["Title"] = "Finalizar Compra";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4>Datos del Cliente</h4>
+                </div>
+                <div class="card-body">
+                    <form id="checkout-form" asp-action="Checkout" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" id="carritoJson" name="carritoJson" />
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Nombre" class="control-label">Nombre</label>
+                                    <input asp-for="Nombre" class="form-control" />
+                                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Apellido" class="control-label">Apellido</label>
+                                    <input asp-for="Apellido" class="form-control" />
+                                    <span asp-validation-for="Apellido" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Email" class="control-label">Email</label>
+                            <input asp-for="Email" class="form-control" type="email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Telefono" class="control-label">Teléfono</label>
+                            <input asp-for="Telefono" class="form-control" />
+                            <span asp-validation-for="Telefono" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Direccion" class="control-label">Dirección de Entrega</label>
+                            <textarea asp-for="Direccion" class="form-control" rows="3"></textarea>
+                            <span asp-validation-for="Direccion" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group d-flex justify-content-between">
+                            <a href="/Carrito" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i> Volver al Carrito
+                            </a>
+                            <button type="submit" class="btn btn-success">
+                                <i class="bi bi-check-circle"></i> Confirmar Pedido
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4>Resumen del Pedido</h4>
+                </div>
+                <div class="card-body">
+                    <div id="carrito-vacio" class="alert alert-info d-none">
+                        <p>Tu carrito está vacío. <a href="/Productos/Index" class="alert-link">Continuar comprando</a></p>
+                    </div>
+                    <div id="carrito-resumen">
+                        <div class="mb-3">
+                            <h5>Productos:</h5>
+                            <ul id="resumen-productos" class="list-group">
+                                <!-- Los productos se cargarán aquí dinámicamente -->
+                            </ul>
+                        </div>
+                        <div class="d-flex justify-content-between fw-bold mt-3">
+                            <span>Total:</span>
+                            <span id="resumen-total">L 0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carritoVacio = document.getElementById('carrito-vacio');
+            const carritoResumen = document.getElementById('carrito-resumen');
+            const resumenProductos = document.getElementById('resumen-productos');
+            const resumenTotal = document.getElementById('resumen-total');
+            const carritoJsonInput = document.getElementById('carritoJson');
+            const checkoutForm = document.getElementById('checkout-form');
+            
+            // Cargar el carrito desde localStorage
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            
+            // Actualizar el input hidden con los datos del carrito
+            carritoJsonInput.value = JSON.stringify(carrito);
+            
+            if (carrito.length === 0) {
+                carritoVacio.classList.remove('d-none');
+                carritoResumen.classList.add('d-none');
+                return;
+            }
+            
+            carritoVacio.classList.add('d-none');
+            carritoResumen.classList.remove('d-none');
+            
+            // Limpiar lista
+            resumenProductos.innerHTML = '';
+            
+            // Calcular total
+            let total = 0;
+            
+            // Agregar productos al resumen
+            carrito.forEach(item => {
+                const subtotal = item.precio * item.cantidad;
+                total += subtotal;
+                
+                const li = document.createElement('li');
+                li.className = 'list-group-item d-flex justify-content-between align-items-center';
+                li.innerHTML = `
+                    <div>
+                        <span class="fw-bold">${item.nombre}</span>
+                        <br>
+                        <small>L ${item.precio.toFixed(2)} x ${item.cantidad}</small>
+                    </div>
+                    <span>L ${subtotal.toFixed(2)}</span>
+                `;
+                
+                resumenProductos.appendChild(li);
+            });
+            
+            // Actualizar total
+            resumenTotal.textContent = `L ${total.toFixed(2)}`;
+            
+            // Manejar el envío del formulario
+            checkoutForm.addEventListener('submit', function(e) {
+                if (carrito.length === 0) {
+                    e.preventDefault();
+                    alert('Tu carrito está vacío. Agrega productos antes de continuar.');
+                    return false;
+                }
+                
+                // Actualizar el input hidden con los datos del carrito
+                carritoJsonInput.value = JSON.stringify(carrito);
+                
+                // Continuar con el envío del formulario
+                return true;
+            });
+        });
+    </script>
+    
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
