@@ -40,12 +40,17 @@
                                     <i class="bi bi-grid-3x3-gap"></i> Productos
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="#" data-bs-toggle="modal" data-bs-target="#categoriasModal">
+                                    <i class="bi bi-tags"></i> Categorías
+                                </a>
+                            </li>
                             
                             @if (role == "Admin")
                             {
                                 <li class="nav-item">
                                     <a class="nav-link text-white" asp-area="" asp-controller="Categorias" asp-action="Index">
-                                        <i class="bi bi-tags"></i> Categorías
+                                        <i class="bi bi-tags"></i> Administrar Categorías
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -135,6 +140,110 @@
     </script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    
+    <!-- Modal de Categorías -->
+    <div class="modal fade" id="categoriasModal" tabindex="-1" aria-labelledby="categoriasModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="categoriasModalLabel"><i class="bi bi-tags"></i> Categorías</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row" id="categorias-container">
+                        <!-- Las categorías se cargarán aquí dinámicamente -->
+                        <div class="text-center">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Cargando...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Cargar categorías cuando se abre el modal
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoriasModal = document.getElementById('categoriasModal');
+            if (categoriasModal) {
+                categoriasModal.addEventListener('show.bs.modal', function() {
+                    cargarCategorias();
+                });
+            }
+            
+            function cargarCategorias() {
+                const categoriasContainer = document.getElementById('categorias-container');
+                
+                // Hacer una petición AJAX para obtener las categorías
+                fetch('/Productos/ObtenerCategorias')
+                    .then(response => response.json())
+                    .then(categorias => {
+                        // Limpiar el contenedor
+                        categoriasContainer.innerHTML = '';
+                        
+                        if (categorias.length === 0) {
+                            categoriasContainer.innerHTML = '<div class="col-12 text-center"><p>No hay categorías disponibles</p></div>';
+                            return;
+                        }
+                        
+                        // Agregar una opción para ver todas las categorías
+                        const divTodas = document.createElement('div');
+                        divTodas.className = 'col-md-4 mb-3';
+                        divTodas.innerHTML = `
+                            <div class="card h-100 categoria-card" data-id="0">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-grid-3x3-gap-fill fs-1 text-primary"></i>
+                                    <h5 class="card-title mt-2">Todos los Productos</h5>
+                                </div>
+                            </div>
+                        `;
+                        categoriasContainer.appendChild(divTodas);
+                        
+                        // Agregar cada categoría
+                        categorias.forEach(categoria => {
+                            const div = document.createElement('div');
+                            div.className = 'col-md-4 mb-3';
+                            div.innerHTML = `
+                                <div class="card h-100 categoria-card" data-id="${categoria.id}">
+                                    <div class="card-body text-center">
+                                        <i class="bi bi-tag-fill fs-1 text-primary"></i>
+                                        <h5 class="card-title mt-2">${categoria.nombre}</h5>
+                                    </div>
+                                </div>
+                            `;
+                            categoriasContainer.appendChild(div);
+                        });
+                        
+                        // Agregar evento click a las tarjetas de categoría
+                        document.querySelectorAll('.categoria-card').forEach(card => {
+                            card.addEventListener('click', function() {
+                                const categoriaId = this.getAttribute('data-id');
+                                window.location.href = `/Productos/Categoria/${categoriaId}`;
+                            });
+                            
+                            // Agregar efecto hover
+                            card.style.cursor = 'pointer';
+                            card.addEventListener('mouseenter', function() {
+                                this.classList.add('shadow');
+                                this.style.transform = 'translateY(-5px)';
+                                this.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+                            });
+                            card.addEventListener('mouseleave', function() {
+                                this.classList.remove('shadow');
+                                this.style.transform = 'translateY(0)';
+                            });
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error al cargar categorías:', error);
+                        categoriasContainer.innerHTML = '<div class="col-12 text-center"><p class="text-danger">Error al cargar las categorías</p></div>';
+                    });
+            }
+        });
+    </script>
+    
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

@@ -1,4 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using subcats.customClass;
 using subcats.dto;
 using System;
@@ -1096,6 +1096,67 @@ namespace subcats.customClass
             {
                 cnx.connection.Close();
             }
+        }
+
+        // Método para obtener todos los productos por categoría
+        public List<Producto> GetProductosPorCategoria(int categoriaId)
+        {
+            List<Producto> productos = new List<Producto>();
+
+            try
+            {
+                cnx.connection.Open();
+                string sql = @"
+                    SELECT p.id_producto, p.nombre, p.descripcion, p.precio, p.impuesto, p.descuento, p.stock, 
+                           p.fecha_creacion, p.fecha_actualizacion, p.CategoriaId, p.ImagenBinaria as Imagen,
+                           p.ProveedorId
+                    FROM productos p
+                    WHERE p.CategoriaId = @CategoriaId
+                    ORDER BY p.nombre";
+
+                SqlCommand cmd = new SqlCommand(sql, cnx.connection);
+                cmd.Parameters.AddWithValue("@CategoriaId", categoriaId);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Producto producto = new Producto
+                    {
+                        Id_producto = Convert.ToInt32(reader["id_producto"]),
+                        Nombre = reader["nombre"].ToString(),
+                        Descripcion = reader["descripcion"] != DBNull.Value ? reader["descripcion"].ToString() : "",
+                        Precio = Convert.ToDecimal(reader["precio"]),
+                        Impuesto = reader["impuesto"] != DBNull.Value ? Convert.ToDecimal(reader["impuesto"]) : 0,
+                        Descuento = reader["descuento"] != DBNull.Value ? Convert.ToDecimal(reader["descuento"]) : 0,
+                        Stock = reader["stock"] != DBNull.Value ? Convert.ToInt32(reader["stock"]) : 0,
+                        CategoriaId = reader["CategoriaId"] != DBNull.Value ? Convert.ToInt32(reader["CategoriaId"]) : (int?)null,
+                        ProveedorId = reader["ProveedorId"] != DBNull.Value ? Convert.ToInt32(reader["ProveedorId"]) : (int?)null
+                    };
+
+                    if (!reader.IsDBNull(reader.GetOrdinal("Imagen")))
+                    {
+                        // Obtener el tamaño del campo binario
+                        long byteLength = reader.GetBytes(reader.GetOrdinal("Imagen"), 0, null, 0, 0);
+                        producto.Imagen = new byte[byteLength];
+                        reader.GetBytes(reader.GetOrdinal("Imagen"), 0, producto.Imagen, 0, (int)byteLength);
+                    }
+
+                    productos.Add(producto);
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al obtener productos por categoría: " + ex.Message);
+            }
+            finally
+            {
+                cnx.connection.Close();
+            }
+
+            return productos;
         }
     }
 }

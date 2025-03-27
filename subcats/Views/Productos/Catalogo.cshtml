@@ -1,11 +1,21 @@
 @model List<subcats.dto.Producto>
 @{
-    ViewData["Title"] = "Catálogo de Productos";
+    ViewData["Title"] = ViewBag.NombreCategoria != null ? ViewBag.NombreCategoria : "Catálogo de Productos";
 }
 
 <div class="container mt-4">
     <div class="mb-4 d-flex justify-content-between align-items-center">
-        <h1 class="display-4">Catálogo de Productos</h1>
+        <div>
+            <h1 class="display-4">
+                @(ViewBag.NombreCategoria != null ? ViewBag.NombreCategoria : "Catálogo de Productos")
+            </h1>
+            @if (ViewBag.CategoriaId != null && ViewBag.CategoriaId > 0)
+            {
+                <a href="/Productos/Categoria/0" class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-arrow-left"></i> Ver todos los productos
+                </a>
+            }
+        </div>
         <a href="/Carrito" class="btn btn-outline-primary">
             <i class="bi bi-cart3"></i> Ver Carrito
             <span class="badge bg-danger" id="carrito-count">0</span>
@@ -15,7 +25,14 @@
     @if (Model.Count == 0)
     {
         <div class="alert alert-info">
-            No hay productos disponibles en el catálogo.
+            @if (ViewBag.CategoriaId != null && ViewBag.CategoriaId > 0)
+            {
+                <p>No hay productos disponibles en esta categoría.</p>
+            }
+            else
+            {
+                <p>No hay productos disponibles en el catálogo.</p>
+            }
         </div>
     }
     else

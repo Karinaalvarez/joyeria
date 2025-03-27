@@ -591,5 +591,77 @@ namespace subcats.Controllers
                 }
             }
         }
+
+        // GET: Productos/ObtenerCategorias
+        [HttpGet]
+        public IActionResult ObtenerCategorias()
+        {
+            try
+            {
+                var categorias = _categoriaService.ObtenerTodasCategorias();
+                return Json(categorias);
+            }
+            catch (Exception ex)
+            {
+                return Json(new List<Categoria>());
+            }
+        }
+
+        // GET: Productos/Categoria/5
+        public IActionResult Categoria(int id)
+        {
+            // Verificar si el usuario está autenticado
+            if (HttpContext.Session.GetString("UserId") == null)
+            {
+                return RedirectToAction("Login", "Auth");
+            }
+
+            try
+            {
+                List<Producto> productos;
+                
+                if (id == 0)
+                {
+                    // Si id es 0, mostrar todos los productos
+                    productos = _db.GetAllProductos();
+                }
+                else
+                {
+                    // Obtener productos por categoría
+                    productos = _db.GetProductosPorCategoria(id);
+                }
+                
+                // Obtener el nombre de la categoría
+                string nombreCategoria = "Todos los Productos";
+                if (id > 0)
+                {
+                    var categoria = _categoriaService.ObtenerCategoria(id);
+                    if (categoria != null)
+                    {
+                        nombreCategoria = categoria.Nombre;
+                    }
+                }
+                
+                ViewBag.CategoriaId = id;
+                ViewBag.NombreCategoria = nombreCategoria;
+                
+                // Verificar el rol del usuario
+                var role = HttpContext.Session.GetString("Role");
+                
+                // Si es un usuario normal, mostrar una vista simplificada
+                if (role != "Admin")
+                {
+                    return View("Catalogo", productos);
+                }
+                
+                // Si es administrador, mostrar la vista completa
+                return View("Index", productos);
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "Error al obtener los productos: " + ex.Message;
+                return RedirectToAction("Index");
+            }
+        }
     }
 }
