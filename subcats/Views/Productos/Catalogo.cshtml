@@ -4,8 +4,12 @@
 }
 
 <div class="container mt-4">
-    <div class="mb-4">
+    <div class="mb-4 d-flex justify-content-between align-items-center">
         <h1 class="display-4">Catálogo de Productos</h1>
+        <a href="/Carrito" class="btn btn-outline-primary">
+            <i class="bi bi-cart3"></i> Ver Carrito
+            <span class="badge bg-danger" id="carrito-count">0</span>
+        </a>
     </div>
 
     @if (Model.Count == 0)
@@ -51,10 +55,22 @@
                             </div>
                         </div>
                         <div class="card-footer bg-transparent border-top-0">
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex justify-content-between">
                                 <a href="/Productos/Details/@producto.Id_producto" class="btn btn-sm btn-outline-info">
                                     <i class="bi bi-info-circle"></i> Ver Detalles
                                 </a>
+                                @if (producto.Stock > 0)
+                                {
+                                    <button class="btn btn-sm btn-success agregar-carrito" data-id="@producto.Id_producto" data-nombre="@producto.Nombre" data-precio="@producto.Precio">
+                                        <i class="bi bi-cart-plus"></i> Agregar al Carrito
+                                    </button>
+                                }
+                                else
+                                {
+                                    <button class="btn btn-sm btn-secondary" disabled>
+                                        <i class="bi bi-cart-plus"></i> Sin Stock
+                                    </button>
+                                }
                             </div>
                         </div>
                     </div>
@@ -63,3 +79,67 @@
         </div>
     }
 </div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cargar el carrito desde localStorage
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            actualizarContadorCarrito();
+            
+            // Agregar evento a los botones de agregar al carrito
+            document.querySelectorAll('.agregar-carrito').forEach(button => {
+                button.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    const nombre = this.getAttribute('data-nombre');
+                    const precio = parseFloat(this.getAttribute('data-precio'));
+                    
+                    // Verificar si el producto ya está en el carrito
+                    const productoExistente = carrito.find(item => item.id === id);
+                    
+                    if (productoExistente) {
+                        productoExistente.cantidad += 1;
+                    } else {
+                        carrito.push({
+                            id: id,
+                            nombre: nombre,
+                            precio: precio,
+                            cantidad: 1
+                        });
+                    }
+                    
+                    // Guardar en localStorage
+                    localStorage.setItem('carrito', JSON.stringify(carrito));
+                    
+                    // Actualizar contador
+                    actualizarContadorCarrito();
+                    
+                    // Mostrar mensaje
+                    mostrarMensaje(`${nombre} agregado al carrito`);
+                });
+            });
+            
+            function actualizarContadorCarrito() {
+                const contador = document.getElementById('carrito-count');
+                const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
+                contador.textContent = totalItems;
+            }
+            
+            function mostrarMensaje(mensaje) {
+                const alertDiv = document.createElement('div');
+                alertDiv.className = 'alert alert-success alert-dismissible fade show position-fixed bottom-0 end-0 m-3';
+                alertDiv.setAttribute('role', 'alert');
+                alertDiv.innerHTML = `
+                    <i class="bi bi-check-circle"></i> ${mensaje}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                `;
+                document.body.appendChild(alertDiv);
+                
+                // Auto cerrar después de 3 segundos
+                setTimeout(() => {
+                    alertDiv.remove();
+                }, 3000);
+            }
+        });
+    </script>
+}

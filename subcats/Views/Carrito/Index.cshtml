@@ -1,0 +1,289 @@
+@{
+    ViewData["Title"] = "Carrito de Compras";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Carrito de Compras</h1>
+
+    <div id="carrito-vacio" class="alert alert-info d-none">
+        <p>Tu carrito está vacío. <a href="/Productos/Index" class="alert-link">Continuar comprando</a></p>
+    </div>
+
+    <div id="carrito-contenido">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Productos en tu carrito</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Subtotal</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="carrito-items">
+                            <!-- Los items del carrito se cargarán aquí dinámicamente -->
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3" class="text-end fw-bold">Total:</td>
+                                <td id="carrito-total" class="fw-bold">L 0.00</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="d-flex justify-content-between">
+                    <a href="/Productos/Index" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left"></i> Seguir Comprando
+                    </a>
+                    <div>
+                        <button id="vaciar-carrito" class="btn btn-danger me-2">
+                            <i class="bi bi-trash"></i> Vaciar Carrito
+                        </button>
+                        <button id="procesar-compra" class="btn btn-success">
+                            <i class="bi bi-check-circle"></i> Procesar Compra
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de confirmación para vaciar carrito -->
+<div class="modal fade" id="vaciarCarritoModal" tabindex="-1" aria-labelledby="vaciarCarritoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="vaciarCarritoModalLabel">Confirmar acción</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Estás seguro que deseas vaciar tu carrito de compras?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" id="confirmar-vaciar">Vaciar Carrito</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de confirmación de compra -->
+<div class="modal fade" id="confirmarCompraModal" tabindex="-1" aria-labelledby="confirmarCompraModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmarCompraModalLabel">Confirmar compra</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro que deseas procesar tu compra?</p>
+                <p>Total a pagar: <strong id="modal-total">L 0.00</strong></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" id="confirmar-compra">Confirmar Compra</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carritoItems = document.getElementById('carrito-items');
+            const carritoTotal = document.getElementById('carrito-total');
+            const carritoVacio = document.getElementById('carrito-vacio');
+            const carritoContenido = document.getElementById('carrito-contenido');
+            const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
+            const confirmarVaciarBtn = document.getElementById('confirmar-vaciar');
+            const procesarCompraBtn = document.getElementById('procesar-compra');
+            const confirmarCompraBtn = document.getElementById('confirmar-compra');
+            const modalTotal = document.getElementById('modal-total');
+            
+            // Modal de Bootstrap
+            const vaciarCarritoModal = new bootstrap.Modal(document.getElementById('vaciarCarritoModal'));
+            const confirmarCompraModal = new bootstrap.Modal(document.getElementById('confirmarCompraModal'));
+            
+            // Cargar el carrito
+            cargarCarrito();
+            
+            // Evento para vaciar carrito
+            vaciarCarritoBtn.addEventListener('click', function() {
+                vaciarCarritoModal.show();
+            });
+            
+            // Confirmar vaciar carrito
+            confirmarVaciarBtn.addEventListener('click', function() {
+                localStorage.removeItem('carrito');
+                cargarCarrito();
+                vaciarCarritoModal.hide();
+                mostrarMensaje('Carrito vaciado correctamente');
+            });
+            
+            // Evento para procesar compra
+            procesarCompraBtn.addEventListener('click', function() {
+                const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+                if (carrito.length === 0) {
+                    mostrarMensaje('No hay productos en el carrito', 'danger');
+                    return;
+                }
+                
+                modalTotal.textContent = carritoTotal.textContent;
+                confirmarCompraModal.show();
+            });
+            
+            // Confirmar compra
+            confirmarCompraBtn.addEventListener('click', function() {
+                const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+                
+                // Aquí se enviaría la información al servidor
+                // Por ahora solo mostramos un mensaje y vaciamos el carrito
+                
+                fetch('/Carrito/Procesar', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(carrito)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        localStorage.removeItem('carrito');
+                        cargarCarrito();
+                        confirmarCompraModal.hide();
+                        mostrarMensaje('¡Compra realizada con éxito! Gracias por tu pedido.');
+                    } else {
+                        mostrarMensaje('Error al procesar la compra: ' + data.message, 'danger');
+                    }
+                })
+                .catch(error => {
+                    mostrarMensaje('Error al procesar la compra: ' + error, 'danger');
+                });
+            });
+            
+            // Función para cargar el carrito
+            function cargarCarrito() {
+                const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+                
+                if (carrito.length === 0) {
+                    carritoVacio.classList.remove('d-none');
+                    carritoContenido.classList.add('d-none');
+                    return;
+                }
+                
+                carritoVacio.classList.add('d-none');
+                carritoContenido.classList.remove('d-none');
+                
+                // Limpiar tabla
+                carritoItems.innerHTML = '';
+                
+                // Calcular total
+                let total = 0;
+                
+                // Agregar items a la tabla
+                carrito.forEach(item => {
+                    const subtotal = item.precio * item.cantidad;
+                    total += subtotal;
+                    
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${item.nombre}</td>
+                        <td>L ${item.precio.toFixed(2)}</td>
+                        <td>
+                            <div class="input-group input-group-sm" style="width: 120px;">
+                                <button class="btn btn-outline-secondary decrementar" data-id="${item.id}">-</button>
+                                <input type="text" class="form-control text-center cantidad-input" value="${item.cantidad}" data-id="${item.id}" readonly>
+                                <button class="btn btn-outline-secondary incrementar" data-id="${item.id}">+</button>
+                            </div>
+                        </td>
+                        <td>L ${subtotal.toFixed(2)}</td>
+                        <td>
+                            <button class="btn btn-sm btn-danger eliminar-item" data-id="${item.id}">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+                    `;
+                    
+                    carritoItems.appendChild(tr);
+                });
+                
+                // Actualizar total
+                carritoTotal.textContent = `L ${total.toFixed(2)}`;
+                
+                // Agregar eventos a los botones
+                document.querySelectorAll('.decrementar').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        actualizarCantidad(this.getAttribute('data-id'), -1);
+                    });
+                });
+                
+                document.querySelectorAll('.incrementar').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        actualizarCantidad(this.getAttribute('data-id'), 1);
+                    });
+                });
+                
+                document.querySelectorAll('.eliminar-item').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        eliminarItem(this.getAttribute('data-id'));
+                    });
+                });
+            }
+            
+            // Función para actualizar la cantidad de un producto
+            function actualizarCantidad(id, cambio) {
+                const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+                const item = carrito.find(item => item.id === id);
+                
+                if (!item) return;
+                
+                item.cantidad += cambio;
+                
+                if (item.cantidad <= 0) {
+                    eliminarItem(id);
+                    return;
+                }
+                
+                localStorage.setItem('carrito', JSON.stringify(carrito));
+                cargarCarrito();
+            }
+            
+            // Función para eliminar un producto del carrito
+            function eliminarItem(id) {
+                let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+                carrito = carrito.filter(item => item.id !== id);
+                localStorage.setItem('carrito', JSON.stringify(carrito));
+                cargarCarrito();
+                mostrarMensaje('Producto eliminado del carrito');
+            }
+            
+            // Función para mostrar mensajes
+            function mostrarMensaje(mensaje, tipo = 'success') {
+                const alertDiv = document.createElement('div');
+                alertDiv.className = `alert alert-${tipo} alert-dismissible fade show position-fixed bottom-0 end-0 m-3`;
+                alertDiv.setAttribute('role', 'alert');
+                alertDiv.innerHTML = `
+                    <i class="bi bi-${tipo === 'success' ? 'check-circle' : 'exclamation-triangle'}"></i> ${mensaje}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                `;
+                document.body.appendChild(alertDiv);
+                
+                // Auto cerrar después de 3 segundos
+                setTimeout(() => {
+                    alertDiv.remove();
+                }, 3000);
+            }
+        });
+    </script>
+}
