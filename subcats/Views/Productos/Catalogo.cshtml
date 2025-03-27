@@ -22,6 +22,18 @@
         </a>
     </div>
 
+    <!-- Formulario de búsqueda -->
+    <div class="row mb-4">
+        <div class="col-md-6 mx-auto">
+            <form asp-action="Index" method="get" class="input-group">
+                <input type="text" name="searchString" class="form-control" placeholder="Buscar productos por nombre..." aria-label="Buscar productos" value="@ViewData["CurrentFilter"]">
+                <button class="btn btn-outline-primary" type="submit">
+                    <i class="bi bi-search"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
     @if (Model.Count == 0)
     {
         <div class="alert alert-info">

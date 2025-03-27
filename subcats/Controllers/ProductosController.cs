@@ -39,6 +39,9 @@ namespace subcats.Controllers
             {
                 var productos = _db.GetAllProductos();
                 
+                // Guardar el término de búsqueda actual para mostrarlo en el campo de búsqueda
+                ViewData["CurrentFilter"] = searchString;
+                
                 // Filtrar productos por nombre si se proporciona un término de búsqueda
                 if (!string.IsNullOrEmpty(searchString))
                 {
