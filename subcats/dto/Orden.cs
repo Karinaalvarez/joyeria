@@ -17,6 +17,10 @@ namespace subcats.dto
         public Cliente Cliente { get; set; }
         public List<DetalleOrden> Detalles { get; set; }
         
+        // Propiedades para reportes
+        public string NombreCliente { get; set; }
+        public string ApellidoCliente { get; set; }
+        
         public Orden()
         {
             Fecha_Orden = DateTime.Now;

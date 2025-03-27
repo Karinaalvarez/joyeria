@@ -15,5 +15,8 @@ namespace subcats.dto
         
         // Propiedades de navegación
         public Producto Producto { get; set; }
+        
+        // Propiedad para reportes
+        public string NombreProducto { get; set; }
     }
 }

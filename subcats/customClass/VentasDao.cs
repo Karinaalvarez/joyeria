@@ -359,5 +359,173 @@ namespace subcats.customClass
             }
             return orden;
         }
+
+        // Método para obtener todas las órdenes
+        public List<Orden> ObtenerTodasLasOrdenes()
+        {
+            List<Orden> ordenes = new List<Orden>();
+            try
+            {
+                cnx.connection.Open();
+                string sql = @"
+                SELECT o.*, c.Nombre, c.Apellido
+                FROM Ordenes o
+                INNER JOIN Clientes c ON o.Id_cliente = c.Id_cliente
+                ORDER BY o.Fecha_Orden DESC";
+
+                SqlCommand cmd = new SqlCommand(sql, cnx.connection);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Orden orden = new Orden
+                    {
+                        Id_orden = Convert.ToInt32(reader["Id_orden"]),
+                        Id_cliente = Convert.ToInt32(reader["Id_cliente"]),
+                        Fecha_Orden = Convert.ToDateTime(reader["Fecha_Orden"]),
+                        Total = Convert.ToDecimal(reader["Total"]),
+                        Estado = reader["Estado"].ToString(),
+                        NombreCliente = reader["Nombre"].ToString(),
+                        ApellidoCliente = reader["Apellido"].ToString()
+                    };
+                    ordenes.Add(orden);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al obtener órdenes: " + ex.Message);
+            }
+            finally
+            {
+                cnx.connection.Close();
+            }
+            return ordenes;
+        }
+
+        // Método para obtener los detalles de una orden específica
+        public List<DetalleOrden> ObtenerDetallesOrden(int ordenId)
+        {
+            List<DetalleOrden> detalles = new List<DetalleOrden>();
+            try
+            {
+                cnx.connection.Open();
+                string sql = @"
+                SELECT d.*, p.nombre as NombreProducto
+                FROM DetallesOrden d
+                INNER JOIN productos p ON d.Id_producto = p.id_producto
+                WHERE d.Id_orden = @OrdenId";
+
+                SqlCommand cmd = new SqlCommand(sql, cnx.connection);
+                cmd.Parameters.AddWithValue("@OrdenId", ordenId);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    DetalleOrden detalle = new DetalleOrden
+                    {
+                        Id_detalle = Convert.ToInt32(reader["Id_detalle"]),
+                        Id_orden = Convert.ToInt32(reader["Id_orden"]),
+                        Id_producto = Convert.ToInt32(reader["Id_producto"]),
+                        Cantidad = Convert.ToInt32(reader["Cantidad"]),
+                        Precio_Unitario = Convert.ToDecimal(reader["Precio_Unitario"]),
+                        Subtotal = Convert.ToDecimal(reader["Subtotal"]),
+                        NombreProducto = reader["NombreProducto"].ToString()
+                    };
+                    detalles.Add(detalle);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al obtener detalles de orden: " + ex.Message);
+            }
+            finally
+            {
+                cnx.connection.Close();
+            }
+            return detalles;
+        }
+
+        // Método para obtener una orden por su ID
+        public Orden ObtenerOrdenPorId(int ordenId)
+        {
+            Orden orden = null;
+            try
+            {
+                cnx.connection.Open();
+                string sql = @"
+                SELECT o.*
+                FROM Ordenes o
+                WHERE o.Id_orden = @OrdenId";
+
+                SqlCommand cmd = new SqlCommand(sql, cnx.connection);
+                cmd.Parameters.AddWithValue("@OrdenId", ordenId);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    orden = new Orden
+                    {
+                        Id_orden = Convert.ToInt32(reader["Id_orden"]),
+                        Id_cliente = Convert.ToInt32(reader["Id_cliente"]),
+                        Fecha_Orden = Convert.ToDateTime(reader["Fecha_Orden"]),
+                        Total = Convert.ToDecimal(reader["Total"]),
+                        Estado = reader["Estado"].ToString()
+                    };
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al obtener orden por ID: " + ex.Message);
+            }
+            finally
+            {
+                cnx.connection.Close();
+            }
+            return orden;
+        }
+
+        // Método para obtener un cliente por su ID
+        public Cliente ObtenerClientePorId(int clienteId)
+        {
+            Cliente cliente = null;
+            try
+            {
+                cnx.connection.Open();
+                string sql = @"
+                SELECT c.*
+                FROM Clientes c
+                WHERE c.Id_cliente = @ClienteId";
+
+                SqlCommand cmd = new SqlCommand(sql, cnx.connection);
+                cmd.Parameters.AddWithValue("@ClienteId", clienteId);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    cliente = new Cliente
+                    {
+                        Id_cliente = Convert.ToInt32(reader["Id_cliente"]),
+                        Nombre = reader["Nombre"].ToString(),
+                        Apellido = reader["Apellido"].ToString(),
+                        Email = reader["Email"].ToString(),
+                        Telefono = reader["Telefono"].ToString(),
+                        Direccion = reader["Direccion"].ToString()
+                    };
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al obtener cliente por ID: " + ex.Message);
+            }
+            finally
+            {
+                cnx.connection.Close();
+            }
+            return cliente;
+        }
     }
 }
