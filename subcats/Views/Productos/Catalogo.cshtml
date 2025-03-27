@@ -46,7 +46,7 @@
                                 <span class="badge bg-primary rounded-pill fs-6">L @producto.Precio.ToString("N2")</span>
                                 @if (producto.Stock > 0)
                                 {
-                                    <span class="badge bg-success rounded-pill">Disponible</span>
+                                    <span class="badge bg-success rounded-pill">Disponible (@producto.Stock)</span>
                                 }
                                 else
                                 {
@@ -61,7 +61,11 @@
                                 </a>
                                 @if (producto.Stock > 0)
                                 {
-                                    <button class="btn btn-sm btn-success agregar-carrito" data-id="@producto.Id_producto" data-nombre="@producto.Nombre" data-precio="@producto.Precio">
+                                    <button class="btn btn-sm btn-success agregar-carrito" 
+                                            data-id="@producto.Id_producto" 
+                                            data-nombre="@producto.Nombre" 
+                                            data-precio="@producto.Precio"
+                                            data-stock="@producto.Stock">
                                         <i class="bi bi-cart-plus"></i> Agregar al Carrito
                                     </button>
                                 }
@@ -93,9 +97,20 @@
                     const id = this.getAttribute('data-id');
                     const nombre = this.getAttribute('data-nombre');
                     const precio = parseFloat(this.getAttribute('data-precio'));
+                    const stockDisponible = parseInt(this.getAttribute('data-stock'));
                     
                     // Verificar si el producto ya está en el carrito
                     const productoExistente = carrito.find(item => item.id === id);
+                    
+                    // Calcular la cantidad actual en el carrito (si existe)
+                    const cantidadActual = productoExistente ? productoExistente.cantidad : 0;
+                    
+                    // Verificar si hay suficiente stock
+                    if (cantidadActual + 1 > stockDisponible) {
+                        // No hay suficiente stock, mostrar mensaje de error
+                        mostrarMensaje(`Solo hay ${stockDisponible} unidades disponibles de ${nombre}`, 'warning');
+                        return;
+                    }
                     
                     if (productoExistente) {
                         productoExistente.cantidad += 1;
@@ -104,7 +119,8 @@
                             id: id,
                             nombre: nombre,
                             precio: precio,
-                            cantidad: 1
+                            cantidad: 1,
+                            stockDisponible: stockDisponible
                         });
                     }
                     
@@ -125,12 +141,12 @@
                 contador.textContent = totalItems;
             }
             
-            function mostrarMensaje(mensaje) {
+            function mostrarMensaje(mensaje, tipo = 'success') {
                 const alertDiv = document.createElement('div');
-                alertDiv.className = 'alert alert-success alert-dismissible fade show position-fixed bottom-0 end-0 m-3';
+                alertDiv.className = `alert alert-${tipo} alert-dismissible fade show position-fixed bottom-0 end-0 m-3`;
                 alertDiv.setAttribute('role', 'alert');
                 alertDiv.innerHTML = `
-                    <i class="bi bi-check-circle"></i> ${mensaje}
+                    <i class="bi bi-${tipo === 'success' ? 'check-circle' : 'exclamation-triangle'}"></i> ${mensaje}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 `;
                 document.body.appendChild(alertDiv);

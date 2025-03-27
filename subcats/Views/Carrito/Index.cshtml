@@ -219,6 +219,12 @@
                 
                 if (!item) return;
                 
+                // Verificar si hay suficiente stock para incrementar
+                if (cambio > 0 && (item.cantidad + cambio) > item.stockDisponible) {
+                    mostrarMensaje(`Solo hay ${item.stockDisponible} unidades disponibles de ${item.nombre}`, 'warning');
+                    return;
+                }
+                
                 item.cantidad += cambio;
                 
                 if (item.cantidad <= 0) {
