@@ -91,6 +91,16 @@ namespace subcats.Controllers
                     ViewBag.NombreCategoria = categoria?.Nombre ?? "Categoría no encontrada";
                 }
 
+                // Verificar el rol del usuario
+                var role = HttpContext.Session.GetString("Role");
+                
+                // Si es un usuario normal, mostrar una vista simplificada
+                if (role != "Admin")
+                {
+                    return View("UserDetails", producto);
+                }
+                
+                // Si es administrador, mostrar la vista completa
                 return View(producto);
             }
             catch (Exception ex)
