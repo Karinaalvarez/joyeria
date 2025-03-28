@@ -94,8 +94,11 @@
             // Obtener el carrito actual del localStorage o crear uno nuevo
             let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
             
+            // Convertir id a string para asegurar consistencia con la vista del carrito
+            const idString = id.toString();
+            
             // Verificar si el producto ya está en el carrito
-            const productoExistente = carrito.find(p => p.id === id);
+            const productoExistente = carrito.find(p => p.id === idString);
             
             if (productoExistente) {
                 // Si ya existe, incrementar la cantidad
@@ -103,7 +106,7 @@
             } else {
                 // Si no existe, agregar el producto al carrito
                 carrito.push({
-                    id: id,
+                    id: idString,  // Guardar ID como string
                     nombre: nombre,
                     precio: precio,
                     cantidad: 1
