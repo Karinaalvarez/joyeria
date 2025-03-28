@@ -140,6 +140,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcRGV0YWxsZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Karina/catalogo-1/subcats/Views/Reportes/ImprimirDetalles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcSW1wcmltaXJEZXRhbGxlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Karina/catalogo-1/subcats/Views/Reportes/ImprimirListado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcSW1wcmltaXJMaXN0YWRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Karina/catalogo-1/subcats/Views/Reportes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

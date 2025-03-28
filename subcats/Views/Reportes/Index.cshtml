@@ -5,8 +5,11 @@
 
 <div class="container">
     <div class="card shadow">
-        <div class="card-header bg-primary text-white">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
             <h3><i class="bi bi-graph-up"></i> Reportes de Ventas</h3>
+            <button class="btn btn-light" onclick="imprimirListado()">
+                <i class="bi bi-printer"></i> Imprimir Reporte
+            </button>
         </div>
         <div class="card-body">
             <!-- Barra de búsqueda -->
@@ -83,6 +86,9 @@
                                         <a asp-action="Detalles" asp-route-id="@orden.Id_orden" class="btn btn-sm btn-info">
                                             <i class="bi bi-eye"></i> Ver Detalles
                                         </a>
+                                        <button class="btn btn-sm btn-secondary" onclick="imprimirDetalles(@orden.Id_orden)">
+                                            <i class="bi bi-printer"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             }
@@ -114,3 +120,59 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        // Función para imprimir el listado completo
+        function imprimirListado() {
+            // Crear un iframe oculto para cargar la vista de impresión
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+            
+            // Cargar la vista de impresión en el iframe
+            iframe.src = '@Url.Action("ImprimirListado", "Reportes", new { searchTerm = ViewBag.SearchTerm })?print=true';
+            
+            // Cuando el iframe termine de cargar, imprimir su contenido
+            iframe.onload = function() {
+                try {
+                    iframe.contentWindow.print();
+                    
+                    // Eliminar el iframe después de un tiempo
+                    setTimeout(function() {
+                        document.body.removeChild(iframe);
+                    }, 1000);
+                } catch (e) {
+                    console.error('Error al imprimir:', e);
+                    window.open('@Url.Action("ImprimirListado", "Reportes", new { searchTerm = ViewBag.SearchTerm })?print=true', '_blank');
+                }
+            };
+        }
+        
+        // Función para imprimir los detalles de una venta
+        function imprimirDetalles(id) {
+            // Crear un iframe oculto para cargar la vista de impresión
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+            
+            // Cargar la vista de impresión en el iframe
+            iframe.src = '@Url.Action("GenerarPDF", "Reportes")?id=' + id + '&print=true';
+            
+            // Cuando el iframe termine de cargar, imprimir su contenido
+            iframe.onload = function() {
+                try {
+                    iframe.contentWindow.print();
+                    
+                    // Eliminar el iframe después de un tiempo
+                    setTimeout(function() {
+                        document.body.removeChild(iframe);
+                    }, 1000);
+                } catch (e) {
+                    console.error('Error al imprimir:', e);
+                    window.open('@Url.Action("GenerarPDF", "Reportes")?id=' + id + '&print=true', '_blank');
+                }
+            };
+        }
+    </script>
+}

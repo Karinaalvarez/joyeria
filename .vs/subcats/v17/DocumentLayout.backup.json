@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Karina\\catalogo-1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\catalogo-1\\subcats\\customclass\\conection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\customclass\\conection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\catalogo-1\\subcats\\views\\reportes\\imprimirlistado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\views\\reportes\\imprimirlistado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\catalogo-1\\subcats\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\catalogo-1\\subcats\\views\\reportes\\imprimirdetalles.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\views\\reportes\\imprimirdetalles.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\catalogo-1\\subcats\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\catalogo-1\\subcats\\views\\reportes\\detalles.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\views\\reportes\\detalles.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,40 +39,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Conection.cs",
-              "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\customClass\\Conection.cs",
-              "RelativeDocumentMoniker": "subcats\\customClass\\Conection.cs",
-              "ToolTip": "C:\\Users\\Karina\\catalogo-1\\subcats\\customClass\\Conection.cs",
-              "RelativeToolTip": "subcats\\customClass\\Conection.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T20:58:04.289Z",
+              "Title": "ImprimirListado.cshtml",
+              "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\Views\\Reportes\\ImprimirListado.cshtml",
+              "RelativeDocumentMoniker": "subcats\\Views\\Reportes\\ImprimirListado.cshtml",
+              "ToolTip": "C:\\Users\\Karina\\catalogo-1\\subcats\\Views\\Reportes\\ImprimirListado.cshtml",
+              "RelativeToolTip": "subcats\\Views\\Reportes\\ImprimirListado.cshtml",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAowBYAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-28T02:23:20.506Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\appsettings.json",
-              "RelativeDocumentMoniker": "subcats\\appsettings.json",
-              "ToolTip": "C:\\Users\\Karina\\catalogo-1\\subcats\\appsettings.json",
-              "RelativeToolTip": "subcats\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-27T20:57:38.904Z",
+              "Title": "ImprimirDetalles.cshtml",
+              "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\Views\\Reportes\\ImprimirDetalles.cshtml",
+              "RelativeDocumentMoniker": "subcats\\Views\\Reportes\\ImprimirDetalles.cshtml",
+              "ToolTip": "C:\\Users\\Karina\\catalogo-1\\subcats\\Views\\Reportes\\ImprimirDetalles.cshtml",
+              "RelativeToolTip": "subcats\\Views\\Reportes\\ImprimirDetalles.cshtml",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAowB0AAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-28T02:20:49.253Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\Program.cs",
-              "RelativeDocumentMoniker": "subcats\\Program.cs",
-              "ToolTip": "C:\\Users\\Karina\\catalogo-1\\subcats\\Program.cs",
-              "RelativeToolTip": "subcats\\Program.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T20:57:32.344Z",
+              "Title": "Detalles.cshtml",
+              "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\Views\\Reportes\\Detalles.cshtml",
+              "RelativeDocumentMoniker": "subcats\\Views\\Reportes\\Detalles.cshtml",
+              "ToolTip": "C:\\Users\\Karina\\catalogo-1\\subcats\\Views\\Reportes\\Detalles.cshtml",
+              "RelativeToolTip": "subcats\\Views\\Reportes\\Detalles.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-28T02:01:46.899Z",
               "EditorCaption": ""
             }
           ]

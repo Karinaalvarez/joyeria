@@ -9,9 +9,14 @@
     <div class="card shadow mb-4">
         <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
             <h3><i class="bi bi-receipt"></i> Detalles de Venta #@ViewBag.OrdenId</h3>
-            <a asp-action="Index" class="btn btn-light">
-                <i class="bi bi-arrow-left"></i> Volver a Reportes
-            </a>
+            <div>
+                <button class="btn btn-light me-2" onclick="imprimirFactura(@ViewBag.OrdenId)">
+                    <i class="bi bi-printer"></i> Imprimir Factura
+                </button>
+                <a asp-action="Index" class="btn btn-light">
+                    <i class="bi bi-arrow-left"></i> Volver a Reportes
+                </a>
+            </div>
         </div>
         <div class="card-body">
             @if (orden != null && cliente != null)
@@ -91,3 +96,33 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        // Funciu00f3n para imprimir la factura
+        function imprimirFactura(id) {
+            // Crear un iframe oculto para cargar la vista de impresiu00f3n
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+            
+            // Cargar la vista de impresiu00f3n en el iframe
+            iframe.src = '@Url.Action("GenerarPDF", "Reportes")?id=' + id + '&print=true';
+            
+            // Cuando el iframe termine de cargar, imprimir su contenido
+            iframe.onload = function() {
+                try {
+                    iframe.contentWindow.print();
+                    
+                    // Eliminar el iframe despuu00e9s de un tiempo
+                    setTimeout(function() {
+                        document.body.removeChild(iframe);
+                    }, 1000);
+                } catch (e) {
+                    console.error('Error al imprimir:', e);
+                    window.open('@Url.Action("GenerarPDF", "Reportes")?id=' + id + '&print=true', '_blank');
+                }
+            };
+        }
+    </script>
+}
