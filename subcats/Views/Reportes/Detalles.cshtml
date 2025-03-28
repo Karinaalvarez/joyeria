@@ -18,15 +18,15 @@
             {
                 <div class="row mb-4">
                     <div class="col-md-6">
-                        <h5 class="mb-3">Informaciu00f3n del Cliente</h5>
+                        <h5 class="mb-3">Informacion del Cliente</h5>
                         <p><strong>Nombre:</strong> @cliente.Nombre @cliente.Apellido</p>
                         <p><strong>Email:</strong> @cliente.Email</p>
-                        <p><strong>Telu00e9fono:</strong> @cliente.Telefono</p>
-                        <p><strong>Direcciu00f3n:</strong> @cliente.Direccion</p>
+                        <p><strong>Teluefono:</strong> @cliente.Telefono</p>
+                        <p><strong>Direccion:</strong> @cliente.Direccion</p>
                     </div>
                     <div class="col-md-6">
-                        <h5 class="mb-3">Informaciu00f3n de la Orden</h5>
-                        <p><strong>Nu00famero de Orden:</strong> #@orden.Id_orden</p>
+                        <h5 class="mb-3">Informacionn de la Orden</h5>
+                        <p><strong>Numero de Orden:</strong> #@orden.Id_orden</p>
                         <p><strong>Fecha:</strong> @orden.Fecha_Orden.ToString("dd/MM/yyyy HH:mm")</p>
                         <p><strong>Estado:</strong> 
                             @if (orden.Estado == "Pendiente")
