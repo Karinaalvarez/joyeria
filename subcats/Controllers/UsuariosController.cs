@@ -22,11 +22,7 @@ namespace subcats.Controllers
             bool isAuthenticated = AuthController.IsAuthenticated(HttpContext);
             bool isAdmin = AuthController.IsAdmin(HttpContext);
             
-            // Mensajes de diagnóstico
-            string userId = HttpContext.Session.GetString("UserId") ?? "null";
-            string username = HttpContext.Session.GetString("Username") ?? "null";
-            string role = HttpContext.Session.GetString("Role") ?? "null";
-            TempData["SuccessMessage"] = $"Auth: {isAuthenticated}, Admin: {isAdmin}, ID: {userId}, User: {username}, Role: {role}";
+            // Se ha eliminado el mensaje de diagnóstico que mostraba información de autenticación
             
             if (!isAuthenticated || !isAdmin)
             {

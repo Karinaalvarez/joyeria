@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\Karina\\catalogo-1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\catalogo-1\\subcats\\controllers\\empleadoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\controllers\\empleadoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\catalogo-1\\subcats\\dto\\subcategorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\dto\\subcategorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\catalogo-1\\subcats\\views\\reportes\\imprimirlistado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\views\\reportes\\imprimirlistado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -30,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 321,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,7 +54,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "EmpleadosController.cs",
+              "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\Controllers\\EmpleadosController.cs",
+              "RelativeDocumentMoniker": "subcats\\Controllers\\EmpleadosController.cs",
+              "ToolTip": "C:\\Users\\Karina\\catalogo-1\\subcats\\Controllers\\EmpleadosController.cs",
+              "RelativeToolTip": "subcats\\Controllers\\EmpleadosController.cs",
+              "ViewState": "AgIAAKAAAAAAAAAAAAAgwLIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T05:34:07.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SubCategorias.cs",
+              "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\dto\\SubCategorias.cs",
+              "RelativeDocumentMoniker": "subcats\\dto\\SubCategorias.cs",
+              "ToolTip": "C:\\Users\\Karina\\catalogo-1\\subcats\\dto\\SubCategorias.cs",
+              "RelativeToolTip": "subcats\\dto\\SubCategorias.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAA+wB4AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T05:13:57.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\Views\\Productos\\Details.cshtml",
               "RelativeDocumentMoniker": "subcats\\Views\\Productos\\Details.cshtml",
@@ -59,7 +93,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Factura.cshtml",
               "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\Views\\Carrito\\Factura.cshtml",
               "RelativeDocumentMoniker": "subcats\\Views\\Carrito\\Factura.cshtml",
@@ -72,7 +106,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ImprimirListado.cshtml",
               "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\Views\\Reportes\\ImprimirListado.cshtml",
               "RelativeDocumentMoniker": "subcats\\Views\\Reportes\\ImprimirListado.cshtml",
@@ -85,7 +119,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "ImprimirDetalles.cshtml",
               "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\Views\\Reportes\\ImprimirDetalles.cshtml",
               "RelativeDocumentMoniker": "subcats\\Views\\Reportes\\ImprimirDetalles.cshtml",
@@ -98,7 +132,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Detalles.cshtml",
               "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\Views\\Reportes\\Detalles.cshtml",
               "RelativeDocumentMoniker": "subcats\\Views\\Reportes\\Detalles.cshtml",

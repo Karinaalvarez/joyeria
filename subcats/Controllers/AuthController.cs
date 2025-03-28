@@ -41,8 +41,7 @@ namespace subcats.Controllers
                     HttpContext.Session.SetString("Username", usuario.Username);
                     HttpContext.Session.SetString("Role", usuario.Role);
 
-                    // Mensaje temporal para diagnóstico
-                    TempData["SuccessMessage"] = $"Bienvenido {usuario.Username}. Rol: {usuario.Role}";
+                    // Se ha eliminado el mensaje temporal de diagnóstico
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -72,4 +71,4 @@ namespace subcats.Controllers
             return role == "Admin";
         }
     }
-} 
+}

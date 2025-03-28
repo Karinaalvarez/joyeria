@@ -36,7 +36,6 @@ namespace subcats.Controllers
             {
                 if (_dao.CrearCargoEmpleado(cargo))
                 {
-                    TempData["SuccessMessage"] = "Cargo creado exitosamente.";
                     return RedirectToAction(nameof(Index));
                 }
                 ModelState.AddModelError("", "Error al crear el cargo.");
@@ -69,7 +68,6 @@ namespace subcats.Controllers
             {
                 if (_dao.ActualizarCargoEmpleado(cargo))
                 {
-                    TempData["SuccessMessage"] = "Cargo actualizado exitosamente.";
                     return RedirectToAction(nameof(Index));
                 }
                 ModelState.AddModelError("", "Error al actualizar el cargo.");
@@ -95,7 +93,6 @@ namespace subcats.Controllers
         {
             if (_dao.EliminarCargoEmpleado(id))
             {
-                TempData["SuccessMessage"] = "Cargo eliminado exitosamente.";
             }
             else
             {
@@ -104,4 +101,4 @@ namespace subcats.Controllers
             return RedirectToAction(nameof(Index));
         }
     }
-} 
+}
