@@ -25,12 +25,16 @@
                     <div class="col-md-6">
                         <h5 class="mb-3">Informacion del Cliente</h5>
                         <p><strong>Nombre:</strong> @cliente.Nombre @cliente.Apellido</p>
+                        @if (!string.IsNullOrEmpty(cliente.NumeroIdentidad))
+                        {
+                            <p><strong>Número de Identidad:</strong> @cliente.NumeroIdentidad</p>
+                        }
                         <p><strong>Email:</strong> @cliente.Email</p>
-                        <p><strong>Teluefono:</strong> @cliente.Telefono</p>
-                        <p><strong>Direccion:</strong> @cliente.Direccion</p>
+                        <p><strong>Teléfono:</strong> @cliente.Telefono</p>
+                        <p><strong>Dirección:</strong> @cliente.Direccion</p>
                     </div>
                     <div class="col-md-6">
-                        <h5 class="mb-3">Informacionn de la Orden</h5>
+                        <h5 class="mb-3">Informacion de la Orden</h5>
                         <p><strong>Numero de Orden:</strong> #@orden.Id_orden</p>
                         <p><strong>Fecha:</strong> @orden.Fecha_Orden.ToString("dd/MM/yyyy HH:mm")</p>
                         <p><strong>Estado:</strong> 
@@ -99,14 +103,14 @@
 
 @section Scripts {
     <script>
-        // Funciu00f3n para imprimir la factura
+        // Función para imprimir la factura
         function imprimirFactura(id) {
-            // Crear un iframe oculto para cargar la vista de impresiu00f3n
+            // Crear un iframe oculto para cargar la vista de impresión
             const iframe = document.createElement('iframe');
             iframe.style.display = 'none';
             document.body.appendChild(iframe);
             
-            // Cargar la vista de impresiu00f3n en el iframe
+            // Cargar la vista de impresión en el iframe
             iframe.src = '@Url.Action("GenerarPDF", "Reportes")?id=' + id + '&print=true';
             
             // Cuando el iframe termine de cargar, imprimir su contenido
@@ -114,7 +118,7 @@
                 try {
                     iframe.contentWindow.print();
                     
-                    // Eliminar el iframe despuu00e9s de un tiempo
+                    // Eliminar el iframe después de un tiempo
                     setTimeout(function() {
                         document.body.removeChild(iframe);
                     }, 1000);

@@ -74,6 +74,10 @@
                 <div class="col-md-6">
                     <h5 class="mb-3">Información del Cliente</h5>
                     <p><strong>Nombre:</strong> @cliente.Nombre @cliente.Apellido</p>
+                    @if (!string.IsNullOrEmpty(cliente.NumeroIdentidad))
+                    {
+                        <p><strong>Número de Identidad:</strong> @cliente.NumeroIdentidad</p>
+                    }
                     <p><strong>Email:</strong> @cliente.Email</p>
                     <p><strong>Teléfono:</strong> @cliente.Telefono</p>
                     <p><strong>Dirección:</strong> @cliente.Direccion</p>
