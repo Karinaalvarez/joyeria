@@ -289,7 +289,7 @@ namespace subcats.customClass
                 
                 // Obtener la orden
                 string sqlOrden = @"
-                SELECT o.*, c.Nombre, c.Apellido, c.Email, c.Telefono, c.Direccion
+                SELECT o.*, c.Nombre, c.Apellido, c.Email, c.Telefono, c.Direccion, c.NumeroIdentidad
                 FROM Ordenes o
                 INNER JOIN Clientes c ON o.Id_cliente = c.Id_cliente
                 WHERE o.Id_orden = @Id_orden";
@@ -315,7 +315,8 @@ namespace subcats.customClass
                                 Apellido = reader["Apellido"].ToString(),
                                 Email = reader["Email"].ToString(),
                                 Telefono = reader["Telefono"].ToString(),
-                                Direccion = reader["Direccion"].ToString()
+                                Direccion = reader["Direccion"].ToString(),
+                                NumeroIdentidad = reader["NumeroIdentidad"] != DBNull.Value ? reader["NumeroIdentidad"].ToString() : null
                             }
                         };
                     }
