@@ -50,6 +50,55 @@ namespace subcats.Controllers
             return View(loginDto);
         }
 
+        // GET: Auth/Register
+        public IActionResult Register()
+        {
+            // Si ya está autenticado, redirigir al Home
+            if (HttpContext.Session.GetString("UserId") != null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return View();
+        }
+
+        // POST: Auth/Register
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Register(RegisterDTO registerDto)
+        {
+            if (ModelState.IsValid)
+            {
+                // Verificar si el usuario ya existe
+                var usuarioExistente = _usuarioService.ObtenerUsuarioPorUsername(registerDto.Username);
+                if (usuarioExistente != null)
+                {
+                    ModelState.AddModelError("Username", "Este nombre de usuario ya está en uso");
+                    return View(registerDto);
+                }
+
+                // Crear nuevo usuario con rol "User"
+                var nuevoUsuario = new Usuario
+                {
+                    Username = registerDto.Username,
+                    Password = registerDto.Password,
+                    Role = "User" // Por defecto, todos los usuarios registrados tendrán rol "User"
+                };
+
+                bool resultado = _usuarioService.CrearUsuario(nuevoUsuario);
+                if (resultado)
+                {
+                    // Redirigir al login con mensaje de éxito
+                    TempData["SuccessMessage"] = "Registro exitoso. Ahora puedes iniciar sesión.";
+                    return RedirectToAction(nameof(Login));
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Error al registrar el usuario");
+                }
+            }
+            return View(registerDto);
+        }
+
         // GET: Auth/Logout
         public IActionResult Logout()
         {

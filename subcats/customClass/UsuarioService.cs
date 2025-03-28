@@ -50,6 +50,41 @@ namespace subcats.customClass
             return usuario;
         }
 
+        public Usuario ObtenerUsuarioPorUsername(string username)
+        {
+            Usuario usuario = null;
+            try
+            {
+                _conn.connection.Open();
+                string query = "SELECT Id, Username, Password, Role FROM Usuarios WHERE Username = @Username";
+                _conn.sqlCommand = new SqlCommand(query, _conn.connection);
+                _conn.sqlCommand.Parameters.AddWithValue("@Username", username);
+
+                _conn.sqlDataReader = _conn.sqlCommand.ExecuteReader();
+
+                if (_conn.sqlDataReader.Read())
+                {
+                    usuario = new Usuario
+                    {
+                        Id = Convert.ToInt32(_conn.sqlDataReader["Id"]),
+                        Username = _conn.sqlDataReader["Username"].ToString(),
+                        Password = _conn.sqlDataReader["Password"].ToString(),
+                        Role = _conn.sqlDataReader["Role"].ToString()
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener usuario por username: {ex.Message}");
+            }
+            finally
+            {
+                _conn.sqlDataReader?.Close();
+                _conn.connection.Close();
+            }
+            return usuario;
+        }
+
         public List<Usuario> ObtenerTodosUsuarios()
         {
             List<Usuario> usuarios = new List<Usuario>();
