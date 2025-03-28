@@ -82,13 +82,23 @@ namespace subcats.Controllers
             {
                 return NotFound();
             }
-            return View(usuario);
+            
+            // Convertir el usuario a EditarUsuarioViewModel
+            var viewModel = new EditarUsuarioViewModel
+            {
+                Id = usuario.Id,
+                Username = usuario.Username,
+                Password = "", // No mostramos la contraseña actual por seguridad
+                Role = usuario.Role
+            };
+            
+            return View(viewModel);
         }
 
         // POST: Usuarios/Editar/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Editar(int id, Usuario usuario)
+        public IActionResult Editar(int id, EditarUsuarioViewModel viewModel)
         {
             // Verificar si el usuario está autenticado y es administrador
             if (!AuthController.IsAuthenticated(HttpContext) || !AuthController.IsAdmin(HttpContext))
@@ -96,20 +106,50 @@ namespace subcats.Controllers
                 return RedirectToAction("Login", "Auth");
             }
             
-            if (id != usuario.Id)
+            if (id != viewModel.Id)
             {
                 return NotFound();
             }
 
+            // Eliminar cualquier error de validación para el campo Password
+            ModelState.Remove("Password");
+
+            // Validar manualmente el modelo sin considerar la contraseña
+            if (string.IsNullOrEmpty(viewModel.Username))
+            {
+                ModelState.AddModelError("Username", "El nombre de usuario es obligatorio");
+            }
+            if (string.IsNullOrEmpty(viewModel.Role))
+            {
+                ModelState.AddModelError("Role", "El rol es obligatorio");
+            }
+
             if (ModelState.IsValid)
             {
-                if (_usuarioService.ActualizarUsuario(usuario))
+                // Obtener el usuario actual para preservar la contraseña si no se proporciona una nueva
+                var usuarioActual = _usuarioService.ObtenerTodosUsuarios().Find(u => u.Id == id);
+                if (usuarioActual == null)
+                {
+                    return NotFound();
+                }
+
+                // Crear un objeto Usuario con los datos actualizados
+                var usuarioActualizado = new Usuario
+                {
+                    Id = viewModel.Id,
+                    Username = viewModel.Username,
+                    Role = viewModel.Role,
+                    // Si no se proporciona una nueva contraseña, mantener la actual
+                    Password = string.IsNullOrEmpty(viewModel.Password) ? usuarioActual.Password : viewModel.Password
+                };
+
+                if (_usuarioService.ActualizarUsuario(usuarioActualizado))
                 {
                     return RedirectToAction(nameof(Index));
                 }
                 ModelState.AddModelError("", "Error al actualizar el usuario");
             }
-            return View(usuario);
+            return View(viewModel);
         }
 
         // POST: Usuarios/Eliminar/5
@@ -131,4 +171,4 @@ namespace subcats.Controllers
             return RedirectToAction(nameof(Index));
         }
     }
-} 
+}
