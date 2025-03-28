@@ -319,34 +319,26 @@ namespace subcats.Controllers
 
             try
             {
-                // Excluir Imagen de la validación del modelo
+                // Excluir Imagen e ImagenFile de la validación del modelo
                 ModelState.Remove("Imagen");
+                ModelState.Remove("ImagenFile");
+                
+                // Ignorar todos los errores de validación relacionados con ImagenFile
+                foreach (var key in ModelState.Keys.ToList())
+                {
+                    if (key.Contains("ImagenFile"))
+                    {
+                        ModelState.Remove(key);
+                    }
+                }
 
                 // Cargar las categorías para el select (en caso de error)
                 CargarCategorias();
+                CargarProveedores();
 
                 if (id != producto.Id_producto)
                 {
                     return NotFound();
-                }
-
-                // Imprimir todos los valores recibidos para depuración
-                Console.WriteLine($"Valores recibidos: ID={producto.Id_producto}, Nombre={producto.Nombre}, Precio={producto.Precio}, Impuesto={producto.Impuesto}, Stock={producto.Stock}");
-                
-                // Inicializar valores por defecto para evitar errores de validación
-                if (producto.Precio <= 0)
-                {
-                    producto.Precio = 0.01m;
-                }
-                
-                if (producto.Impuesto < 0)
-                {
-                    producto.Impuesto = 0;
-                }
-                
-                if (producto.Stock < 0)
-                {
-                    producto.Stock = 0;
                 }
 
                 // Recuperamos el producto actual para mantener la imagen si no se carga una nueva
@@ -358,103 +350,52 @@ namespace subcats.Controllers
                 }
 
                 // Manejar la carga de imagen, si hay una nueva
-                if (producto.ImagenFile != null)
+                if (producto.ImagenFile != null && producto.ImagenFile.Length > 0)
                 {
-                    Console.WriteLine($"Editando producto con ID: {id}. Procesando archivo: {producto.ImagenFile.FileName}, tamaño: {producto.ImagenFile.Length} bytes");
-                    
-                    if (producto.ImagenFile.Length > 10 * 1024 * 1024) // 10MB máximo
-                    {
-                        ModelState.AddModelError("ImagenFile", "La imagen es demasiado grande. El tamaño máximo es 10MB.");
-                        TempData["ErrorMessage"] = "La imagen es demasiado grande. El tamaño máximo es 10MB.";
-                        return View(producto);
-                    }
-
-                    string extension = Path.GetExtension(producto.ImagenFile.FileName).ToLower();
-                    if (extension != ".jpg" && extension != ".jpeg" && extension != ".png" && extension != ".gif")
-                    {
-                        ModelState.AddModelError("ImagenFile", "Solo se permiten archivos de imagen con formato JPG, JPEG, PNG o GIF.");
-                        TempData["ErrorMessage"] = "Solo se permiten archivos de imagen con formato JPG, JPEG, PNG o GIF.";
-                        return View(producto);
-                    }
-
-                    // Convertir la imagen a bytes[]
                     try
                     {
                         using (var memoryStream = new MemoryStream())
                         {
                             await producto.ImagenFile.CopyToAsync(memoryStream);
                             producto.Imagen = memoryStream.ToArray();
-                            Console.WriteLine($"Nueva imagen convertida a bytes: {producto.Imagen.Length} bytes");
-                            
-                            // Verificar que la imagen se convirtió correctamente
-                            if (producto.Imagen == null || producto.Imagen.Length == 0)
-                            {
-                                ModelState.AddModelError("ImagenFile", "No se pudo leer la imagen. Intente con otra imagen.");
-                                TempData["ErrorMessage"] = "No se pudo leer la imagen. Intente con otra imagen.";
-                                return View(producto);
-                            }
                         }
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine($"Error al convertir la imagen: {ex.Message}");
-                        ModelState.AddModelError("ImagenFile", "Error al procesar la imagen: " + ex.Message);
-                        TempData["ErrorMessage"] = "Error al procesar la imagen.";
-                        return View(producto);
+                        Console.WriteLine($"Error al procesar la imagen: {ex.Message}");
+                        // No interrumpimos el flujo, simplemente mantenemos la imagen anterior
+                        producto.Imagen = productoActual.Imagen;
                     }
                 }
-                else if (productoActual != null && productoActual.Imagen != null)
+                else
                 {
                     // Si no se seleccionó nueva imagen, mantener la anterior
                     producto.Imagen = productoActual.Imagen;
-                    Console.WriteLine($"Manteniendo imagen existente de {producto.Imagen.Length} bytes");
-                }
-
-                // Mostrar todos los errores del ModelState para depuración
-                ImprimirErroresModelState();
-
-                if (!ModelState.IsValid)
-                {
-                    Console.WriteLine("Modelo inválido para edición. Errores encontrados.");
-                    // Agregar mensaje de error general
-                    TempData["ErrorMessage"] = "Hay errores en el formulario. Por favor revise los campos marcados.";
-                    return View(producto);
                 }
 
                 try
                 {
-                    Console.WriteLine("Modelo válido. Intentando actualizar el producto...");
                     bool actualizado = _db.ActualizarProducto(producto);
                     if (actualizado)
                     {
-                        Console.WriteLine($"Producto actualizado correctamente. ID: {producto.Id_producto}");
                         TempData["SuccessMessage"] = "Producto actualizado exitosamente.";
                         return RedirectToAction(nameof(Index));
                     }
                     else
                     {
-                        Console.WriteLine($"No se pudo actualizar el producto en la base de datos. ID: {producto.Id_producto}");
                         TempData["ErrorMessage"] = "No se pudo actualizar el producto. Verifique los datos e intente nuevamente.";
                         return View(producto);
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error al actualizar el producto en la base de datos: {ex.Message}");
                     TempData["ErrorMessage"] = $"Error al guardar: {ex.Message}";
-                return View(producto);
+                    return View(producto);
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error general al editar el producto: {ex.Message}");
-                if (ex.InnerException != null)
-                {
-                    Console.WriteLine($"Inner exception: {ex.InnerException.Message}");
-                }
-                Console.WriteLine($"Stack trace: {ex.StackTrace}");
-                
-                TempData["ErrorMessage"] = $"Error al actualizar el producto: {ex.Message}";
+                TempData["ErrorMessage"] = $"Error general: {ex.Message}";
                 return View(producto);
             }
         }

@@ -63,7 +63,7 @@
                         </div>
                         <div class="mb-3">
                             <label asp-for="ImagenFile" class="form-label">Imagen del Producto</label>
-                            <input asp-for="ImagenFile" class="form-control" type="file" accept="image/*" id="imagenInput" />
+                            <input asp-for="ImagenFile" class="form-control" type="file" accept="image/*" id="imagenInput" data-val="false" />
                             <div class="form-text">Seleccione una nueva imagen para actualizar la actual (opcional)</div>
                             <span asp-validation-for="ImagenFile" class="text-danger"></span>
                             
