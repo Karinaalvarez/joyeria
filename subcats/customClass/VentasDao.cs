@@ -32,9 +32,15 @@ namespace subcats.customClass
                         Email NVARCHAR(100) NOT NULL,
                         Telefono NVARCHAR(20) NOT NULL,
                         Direccion NVARCHAR(200) NOT NULL,
+                        NumeroIdentidad NVARCHAR(20) NULL,
                         Fecha_Creacion DATETIME DEFAULT GETDATE(),
                         Fecha_Actualizacion DATETIME DEFAULT GETDATE()
                     );
+                END
+                ELSE IF NOT EXISTS (SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('Clientes') AND name = 'NumeroIdentidad')
+                BEGIN
+                    -- Agregar la columna NumeroIdentidad si no existe
+                    ALTER TABLE Clientes ADD NumeroIdentidad NVARCHAR(20) NULL;
                 END
 
                 -- Tabla para almacenar las órdenes
@@ -160,8 +166,8 @@ namespace subcats.customClass
             {
                 cnx.connection.Open();
                 string sql = @"
-                INSERT INTO Clientes (Nombre, Apellido, Email, Telefono, Direccion)
-                VALUES (@Nombre, @Apellido, @Email, @Telefono, @Direccion);
+                INSERT INTO Clientes (Nombre, Apellido, Email, Telefono, Direccion, NumeroIdentidad)
+                VALUES (@Nombre, @Apellido, @Email, @Telefono, @Direccion, @NumeroIdentidad);
                 SELECT SCOPE_IDENTITY();";
 
                 SqlCommand cmd = new SqlCommand(sql, cnx.connection);
@@ -170,6 +176,8 @@ namespace subcats.customClass
                 cmd.Parameters.AddWithValue("@Email", cliente.Email);
                 cmd.Parameters.AddWithValue("@Telefono", cliente.Telefono);
                 cmd.Parameters.AddWithValue("@Direccion", cliente.Direccion);
+                cmd.Parameters.AddWithValue("@NumeroIdentidad", 
+                    string.IsNullOrEmpty(cliente.NumeroIdentidad) ? (object)DBNull.Value : cliente.NumeroIdentidad);
 
                 // Ejecutar y obtener el ID generado
                 var result = cmd.ExecuteScalar();
@@ -512,7 +520,8 @@ namespace subcats.customClass
                         Apellido = reader["Apellido"].ToString(),
                         Email = reader["Email"].ToString(),
                         Telefono = reader["Telefono"].ToString(),
-                        Direccion = reader["Direccion"].ToString()
+                        Direccion = reader["Direccion"].ToString(),
+                        NumeroIdentidad = reader["NumeroIdentidad"] != DBNull.Value ? reader["NumeroIdentidad"].ToString() : null
                     };
                 }
                 reader.Close();

@@ -7,6 +7,11 @@ namespace subcats.dto
     {
         public int Id_cliente { get; set; }
 
+        [Required(ErrorMessage = "El número de identidad es obligatorio")]
+        [StringLength(15, ErrorMessage = "El número de identidad no puede exceder los 15 caracteres")]
+        [Display(Name = "Número de Identidad")]
+        public string NumeroIdentidad { get; set; }
+
         [Required(ErrorMessage = "El nombre es obligatorio")]
         [StringLength(100, ErrorMessage = "El nombre no puede exceder los 100 caracteres")]
         public string Nombre { get; set; }

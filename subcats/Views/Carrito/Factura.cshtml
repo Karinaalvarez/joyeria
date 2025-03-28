@@ -18,6 +18,10 @@
                 <div class="col-md-6">
                     <h5 class="mb-3">Datos del Cliente</h5>
                     <p><strong>Nombre:</strong> @Model.Cliente.Nombre @Model.Cliente.Apellido</p>
+                    @if (!string.IsNullOrEmpty(Model.Cliente.NumeroIdentidad))
+                    {
+                        <p><strong>Número de Identidad:</strong> @Model.Cliente.NumeroIdentidad</p>
+                    }
                     <p><strong>Email:</strong> @Model.Cliente.Email</p>
                     <p><strong>Teléfono:</strong> @Model.Cliente.Telefono</p>
                     <p><strong>Dirección:</strong> @Model.Cliente.Direccion</p>
