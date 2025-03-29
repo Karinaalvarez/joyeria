@@ -38,7 +38,8 @@ namespace subcats.customClass
                         fecha_actualizacion DATETIME DEFAULT GETDATE(),
                         CategoriaId INT NULL,
                         Imagen VARBINARY(MAX) NULL,
-                        ImagenBinaria VARBINARY(MAX) NULL
+                        ImagenBinaria VARBINARY(MAX) NULL,
+                        Activo BIT NOT NULL DEFAULT 1
                     );
                 END
                 
@@ -295,41 +296,65 @@ namespace subcats.customClass
             try
             {
                 cnx.connection.Open();
-                string query = @"SELECT id_producto, nombre, descripcion, precio, impuesto, descuento, stock, 
+                
+                // Primero verificamos si existe la columna Activo
+                bool columnaActivoExiste = false;
+                string checkColumnQuery = @"
+                    SELECT COUNT(*) 
+                    FROM sys.columns 
+                    WHERE object_id = OBJECT_ID('productos') AND name = 'Activo'";
+                
+                using (SqlCommand checkCmd = new SqlCommand(checkColumnQuery, cnx.connection))
+                {
+                    int count = (int)checkCmd.ExecuteScalar();
+                    columnaActivoExiste = count > 0;
+                }
+                
+                // Construir la consulta según si existe la columna Activo
+                string query;
+                if (columnaActivoExiste)
+                {
+                    query = @"SELECT id_producto, nombre, descripcion, precio, impuesto, descuento, stock, 
                               fecha_creacion, fecha_actualizacion, CategoriaId, ProveedorId, ImagenBinaria as Imagen
                          FROM productos WHERE id_producto = @productoId";
-                using (SqlCommand cmd = new SqlCommand(query, cnx.connection))
+                }
+                else
                 {
-                    cmd.Parameters.AddWithValue("@productoId", int.Parse(productoId));
-                    SqlDataReader reader = cmd.ExecuteReader();
+                    query = @"SELECT id_producto, nombre, descripcion, precio, impuesto, descuento, stock, 
+                              fecha_creacion, fecha_actualizacion, CategoriaId, ProveedorId, ImagenBinaria as Imagen
+                         FROM productos WHERE id_producto = @productoId";
+                }
+                
+                SqlCommand cmd = new SqlCommand(query, cnx.connection);
+                cmd.Parameters.AddWithValue("@productoId", int.Parse(productoId));
+                SqlDataReader reader = cmd.ExecuteReader();
 
-                    if (reader.Read())
+                if (reader.Read())
+                {
+                    producto.Id_producto = reader.GetInt32(reader.GetOrdinal("id_producto"));
+                    producto.Nombre = reader.GetString(reader.GetOrdinal("nombre"));
+                    producto.Descripcion = reader.IsDBNull(reader.GetOrdinal("descripcion")) ? null : reader.GetString(reader.GetOrdinal("descripcion"));
+                    producto.Precio = reader.GetDecimal(reader.GetOrdinal("precio"));
+                    producto.Impuesto = reader.GetDecimal(reader.GetOrdinal("impuesto"));
+                    producto.Descuento = reader.IsDBNull(reader.GetOrdinal("descuento")) ? null : (decimal?)reader.GetDecimal(reader.GetOrdinal("descuento"));
+                    producto.Stock = reader.GetInt32(reader.GetOrdinal("stock"));
+                    producto.Fecha_creacion = reader.IsDBNull(reader.GetOrdinal("fecha_creacion")) ? null : (DateTime?)reader.GetDateTime(reader.GetOrdinal("fecha_creacion"));
+                    producto.Fecha_actualizacion = reader.IsDBNull(reader.GetOrdinal("fecha_actualizacion")) ? null : (DateTime?)reader.GetDateTime(reader.GetOrdinal("fecha_actualizacion"));
+                    producto.CategoriaId = reader.IsDBNull(reader.GetOrdinal("CategoriaId")) ? null : (int?)reader.GetInt32(reader.GetOrdinal("CategoriaId"));
+                    producto.ProveedorId = reader.IsDBNull(reader.GetOrdinal("ProveedorId")) ? null : (int?)reader.GetInt32(reader.GetOrdinal("ProveedorId"));
+                    
+                    // Recuperar datos de imagen si existen
+                    if (!reader.IsDBNull(reader.GetOrdinal("Imagen")))
                     {
-                        producto.Id_producto = reader.GetInt32(reader.GetOrdinal("id_producto"));
-                        producto.Nombre = reader.GetString(reader.GetOrdinal("nombre"));
-                        producto.Descripcion = reader.IsDBNull(reader.GetOrdinal("descripcion")) ? null : reader.GetString(reader.GetOrdinal("descripcion"));
-                        producto.Precio = reader.GetDecimal(reader.GetOrdinal("precio"));
-                        producto.Impuesto = reader.GetDecimal(reader.GetOrdinal("impuesto"));
-                        producto.Descuento = reader.IsDBNull(reader.GetOrdinal("descuento")) ? null : (decimal?)reader.GetDecimal(reader.GetOrdinal("descuento"));
-                        producto.Stock = reader.GetInt32(reader.GetOrdinal("stock"));
-                        producto.Fecha_creacion = reader.IsDBNull(reader.GetOrdinal("fecha_creacion")) ? null : (DateTime?)reader.GetDateTime(reader.GetOrdinal("fecha_creacion"));
-                        producto.Fecha_actualizacion = reader.IsDBNull(reader.GetOrdinal("fecha_actualizacion")) ? null : (DateTime?)reader.GetDateTime(reader.GetOrdinal("fecha_actualizacion"));
-                        producto.CategoriaId = reader.IsDBNull(reader.GetOrdinal("CategoriaId")) ? null : (int?)reader.GetInt32(reader.GetOrdinal("CategoriaId"));
-                        producto.ProveedorId = reader.IsDBNull(reader.GetOrdinal("ProveedorId")) ? null : (int?)reader.GetInt32(reader.GetOrdinal("ProveedorId"));
-                        
-                        // Recuperar datos de imagen si existen
-                        if (!reader.IsDBNull(reader.GetOrdinal("Imagen")))
-                        {
-                            // Obtener el tamaño del campo binario
-                            long byteLength = reader.GetBytes(reader.GetOrdinal("Imagen"), 0, null, 0, 0);
-                            producto.Imagen = new byte[byteLength];
-                            reader.GetBytes(reader.GetOrdinal("Imagen"), 0, producto.Imagen, 0, (int)byteLength);
-                            Console.WriteLine($"Imagen recuperada para producto: {producto.Id_producto}, tamaño: {byteLength} bytes");
-                        }
-                        else
-                        {
-                            Console.WriteLine($"El producto {producto.Id_producto} no tiene imagen");
-                        }
+                        // Obtener el tamaño del campo binario
+                        long byteLength = reader.GetBytes(reader.GetOrdinal("Imagen"), 0, null, 0, 0);
+                        producto.Imagen = new byte[byteLength];
+                        reader.GetBytes(reader.GetOrdinal("Imagen"), 0, producto.Imagen, 0, (int)byteLength);
+                        Console.WriteLine($"Imagen recuperada para producto: {producto.Id_producto}, tamaño: {byteLength} bytes");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"El producto {producto.Id_producto} no tiene imagen");
                     }
                 }
             }
@@ -354,9 +379,39 @@ namespace subcats.customClass
             try
             {
                 cnx.connection.Open();
+                
+                // Primero verificamos si existe la columna Activo
+                bool columnaActivoExiste = false;
+                string checkColumnQuery = @"
+                    SELECT COUNT(*) 
+                    FROM sys.columns 
+                    WHERE object_id = OBJECT_ID('productos') AND name = 'Activo'";
+                
+                using (SqlCommand checkCmd = new SqlCommand(checkColumnQuery, cnx.connection))
+                {
+                    int count = (int)checkCmd.ExecuteScalar();
+                    columnaActivoExiste = count > 0;
+                }
+                
+                // Si la columna no existe, la creamos
+                if (!columnaActivoExiste)
+                {
+                    string createColumnQuery = @"
+                        ALTER TABLE productos ADD Activo BIT NOT NULL DEFAULT 1;";
+                    
+                    using (SqlCommand createColumnCmd = new SqlCommand(createColumnQuery, cnx.connection))
+                    {
+                        createColumnCmd.ExecuteNonQuery();
+                    }
+                    columnaActivoExiste = true;
+                }
+                
+                // Ahora construimos la consulta filtrando por productos activos
                 string query = @"SELECT id_producto, nombre, descripcion, precio, impuesto, descuento, stock, 
-                              fecha_creacion, fecha_actualizacion, CategoriaId, ProveedorId, ImagenBinaria as Imagen
-                         FROM productos";
+                              fecha_creacion, fecha_actualizacion, CategoriaId, ProveedorId, ImagenBinaria as Imagen, Activo
+                         FROM productos
+                         WHERE Activo = 1";
+                
                 using (SqlCommand cmd = new SqlCommand(query, cnx.connection))
                 {
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -384,7 +439,7 @@ namespace subcats.customClass
                             producto.Imagen = new byte[byteLength];
                             reader.GetBytes(reader.GetOrdinal("Imagen"), 0, producto.Imagen, 0, (int)byteLength);
                         }
-
+                        
                         productos.Add(producto);
                     }
                 }
@@ -409,15 +464,71 @@ namespace subcats.customClass
             try
             {
                 cnx.connection.Open();
-                string query = @"DELETE FROM productos WHERE id_producto = @productoId";
-                using (SqlCommand cmd = new SqlCommand(query, cnx.connection))
+                
+                // Verificar si el producto está en uso en alguna orden
+                string checkQuery = @"SELECT COUNT(*) FROM DetallesOrden WHERE Id_producto = @productoId";
+                bool productoEnUso = false;
+                
+                using (SqlCommand checkCmd = new SqlCommand(checkQuery, cnx.connection))
                 {
-                    cmd.Parameters.AddWithValue("@productoId", int.Parse(productoId));
-                    cmd.ExecuteNonQuery();
+                    checkCmd.Parameters.AddWithValue("@productoId", int.Parse(productoId));
+                    int count = (int)checkCmd.ExecuteScalar();
+                    productoEnUso = count > 0;
+                }
+                
+                // Verificamos si existe la columna Activo
+                bool columnaActivoExiste = false;
+                string checkColumnQuery = @"
+                    SELECT COUNT(*) 
+                    FROM sys.columns 
+                    WHERE object_id = OBJECT_ID('productos') AND name = 'Activo'";
+                
+                using (SqlCommand checkColumnCmd = new SqlCommand(checkColumnQuery, cnx.connection))
+                {
+                    int count = (int)checkColumnCmd.ExecuteScalar();
+                    columnaActivoExiste = count > 0;
+                }
+                
+                // Si la columna no existe, la creamos
+                if (!columnaActivoExiste)
+                {
+                    string createColumnQuery = @"
+                        ALTER TABLE productos ADD Activo BIT NOT NULL DEFAULT 1;";
+                    
+                    using (SqlCommand createColumnCmd = new SqlCommand(createColumnQuery, cnx.connection))
+                    {
+                        createColumnCmd.ExecuteNonQuery();
+                    }
+                }
+                
+                if (productoEnUso)
+                {
+                    // Si el producto está en uso, realizar una eliminación lógica
+                    string updateQuery = @"UPDATE productos SET Activo = 0, fecha_actualizacion = GETDATE() WHERE id_producto = @productoId";
+                    using (SqlCommand updateCmd = new SqlCommand(updateQuery, cnx.connection))
+                    {
+                        updateCmd.Parameters.AddWithValue("@productoId", int.Parse(productoId));
+                        updateCmd.ExecuteNonQuery();
+                    }
+                }
+                else
+                {
+                    // Si el producto no está en uso, podemos eliminarlo físicamente
+                    string deleteQuery = @"DELETE FROM productos WHERE id_producto = @productoId";
+                    using (SqlCommand deleteCmd = new SqlCommand(deleteQuery, cnx.connection))
+                    {
+                        deleteCmd.Parameters.AddWithValue("@productoId", int.Parse(productoId));
+                        deleteCmd.ExecuteNonQuery();
+                    }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine($"Error al eliminar producto: {ex.Message}");
+                if (ex.InnerException != null)
+                {
+                    Console.WriteLine($"Inner exception: {ex.InnerException.Message}");
+                }
                 throw;
             }
             finally
@@ -1106,12 +1217,39 @@ namespace subcats.customClass
             try
             {
                 cnx.connection.Open();
+                
+                // Verificamos si existe la columna Activo
+                bool columnaActivoExiste = false;
+                string checkColumnQuery = @"
+                    SELECT COUNT(*) 
+                    FROM sys.columns 
+                    WHERE object_id = OBJECT_ID('productos') AND name = 'Activo'";
+                
+                using (SqlCommand checkCmd = new SqlCommand(checkColumnQuery, cnx.connection))
+                {
+                    int count = (int)checkCmd.ExecuteScalar();
+                    columnaActivoExiste = count > 0;
+                }
+                
+                // Si la columna no existe, la creamos
+                if (!columnaActivoExiste)
+                {
+                    string createColumnQuery = @"
+                        ALTER TABLE productos ADD Activo BIT NOT NULL DEFAULT 1;";
+                    
+                    using (SqlCommand createColumnCmd = new SqlCommand(createColumnQuery, cnx.connection))
+                    {
+                        createColumnCmd.ExecuteNonQuery();
+                    }
+                    columnaActivoExiste = true;
+                }
+                
                 string sql = @"
                     SELECT p.id_producto, p.nombre, p.descripcion, p.precio, p.impuesto, p.descuento, p.stock, 
                            p.fecha_creacion, p.fecha_actualizacion, p.CategoriaId, p.ImagenBinaria as Imagen,
                            p.ProveedorId
                     FROM productos p
-                    WHERE p.CategoriaId = @CategoriaId
+                    WHERE p.CategoriaId = @CategoriaId AND p.Activo = 1
                     ORDER BY p.nombre";
 
                 SqlCommand cmd = new SqlCommand(sql, cnx.connection);
