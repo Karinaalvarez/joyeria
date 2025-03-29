@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "M8cSUY8XvzVlYPM0O1vIYCwJy2yLnUZ9jv15GwAlxK4=",
+  "Hash": "tBPX6QXS9H1Lil4TdgklSsTFL201Xs2ZfQUFFZVce5o=",
   "Source": "subcats",
   "BasePath": "_content/subcats",
   "Mode": "Default",
@@ -120,6 +120,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\Karina\\catalogo-1\\subcats\\wwwroot\\lib\\bootstrap\\dist\\css\\Boots.css",
+      "SourceId": "subcats",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Karina\\catalogo-1\\subcats\\wwwroot\\",
+      "BasePath": "_content/subcats",
+      "RelativePath": "lib/bootstrap/dist/css/Boots#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dyjx89twm7",
+      "Integrity": "u4DszuiY1WLPnENub5+KbAlwyJCcCHdKlyaXaKLaRqk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\Boots.css"
     },
     {
       "Identity": "C:\\Users\\Karina\\catalogo-1\\subcats\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
@@ -1563,6 +1584,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-0UKc5ImS2ZYHJqeLl43INsVsoYo4WzVOruGdJjvaxxw="
+        }
+      ]
+    },
+    {
+      "Route": "lib/bootstrap/dist/css/Boots.css",
+      "AssetFile": "C:\\Users\\Karina\\catalogo-1\\subcats\\wwwroot\\lib\\bootstrap\\dist\\css\\Boots.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "14"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"u4DszuiY1WLPnENub5+KbAlwyJCcCHdKlyaXaKLaRqk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 29 Mar 2025 21:48:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-u4DszuiY1WLPnENub5+KbAlwyJCcCHdKlyaXaKLaRqk="
+        }
+      ]
+    },
+    {
+      "Route": "lib/bootstrap/dist/css/Boots.dyjx89twm7.css",
+      "AssetFile": "C:\\Users\\Karina\\catalogo-1\\subcats\\wwwroot\\lib\\bootstrap\\dist\\css\\Boots.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "14"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"u4DszuiY1WLPnENub5+KbAlwyJCcCHdKlyaXaKLaRqk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 29 Mar 2025 21:48:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dyjx89twm7"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/bootstrap/dist/css/Boots.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-u4DszuiY1WLPnENub5+KbAlwyJCcCHdKlyaXaKLaRqk="
         }
       ]
     },

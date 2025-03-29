@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
+      "Id": "C:\\Users\\Karina\\catalogo-1\\subcats\\wwwroot\\lib\\bootstrap\\dist\\css\\Boots.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\Boots.css"
+    },
+    {
       "Id": "C:\\Users\\Karina\\catalogo-1\\subcats\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
