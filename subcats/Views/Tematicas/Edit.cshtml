@@ -1,4 +1,4 @@
-@model subcats.Models.Tematica
+@model subcats.Models.EditarTematicaViewModel
 @{
     ViewData["Title"] = "Editar Temática";
 }
@@ -6,14 +6,6 @@
 <div class="container mt-4">
     <h1 class="display-4">Editar Temática</h1>
     <hr />
-
-    @if (TempData["ErrorMessage"] != null)
-    {
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            @TempData["ErrorMessage"]
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    }
 
     <div class="row">
         <div class="col-md-8">
@@ -54,9 +46,9 @@
                 
                 <div class="mb-3">
                     <label asp-for="ImagenFile" class="form-label">Imagen de la temática</label>
-                    <input asp-for="ImagenFile" class="form-control" type="file" accept="image/*" onchange="previewImage(this)" />
+                    <input asp-for="ImagenFile" class="form-control" type="file" accept="image/*" onchange="previewImage(this)" data-val="false" />
                     <span asp-validation-for="ImagenFile" class="text-danger"></span>
-                    <small class="form-text text-muted">Formatos permitidos: JPG, JPEG, PNG, GIF. Tamaño máximo: 10MB. Deje en blanco para mantener la imagen actual.</small>
+                    <small class="form-text text-muted">Formatos permitidos: JPG, JPEG, PNG, GIF. Tamaño máximo: 10MB. <strong>Deje en blanco para mantener la imagen actual.</strong></small>
                 </div>
                 
                 <div class="mb-3">
@@ -90,6 +82,13 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     
     <script>
+        // Desactivar la validación para el campo de imagen
+        $(document).ready(function() {
+            $("#ImagenFile").attr("data-val", "false");
+            $("form").removeData("validator").removeData("unobtrusiveValidation");
+            $.validator.unobtrusive.parse("form");
+        });
+        
         function previewImage(input) {
             var preview = document.getElementById('preview');
             if (input.files && input.files[0]) {

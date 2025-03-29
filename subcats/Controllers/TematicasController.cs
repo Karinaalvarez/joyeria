@@ -40,7 +40,7 @@ namespace subcats.Controllers
             }
             catch (Exception ex)
             {
-                TempData["ErrorMessage"] = "Error al obtener las temáticas: " + ex.Message;
+                Console.WriteLine("Error al obtener las temáticas: " + ex.Message);
                 return View(new System.Collections.Generic.List<Tematica>());
             }
         }
@@ -73,7 +73,7 @@ namespace subcats.Controllers
             }
             catch (Exception ex)
             {
-                TempData["ErrorMessage"] = "Error al obtener la temática: " + ex.Message;
+                Console.WriteLine("Error al obtener la temática: " + ex.Message);
                 return RedirectToAction(nameof(Index));
             }
         }
@@ -156,7 +156,6 @@ namespace subcats.Controllers
 
                     // Guardar la temática
                     int id = _tematicaService.CrearTematica(tematica);
-                    TempData["SuccessMessage"] = "Temática creada correctamente.";
                     return RedirectToAction(nameof(Index));
                 }
 
@@ -164,7 +163,7 @@ namespace subcats.Controllers
             }
             catch (Exception ex)
             {
-                TempData["ErrorMessage"] = "Error al crear la temática: " + ex.Message;
+                Console.WriteLine("Error al crear la temática: " + ex.Message);
                 return View(tematica);
             }
         }
@@ -193,11 +192,23 @@ namespace subcats.Controllers
                     return NotFound();
                 }
 
-                return View(tematica);
+                // Convertir a EditarTematicaViewModel
+                var viewModel = new EditarTematicaViewModel
+                {
+                    Id = tematica.Id,
+                    Nombre = tematica.Nombre,
+                    Descripcion = tematica.Descripcion,
+                    FechaInicio = tematica.FechaInicio,
+                    FechaFin = tematica.FechaFin,
+                    Activa = tematica.Activa,
+                    Imagen = tematica.Imagen
+                };
+
+                return View(viewModel);
             }
             catch (Exception ex)
             {
-                TempData["ErrorMessage"] = "Error al obtener la temática: " + ex.Message;
+                Console.WriteLine("Error al obtener la temática: " + ex.Message);
                 return RedirectToAction(nameof(Index));
             }
         }
@@ -205,7 +216,7 @@ namespace subcats.Controllers
         // POST: Tematicas/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Tematica tematica)
+        public async Task<IActionResult> Edit(int id, EditarTematicaViewModel viewModel)
         {
             // Verificar si el usuario está autenticado
             if (HttpContext.Session.GetString("UserId") == null)
@@ -220,73 +231,73 @@ namespace subcats.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            if (id != tematica.Id)
+            if (id != viewModel.Id)
             {
                 return NotFound();
             }
 
+            // Obtener la temática original para mantener la imagen si no se carga una nueva
+            var tematicaOriginal = _tematicaService.ObtenerTematica(id);
+            if (tematicaOriginal == null)
+            {
+                return NotFound();
+            }
+
+            // Crear un objeto Tematica para actualizar
+            var tematica = new Tematica
+            {
+                Id = viewModel.Id,
+                Nombre = viewModel.Nombre,
+                Descripcion = viewModel.Descripcion,
+                FechaInicio = viewModel.FechaInicio,
+                FechaFin = viewModel.FechaFin,
+                Activa = viewModel.Activa,
+                Imagen = tematicaOriginal.Imagen // Por defecto, mantener la imagen original
+            };
+
             try
             {
-                // Excluir Imagen de la validación del modelo
-                ModelState.Remove("Imagen");
-
-                if (ModelState.IsValid)
+                // Manejar la carga de la imagen solo si se proporciona una nueva
+                if (viewModel.ImagenFile != null && viewModel.ImagenFile.Length > 0)
                 {
-                    // Obtener la temática original para mantener la imagen si no se carga una nueva
-                    var tematicaOriginal = _tematicaService.ObtenerTematica(id);
-                    if (tematicaOriginal == null)
+                    if (viewModel.ImagenFile.Length > 10 * 1024 * 1024) // 10MB máximo
                     {
-                        return NotFound();
+                        ModelState.AddModelError("ImagenFile", "La imagen es demasiado grande. El tamaño máximo es 10MB.");
+                        return View(viewModel);
                     }
 
-                    // Manejar la carga de la imagen
-                    if (tematica.ImagenFile != null)
+                    string extension = Path.GetExtension(viewModel.ImagenFile.FileName).ToLower();
+                    if (extension != ".jpg" && extension != ".jpeg" && extension != ".png" && extension != ".gif")
                     {
-                        if (tematica.ImagenFile.Length > 10 * 1024 * 1024) // 10MB máximo
-                        {
-                            ModelState.AddModelError("ImagenFile", "La imagen es demasiado grande. El tamaño máximo es 10MB.");
-                            return View(tematica);
-                        }
-
-                        string extension = Path.GetExtension(tematica.ImagenFile.FileName).ToLower();
-                        if (extension != ".jpg" && extension != ".jpeg" && extension != ".png" && extension != ".gif")
-                        {
-                            ModelState.AddModelError("ImagenFile", "Solo se permiten archivos de imagen con formato JPG, JPEG, PNG o GIF.");
-                            return View(tematica);
-                        }
-
-                        // Convertir la imagen a bytes[]
-                        using (var memoryStream = new MemoryStream())
-                        {
-                            await tematica.ImagenFile.CopyToAsync(memoryStream);
-                            tematica.Imagen = memoryStream.ToArray();
-                        }
-                    }
-                    else
-                    {
-                        // Mantener la imagen original
-                        tematica.Imagen = tematicaOriginal.Imagen;
+                        ModelState.AddModelError("ImagenFile", "Solo se permiten archivos de imagen con formato JPG, JPEG, PNG o GIF.");
+                        return View(viewModel);
                     }
 
-                    // Actualizar la temática
-                    bool resultado = _tematicaService.ActualizarTematica(tematica);
-                    if (resultado)
+                    // Convertir la imagen a bytes[]
+                    using (var memoryStream = new MemoryStream())
                     {
-                        TempData["SuccessMessage"] = "Temática actualizada correctamente.";
-                        return RedirectToAction(nameof(Index));
-                    }
-                    else
-                    {
-                        TempData["ErrorMessage"] = "No se pudo actualizar la temática.";
+                        await viewModel.ImagenFile.CopyToAsync(memoryStream);
+                        tematica.Imagen = memoryStream.ToArray();
                     }
                 }
 
-                return View(tematica);
+                // Actualizar la temática
+                bool resultado = _tematicaService.ActualizarTematica(tematica);
+                if (resultado)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    ModelState.AddModelError("", "No se pudo actualizar la temática.");
+                    return View(viewModel);
+                }
             }
             catch (Exception ex)
             {
-                TempData["ErrorMessage"] = "Error al actualizar la temática: " + ex.Message;
-                return View(tematica);
+                Console.WriteLine("Error al actualizar la temática: " + ex.Message);
+                ModelState.AddModelError("", "Error al actualizar la temática: " + ex.Message);
+                return View(viewModel);
             }
         }
 
@@ -318,7 +329,7 @@ namespace subcats.Controllers
             }
             catch (Exception ex)
             {
-                TempData["ErrorMessage"] = "Error al obtener la temática: " + ex.Message;
+                Console.WriteLine("Error al obtener la temática: " + ex.Message);
                 return RedirectToAction(nameof(Index));
             }
         }
@@ -346,18 +357,18 @@ namespace subcats.Controllers
                 bool resultado = _tematicaService.EliminarTematica(id);
                 if (resultado)
                 {
-                    TempData["SuccessMessage"] = "Temática eliminada correctamente.";
+                    Console.WriteLine("Temática eliminada correctamente.");
                 }
                 else
                 {
-                    TempData["ErrorMessage"] = "No se pudo eliminar la temática.";
+                    Console.WriteLine("No se pudo eliminar la temática.");
                 }
 
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
-                TempData["ErrorMessage"] = "Error al eliminar la temática: " + ex.Message;
+                Console.WriteLine("Error al eliminar la temática: " + ex.Message);
                 return RedirectToAction(nameof(Index));
             }
         }
