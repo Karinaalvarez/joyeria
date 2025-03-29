@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Karina\\catalogo-1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\catalogo-1\\subcats\\views\\productos\\catalogo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\views\\productos\\catalogo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\catalogo-1\\subcats\\customclass\\tematicaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\customclass\\tematicaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -35,6 +39,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Catalogo.cshtml",
+              "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\Views\\Productos\\Catalogo.cshtml",
+              "RelativeDocumentMoniker": "subcats\\Views\\Productos\\Catalogo.cshtml",
+              "ToolTip": "C:\\Users\\Karina\\catalogo-1\\subcats\\Views\\Productos\\Catalogo.cshtml",
+              "RelativeToolTip": "subcats\\Views\\Productos\\Catalogo.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAALYAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-29T19:24:50.273Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "TematicaService.cs",
               "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\customClass\\TematicaService.cs",
               "RelativeDocumentMoniker": "subcats\\customClass\\TematicaService.cs",
@@ -47,7 +64,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "EmpleadosController.cs",
               "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\Controllers\\EmpleadosController.cs",
               "RelativeDocumentMoniker": "subcats\\Controllers\\EmpleadosController.cs",
