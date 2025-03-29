@@ -2,6 +2,26 @@
     ViewData["Title"] = "Inicio";
 }
 
+<style>
+    body {
+        background-color: #99a9bc;
+    }
+    
+    .welcome-container {
+        background-color: rgba(255, 255, 255, 0.85);
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .search-container {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+</style>
+
 <div class="container-fluid p-0">
     <!-- Sección de Temática - Imagen a lo ancho de toda la pantalla -->
     @if (ViewBag.TematicaActiva != null)
@@ -16,24 +36,28 @@
 </div>
 
 <div class="container mt-4">
-    <h1 class="display-4 text-center mb-4">Bienvenido a tienda 🏠 Mikasa</h1>
+    <div class="welcome-container mb-4">
+        <h1 class="display-4 text-center mb-4">Bienvenido a tienda 🏠 Mikasa</h1>
 
-    <div class="row">
-        <div class="col-md-6 mx-auto mb-4">
-            <form asp-controller="Productos" asp-action="Index" method="get" class="input-group">
-                <input type="text" name="searchString" class="form-control" placeholder="Buscar productos por nombre..." aria-label="Buscar productos">
-                <button class="btn btn-outline-primary" type="submit">
-                    <i class="bi bi-search"></i> Buscar
-                </button>
-            </form>
+        <div class="row">
+            <div class="col-md-6 mx-auto mb-4">
+                <div class="search-container">
+                    <form asp-controller="Productos" asp-action="Index" method="get" class="input-group">
+                        <input type="text" name="searchString" class="form-control" placeholder="Buscar productos por nombre..." aria-label="Buscar productos">
+                        <button class="btn btn-outline-primary" type="submit">
+                            <i class="bi bi-search"></i> Buscar
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-md-6 mx-auto text-center">
-            <a href="@Url.Action("Index", "Productos")" class="btn btn-primary btn-lg">
-                <i class="bi bi-grid-3x3-gap"></i> Ver todos los productos
-            </a>
+        <div class="row">
+            <div class="col-md-6 mx-auto text-center">
+                <a href="@Url.Action("Index", "Productos")" class="btn btn-primary btn-lg">
+                    <i class="bi bi-grid-3x3-gap"></i> Ver todos los productos
+                </a>
+            </div>
         </div>
     </div>
 </div>
