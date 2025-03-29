@@ -3,6 +3,19 @@
     ViewData["Title"] = ViewBag.NombreCategoria != null ? ViewBag.NombreCategoria : "Catálogo de Productos";
 }
 
+<div class="container-fluid p-0">
+    <!-- Sección de Temática - Imagen a lo ancho de toda la pantalla -->
+    @if (ViewBag.TematicaActiva != null)
+    {
+        <div class="mb-4">
+            <img src="@Url.Action("GetImage", "Tematicas", new { id = ViewBag.TematicaActiva.Id })" 
+                 alt="Imagen temática" 
+                 class="img-fluid w-100" 
+                 style="height: 300px; object-fit: cover;">
+        </div>
+    }
+</div>
+
 <div class="container mt-4">
     <div class="mb-4 d-flex justify-content-between align-items-center">
         <div>

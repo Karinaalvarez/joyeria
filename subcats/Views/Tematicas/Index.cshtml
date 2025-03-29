@@ -1,0 +1,95 @@
+@model IEnumerable<subcats.Models.Tematica>
+@{
+    ViewData["Title"] = "Administración de Temáticas";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="display-4">Administración de Temáticas</h1>
+        <a href="/Tematicas/Create" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Nueva Temática
+        </a>
+    </div>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            No hay temáticas registradas. Crea una nueva temática para personalizar la página de inicio.
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Fecha Inicio</th>
+                        <th>Fecha Fin</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td style="width: 100px;">
+                                <img src="@Url.Action("GetImage", "Tematicas", new { id = item.Id })" 
+                                     alt="@item.Nombre" 
+                                     class="img-thumbnail" 
+                                     style="max-width: 100px; max-height: 60px; object-fit: cover;" 
+                                     onerror="this.src='/img/no-image.png'; this.onerror='';" />
+                            </td>
+                            <td>@item.Nombre</td>
+                            <td>@(item.Descripcion?.Length > 50 ? item.Descripcion.Substring(0, 50) + "..." : item.Descripcion)</td>
+                            <td>@item.FechaInicio.ToString("dd/MM/yyyy")</td>
+                            <td>@item.FechaFin.ToString("dd/MM/yyyy")</td>
+                            <td>
+                                @if (item.Activa)
+                                {
+                                    <span class="badge bg-success">Activa</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">Inactiva</span>
+                                }
+                            </td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a href="/Tematicas/Edit/@item.Id" class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-pencil"></i> Editar
+                                    </a>
+                                    <a href="/Tematicas/Details/@item.Id" class="btn btn-sm btn-outline-info">
+                                        <i class="bi bi-info-circle"></i> Detalles
+                                    </a>
+                                    <a href="/Tematicas/Delete/@item.Id" class="btn btn-sm btn-outline-danger">
+                                        <i class="bi bi-trash"></i> Eliminar
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

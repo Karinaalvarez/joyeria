@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Hosting;
 using subcats.customClass;
 using subcats.dto;
+using subcats.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace subcats.Controllers
     {
         private readonly Dao _db;
         private readonly CategoriaService _categoriaService;
+        private readonly TematicaService _tematicaService;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
         // Constructor que maneja la inyección de dependencias
@@ -24,6 +26,7 @@ namespace subcats.Controllers
             _webHostEnvironment = webHostEnvironment;
             _db = new Dao();
             _categoriaService = new CategoriaService();
+            _tematicaService = new TematicaService();
         }
 
         // GET: Productos
@@ -54,6 +57,13 @@ namespace subcats.Controllers
                 // Si es un usuario normal, mostrar una vista simplificada
                 if (role != "Admin")
                 {
+                    // Obtener la temática activa para mostrarla en la vista
+                    var tematicaActiva = _tematicaService.ObtenerTematicaActiva();
+                    if (tematicaActiva != null)
+                    {
+                        ViewBag.TematicaActiva = tematicaActiva;
+                    }
+                    
                     return View("Catalogo", productos);
                 }
                 
@@ -611,6 +621,13 @@ namespace subcats.Controllers
                 // Si es un usuario normal, mostrar una vista simplificada
                 if (role != "Admin")
                 {
+                    // Obtener la temática activa para mostrarla en la vista
+                    var tematicaActiva = _tematicaService.ObtenerTematicaActiva();
+                    if (tematicaActiva != null)
+                    {
+                        ViewBag.TematicaActiva = tematicaActiva;
+                    }
+                    
                     return View("Catalogo", productos);
                 }
                 

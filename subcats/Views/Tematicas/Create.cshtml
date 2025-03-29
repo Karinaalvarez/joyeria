@@ -1,0 +1,97 @@
+@model subcats.Models.Tematica
+@{
+    ViewData["Title"] = "Crear Temática";
+}
+
+<div class="container mt-4">
+    <h1 class="display-4">Crear Nueva Temática</h1>
+    <hr />
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-md-8">
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                
+                <div class="mb-3">
+                    <label asp-for="Nombre" class="form-label">Nombre</label>
+                    <input asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+                
+                <div class="mb-3">
+                    <label asp-for="Descripcion" class="form-label">Descripción</label>
+                    <textarea asp-for="Descripcion" class="form-control" rows="3"></textarea>
+                    <span asp-validation-for="Descripcion" class="text-danger"></span>
+                </div>
+                
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label asp-for="FechaInicio" class="form-label">Fecha de inicio</label>
+                        <input asp-for="FechaInicio" class="form-control" type="date" />
+                        <span asp-validation-for="FechaInicio" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="FechaFin" class="form-label">Fecha de fin</label>
+                        <input asp-for="FechaFin" class="form-control" type="date" />
+                        <span asp-validation-for="FechaFin" class="text-danger"></span>
+                    </div>
+                </div>
+                
+                <div class="mb-3 form-check">
+                    <input asp-for="Activa" class="form-check-input" />
+                    <label asp-for="Activa" class="form-check-label">Activar esta temática</label>
+                    <small class="form-text text-muted">Si activa esta temática, las demás se desactivarán automáticamente.</small>
+                </div>
+                
+                <div class="mb-3">
+                    <label asp-for="ImagenFile" class="form-label">Imagen de la temática</label>
+                    <input asp-for="ImagenFile" class="form-control" type="file" accept="image/*" onchange="previewImage(this)" />
+                    <span asp-validation-for="ImagenFile" class="text-danger"></span>
+                    <small class="form-text text-muted">Formatos permitidos: JPG, JPEG, PNG, GIF. Tamaño máximo: 10MB.</small>
+                </div>
+                
+                <div class="mb-3">
+                    <img id="preview" src="#" alt="Vista previa" style="max-width: 300px; max-height: 200px; display: none;" class="img-thumbnail" />
+                </div>
+                
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-save"></i> Guardar
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left"></i> Volver
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    <script>
+        function previewImage(input) {
+            var preview = document.getElementById('preview');
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                preview.src = '#';
+                preview.style.display = 'none';
+            }
+        }
+    </script>
+}

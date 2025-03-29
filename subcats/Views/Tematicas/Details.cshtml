@@ -1,0 +1,82 @@
+@model subcats.Models.Tematica
+@{
+    ViewData["Title"] = "Detalles de Temática";
+}
+
+<div class="container mt-4">
+    <h1 class="display-4">Detalles de Temática</h1>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">@Model.Nombre</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <h6 class="fw-bold">Descripción:</h6>
+                        <p>@Model.Descripcion</p>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <h6 class="fw-bold">Fecha de inicio:</h6>
+                            <p>@Model.FechaInicio.ToString("dd/MM/yyyy")</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="fw-bold">Fecha de fin:</h6>
+                            <p>@Model.FechaFin.ToString("dd/MM/yyyy")</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <h6 class="fw-bold">Estado:</h6>
+                        @if (Model.Activa)
+                        {
+                            <span class="badge bg-success">Activa</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">Inactiva</span>
+                        }
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
+                            <i class="bi bi-pencil"></i> Editar
+                        </a>
+                        <a asp-action="Index" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left"></i> Volver a la lista
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">Imagen de la temática</h5>
+                </div>
+                <div class="card-body text-center">
+                    @if (Model.Imagen != null)
+                    {
+                        <img src="@Url.Action("GetImage", "Tematicas", new { id = Model.Id })" 
+                             alt="@Model.Nombre" 
+                             class="img-fluid rounded" 
+                             style="max-height: 300px;" />
+                    }
+                    else
+                    {
+                        <div class="alert alert-info">
+                            <i class="bi bi-image" style="font-size: 3rem;"></i>
+                            <p>No hay imagen disponible para esta temática</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

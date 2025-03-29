@@ -3,32 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Karina\\catalogo-1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\catalogo-1\\subcats\\customclass\\tematicaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\customclass\\tematicaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\catalogo-1\\subcats\\controllers\\empleadoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\controllers\\empleadoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\catalogo-1\\subcats\\dto\\subcategorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\dto\\subcategorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\catalogo-1\\subcats\\views\\reportes\\imprimirlistado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\views\\reportes\\imprimirlistado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\catalogo-1\\subcats\\views\\reportes\\imprimirdetalles.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\views\\reportes\\imprimirdetalles.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\catalogo-1\\subcats\\views\\productos\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\views\\productos\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\catalogo-1\\subcats\\views\\carrito\\factura.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\views\\carrito\\factura.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\catalogo-1\\subcats\\views\\reportes\\detalles.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\views\\reportes\\detalles.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -55,92 +35,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "EmpleadosController.cs",
-              "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\Controllers\\EmpleadosController.cs",
-              "RelativeDocumentMoniker": "subcats\\Controllers\\EmpleadosController.cs",
-              "ToolTip": "C:\\Users\\Karina\\catalogo-1\\subcats\\Controllers\\EmpleadosController.cs",
-              "RelativeToolTip": "subcats\\Controllers\\EmpleadosController.cs",
-              "ViewState": "AgIAAKAAAAAAAAAAAAAgwK8AAAArAAAAAAAAAA==",
+              "Title": "TematicaService.cs",
+              "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\customClass\\TematicaService.cs",
+              "RelativeDocumentMoniker": "subcats\\customClass\\TematicaService.cs",
+              "ToolTip": "C:\\Users\\Karina\\catalogo-1\\subcats\\customClass\\TematicaService.cs",
+              "RelativeToolTip": "subcats\\customClass\\TematicaService.cs",
+              "ViewState": "AgIAACUBAAAAAAAAAAAswC4BAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T05:34:07.569Z",
+              "WhenOpened": "2025-03-29T18:21:24.392Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "SubCategorias.cs",
-              "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\dto\\SubCategorias.cs",
-              "RelativeDocumentMoniker": "subcats\\dto\\SubCategorias.cs",
-              "ToolTip": "C:\\Users\\Karina\\catalogo-1\\subcats\\dto\\SubCategorias.cs",
-              "RelativeToolTip": "subcats\\dto\\SubCategorias.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAA+wB4AAAAqAAAAAAAAAA==",
+              "Title": "EmpleadosController.cs",
+              "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\Controllers\\EmpleadosController.cs",
+              "RelativeDocumentMoniker": "subcats\\Controllers\\EmpleadosController.cs",
+              "ToolTip": "C:\\Users\\Karina\\catalogo-1\\subcats\\Controllers\\EmpleadosController.cs",
+              "RelativeToolTip": "subcats\\Controllers\\EmpleadosController.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAYwC0AAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T05:13:57.045Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\Views\\Productos\\Details.cshtml",
-              "RelativeDocumentMoniker": "subcats\\Views\\Productos\\Details.cshtml",
-              "ToolTip": "C:\\Users\\Karina\\catalogo-1\\subcats\\Views\\Productos\\Details.cshtml",
-              "RelativeToolTip": "subcats\\Views\\Productos\\Details.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-28T03:07:10.731Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Factura.cshtml",
-              "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\Views\\Carrito\\Factura.cshtml",
-              "RelativeDocumentMoniker": "subcats\\Views\\Carrito\\Factura.cshtml",
-              "ToolTip": "C:\\Users\\Karina\\catalogo-1\\subcats\\Views\\Carrito\\Factura.cshtml",
-              "RelativeToolTip": "subcats\\Views\\Carrito\\Factura.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE0AAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-28T02:48:00.876Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ImprimirListado.cshtml",
-              "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\Views\\Reportes\\ImprimirListado.cshtml",
-              "RelativeDocumentMoniker": "subcats\\Views\\Reportes\\ImprimirListado.cshtml",
-              "ToolTip": "C:\\Users\\Karina\\catalogo-1\\subcats\\Views\\Reportes\\ImprimirListado.cshtml",
-              "RelativeToolTip": "subcats\\Views\\Reportes\\ImprimirListado.cshtml",
-              "ViewState": "AgIAAHgAAAAAAAAAAAAAAKMAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-28T02:23:20.506Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ImprimirDetalles.cshtml",
-              "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\Views\\Reportes\\ImprimirDetalles.cshtml",
-              "RelativeDocumentMoniker": "subcats\\Views\\Reportes\\ImprimirDetalles.cshtml",
-              "ToolTip": "C:\\Users\\Karina\\catalogo-1\\subcats\\Views\\Reportes\\ImprimirDetalles.cshtml",
-              "RelativeToolTip": "subcats\\Views\\Reportes\\ImprimirDetalles.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-28T02:20:49.253Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Detalles.cshtml",
-              "DocumentMoniker": "C:\\Users\\Karina\\catalogo-1\\subcats\\Views\\Reportes\\Detalles.cshtml",
-              "RelativeDocumentMoniker": "subcats\\Views\\Reportes\\Detalles.cshtml",
-              "ToolTip": "C:\\Users\\Karina\\catalogo-1\\subcats\\Views\\Reportes\\Detalles.cshtml",
-              "RelativeToolTip": "subcats\\Views\\Reportes\\Detalles.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-28T02:01:46.899Z",
+              "WhenOpened": "2025-03-28T05:34:07.569Z",
               "EditorCaption": ""
             }
           ]
