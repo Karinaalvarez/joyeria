@@ -10,13 +10,14 @@ namespace subcats.Controllers
     public class ReportesController : Controller
     {
         private readonly VentasDao _ventasDao;
+        private const int ItemsPorPagina = 10;
 
         public ReportesController()
         {
             _ventasDao = new VentasDao();
         }
 
-        public IActionResult Index(string searchTerm = "")
+        public IActionResult Index(string searchTerm = "", int pagina = 1)
         {
             // Verificar si el usuario ha iniciado sesión
             var userId = HttpContext.Session.GetString("UserId");
@@ -50,8 +51,27 @@ namespace subcats.Controllers
                 // Guardar el término de búsqueda para mostrarlo en la vista
                 ViewBag.SearchTerm = searchTerm;
             }
+
+            // Calcular la paginación
+            var totalItems = ventas.Count;
+            var totalPaginas = (int)Math.Ceiling(totalItems / (double)ItemsPorPagina);
             
-            return View(ventas);
+            // Asegurar que la página actual es válida
+            pagina = Math.Max(1, Math.Min(pagina, totalPaginas));
+            
+            // Obtener solo los items de la página actual
+            var ventasPaginadas = ventas
+                .Skip((pagina - 1) * ItemsPorPagina)
+                .Take(ItemsPorPagina)
+                .ToList();
+
+            // Configurar ViewBag para la paginación
+            ViewBag.PaginaActual = pagina;
+            ViewBag.TotalPaginas = totalPaginas;
+            ViewBag.TotalItems = totalItems;
+            ViewBag.ItemsPorPagina = ItemsPorPagina;
+            
+            return View(ventasPaginadas);
         }
 
         public IActionResult Detalles(int id)
