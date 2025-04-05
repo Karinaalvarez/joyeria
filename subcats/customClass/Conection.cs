@@ -8,7 +8,7 @@ namespace subcats.customClass
         public SqlConnection connection;
         public SqlCommand sqlCommand;
         public SqlDataReader sqlDataReader;
-        private const string connectionString = @"Server=LAPTOP-UVA1MQ5B\SQLEXPRESS;Database=patitofeo;Trusted_Connection=True;TrustServerCertificate=true;";
+        private const string connectionString = @"Server=LAPTOP-UVA1MQ5B\SQLEXPRESS;Database=casaOro;Trusted_Connection=True;TrustServerCertificate=true;";
 
         public Conection()
         {

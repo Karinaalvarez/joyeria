@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Karina\\Downloads\\examen1\\subcats\\subcats.csproj": {}
+    "C:\\Users\\Karina\\Downloads\\examen\\subcats\\subcats.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Karina\\Downloads\\examen1\\subcats\\subcats.csproj": {
+    "C:\\Users\\Karina\\Downloads\\examen\\subcats\\subcats.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Karina\\Downloads\\examen1\\subcats\\subcats.csproj",
+        "projectUniqueName": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\subcats.csproj",
         "projectName": "subcats",
-        "projectPath": "C:\\Users\\Karina\\Downloads\\examen1\\subcats\\subcats.csproj",
+        "projectPath": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\subcats.csproj",
         "packagesPath": "C:\\Users\\Karina\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Karina\\Downloads\\examen1\\subcats\\obj\\",
+        "outputPath": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
