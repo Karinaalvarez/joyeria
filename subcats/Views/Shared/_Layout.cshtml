@@ -10,6 +10,14 @@
     <link rel="stylesheet" href="~/subcats.styles.css" asp-append-version="true" />
 </head>
 <body>
+    @{
+        var userId = HttpContextAccessor.HttpContext.Session.GetString("UserId");
+        var role = HttpContextAccessor.HttpContext.Session.GetString("Role");
+        var username = HttpContextAccessor.HttpContext.Session.GetString("Username");
+        var categoriaService = new subcats.customClass.CategoriaService();
+        var categorias = role == "Admin" ? new List<subcats.dto.Categoria>() : categoriaService.ObtenerTodasCategorias();
+    }
+    
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary border-bottom box-shadow mb-3">
             <div class="container-fluid">
@@ -22,12 +30,6 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        @{
-                            var userId = HttpContextAccessor.HttpContext.Session.GetString("UserId");
-                            var role = HttpContextAccessor.HttpContext.Session.GetString("Role");
-                            var username = HttpContextAccessor.HttpContext.Session.GetString("Username");
-                        }
-                        
                         @if (!string.IsNullOrEmpty(userId))
                         {
                             <li class="nav-item">
@@ -38,11 +40,6 @@
                             <li class="nav-item">
                                 <a class="nav-link text-white" asp-area="" asp-controller="Productos" asp-action="Index">
                                     <i class="bi bi-grid-3x3-gap"></i> Productos
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="#" data-bs-toggle="modal" data-bs-target="#categoriasModal">
-                                    <i class="bi bi-tags"></i> Categorías
                                 </a>
                             </li>
                             
@@ -73,6 +70,18 @@
                                         <i class="bi bi-graph-up"></i> Reportes
                                     </a>
                                 </li>
+                            }
+                            else
+                            {
+                                <!-- Mostrar categorías como pestañas para usuarios normales -->
+                                @foreach (var categoria in categorias)
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" asp-area="" asp-controller="Productos" asp-action="Categoria" asp-route-id="@categoria.Id">
+                                            <i class="bi bi-tag"></i> @categoria.Nombre
+                                        </a>
+                                    </li>
+                                }
                             }
                         }
                     </ul>
