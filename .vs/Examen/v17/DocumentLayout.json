@@ -1,7 +1,32 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Karina\\Downloads\\examen1\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\Karina\\Downloads\\examen\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\downloads\\examen\\subcats\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\downloads\\examen\\subcats\\views\\categorias\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\views\\categorias\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\downloads\\examen\\subcats\\customclass\\dao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\customclass\\dao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\downloads\\examen\\subcats\\dto\\subcategorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\dto\\subcategorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\downloads\\examen\\subcats\\customclass\\conection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\customclass\\conection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\downloads\\examen\\subcats\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,6 +47,80 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\Views\\Categorias\\Index.cshtml",
+              "RelativeDocumentMoniker": "subcats\\Views\\Categorias\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\Views\\Categorias\\Index.cshtml",
+              "RelativeToolTip": "subcats\\Views\\Categorias\\Index.cshtml",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAAAD0AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-05T08:13:47.25Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductosController.cs",
+              "DocumentMoniker": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\Controllers\\ProductosController.cs",
+              "RelativeDocumentMoniker": "subcats\\Controllers\\ProductosController.cs",
+              "ToolTip": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\Controllers\\ProductosController.cs",
+              "RelativeToolTip": "subcats\\Controllers\\ProductosController.cs",
+              "ViewState": "AgIAADoCAAAAAAAAAAAuwE4CAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T07:48:10.304Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SubCategorias.cs",
+              "DocumentMoniker": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\dto\\SubCategorias.cs",
+              "RelativeDocumentMoniker": "subcats\\dto\\SubCategorias.cs",
+              "ToolTip": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\dto\\SubCategorias.cs",
+              "RelativeToolTip": "subcats\\dto\\SubCategorias.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T07:09:39.232Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Dao.cs",
+              "DocumentMoniker": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\customClass\\Dao.cs",
+              "RelativeDocumentMoniker": "subcats\\customClass\\Dao.cs",
+              "ToolTip": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\customClass\\Dao.cs",
+              "RelativeToolTip": "subcats\\customClass\\Dao.cs",
+              "ViewState": "AgIAACwDAAAAAAAAAAAkwD4DAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T07:00:23.81Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Conection.cs",
+              "DocumentMoniker": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\customClass\\Conection.cs",
+              "RelativeDocumentMoniker": "subcats\\customClass\\Conection.cs",
+              "ToolTip": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\customClass\\Conection.cs",
+              "RelativeToolTip": "subcats\\customClass\\Conection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T06:37:05.017Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\Program.cs",
+              "RelativeDocumentMoniker": "subcats\\Program.cs",
+              "ToolTip": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\Program.cs",
+              "RelativeToolTip": "subcats\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T06:36:42.715Z"
             }
           ]
         }
