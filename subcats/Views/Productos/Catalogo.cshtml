@@ -11,6 +11,9 @@
     var esCategoriamiTierra = nombreCategoria.Contains("tierra") || nombreCategoria.Contains("mitierra");
     var esCategoriaAccesorio = nombreCategoria.Contains("accesorio");
     var esCategoriaAnillos = nombreCategoria.Contains("anillo");
+    var esCategoriaAretes = nombreCategoria.Contains("arete");
+    var esCategoriaCollares = nombreCategoria.Contains("collar");
+    var esCategoriaaPulseras = nombreCategoria.Contains("pulsera");
     var role = Context.Session.GetString("Role");
     var esUsuarioNormal = role != "Admin";
 }
@@ -142,6 +145,42 @@
         </div>
         <div class="imagen-container">
             <img src="@Url.Content("~/imagenes/bannerAnillos.jpg")" alt="Categoría Anillos" class="categoria-imagen">
+        </div>
+    </div>
+}
+
+@if (esCategoriaAretes && esUsuarioNormal)
+{
+    <div class="container mt-4">
+        <div class="imagen-container">
+            <img src="@Url.Content("~/imagenes/joyeria.png")" alt="Logo Joyería" class="logo-imagen">
+        </div>
+        <div class="imagen-container">
+            <img src="@Url.Content("~/imagenes/bannerAretesNombre.jpg")" alt="Categoría Aretes" class="categoria-imagen">
+        </div>
+    </div>
+}
+
+@if (esCategoriaCollares && esUsuarioNormal)
+{
+    <div class="container mt-4">
+        <div class="imagen-container">
+            <img src="@Url.Content("~/imagenes/joyeria.png")" alt="Logo Joyería" class="logo-imagen">
+        </div>
+        <div class="imagen-container">
+            <img src="@Url.Content("~/imagenes/bannerCollares.jpg")" alt="Categoría Collares" class="categoria-imagen">
+        </div>
+    </div>
+}
+
+@if (esCategoriaaPulseras && esUsuarioNormal)
+{
+    <div class="container mt-4">
+        <div class="imagen-container">
+            <img src="@Url.Content("~/imagenes/joyeria.png")" alt="Logo Joyería" class="logo-imagen">
+        </div>
+        <div class="imagen-container">
+            <img src="@Url.Content("~/imagenes/bannerPulsera1.jpg")" alt="Categoría Pulseras" class="categoria-imagen">
         </div>
     </div>
 }

@@ -17,6 +17,18 @@
       "PackagePath": "staticwebassets\\imagenes\\bannerAnillos.jpg"
     },
     {
+      "Id": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\bannerAretesNombre.jpg",
+      "PackagePath": "staticwebassets\\imagenes\\bannerAretesNombre.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\bannerCollares.jpg",
+      "PackagePath": "staticwebassets\\imagenes\\bannerCollares.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\bannerPulsera1.jpg",
+      "PackagePath": "staticwebassets\\imagenes\\bannerPulsera1.jpg"
+    },
+    {
       "Id": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\bebe.png",
       "PackagePath": "staticwebassets\\imagenes\\bebe.png"
     },

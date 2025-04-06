@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ZJ4PWyaa+GTP5h9YlxuKYRJfHMD3zCHcPnRuKChRiLc=",
+  "Hash": "JmPm1/GDvIE5t3e5w3LeEQULVvlQnZN8umOeW0hrs8M=",
   "Source": "subcats",
   "BasePath": "_content/subcats",
   "Mode": "Default",
@@ -120,6 +120,69 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\imagenes\\bannerAnillos.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\bannerAretesNombre.jpg",
+      "SourceId": "subcats",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\",
+      "BasePath": "_content/subcats",
+      "RelativePath": "imagenes/bannerAretesNombre#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "0wifdw8qix",
+      "Integrity": "oEUCjNnW5wqSjFdCqSjGGH+wJvavJslGRk8UKtPu+IM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\bannerAretesNombre.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\bannerCollares.jpg",
+      "SourceId": "subcats",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\",
+      "BasePath": "_content/subcats",
+      "RelativePath": "imagenes/bannerCollares#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ee3x5z16am",
+      "Integrity": "drAiMFtcZmVQyKZdmvK0sjF5/82GvypMtyhgsc2Xe50=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\bannerCollares.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\bannerPulsera1.jpg",
+      "SourceId": "subcats",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\",
+      "BasePath": "_content/subcats",
+      "RelativePath": "imagenes/bannerPulsera1#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "t4mb5cwtip",
+      "Integrity": "M6aC04p4d/TsNrYRL/TMx0xClHRhv7KdxxqbJgPBd2o=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\bannerPulsera1.jpg"
     },
     {
       "Identity": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\bebe.png",
@@ -1794,6 +1857,252 @@
         {
           "Name": "integrity",
           "Value": "sha256-rI0AaODN+oKPLENAMv1fy45RVIIxdBnLQk5bemLhV24="
+        }
+      ]
+    },
+    {
+      "Route": "imagenes/bannerAretesNombre.0wifdw8qix.jpg",
+      "AssetFile": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\bannerAretesNombre.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "387534"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"oEUCjNnW5wqSjFdCqSjGGH+wJvavJslGRk8UKtPu+IM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 06:11:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0wifdw8qix"
+        },
+        {
+          "Name": "label",
+          "Value": "imagenes/bannerAretesNombre.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-oEUCjNnW5wqSjFdCqSjGGH+wJvavJslGRk8UKtPu+IM="
+        }
+      ]
+    },
+    {
+      "Route": "imagenes/bannerAretesNombre.jpg",
+      "AssetFile": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\bannerAretesNombre.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "387534"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"oEUCjNnW5wqSjFdCqSjGGH+wJvavJslGRk8UKtPu+IM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 06:11:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-oEUCjNnW5wqSjFdCqSjGGH+wJvavJslGRk8UKtPu+IM="
+        }
+      ]
+    },
+    {
+      "Route": "imagenes/bannerCollares.ee3x5z16am.jpg",
+      "AssetFile": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\bannerCollares.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20588"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"drAiMFtcZmVQyKZdmvK0sjF5/82GvypMtyhgsc2Xe50=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 06:11:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ee3x5z16am"
+        },
+        {
+          "Name": "label",
+          "Value": "imagenes/bannerCollares.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-drAiMFtcZmVQyKZdmvK0sjF5/82GvypMtyhgsc2Xe50="
+        }
+      ]
+    },
+    {
+      "Route": "imagenes/bannerCollares.jpg",
+      "AssetFile": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\bannerCollares.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20588"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"drAiMFtcZmVQyKZdmvK0sjF5/82GvypMtyhgsc2Xe50=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 06:11:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-drAiMFtcZmVQyKZdmvK0sjF5/82GvypMtyhgsc2Xe50="
+        }
+      ]
+    },
+    {
+      "Route": "imagenes/bannerPulsera1.jpg",
+      "AssetFile": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\bannerPulsera1.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "379148"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"M6aC04p4d/TsNrYRL/TMx0xClHRhv7KdxxqbJgPBd2o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 07:51:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-M6aC04p4d/TsNrYRL/TMx0xClHRhv7KdxxqbJgPBd2o="
+        }
+      ]
+    },
+    {
+      "Route": "imagenes/bannerPulsera1.t4mb5cwtip.jpg",
+      "AssetFile": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\bannerPulsera1.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "379148"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"M6aC04p4d/TsNrYRL/TMx0xClHRhv7KdxxqbJgPBd2o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 07:51:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "t4mb5cwtip"
+        },
+        {
+          "Name": "label",
+          "Value": "imagenes/bannerPulsera1.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-M6aC04p4d/TsNrYRL/TMx0xClHRhv7KdxxqbJgPBd2o="
         }
       ]
     },

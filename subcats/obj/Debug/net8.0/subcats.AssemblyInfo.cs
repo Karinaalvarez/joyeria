@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("subcats")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d94ae0f458deb6b23df38cc38bc420d1516c2d99")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+08cb8b5624a2cd6bc2c4fca44c34013a775ef20b")]
 [assembly: System.Reflection.AssemblyProductAttribute("subcats")]
 [assembly: System.Reflection.AssemblyTitleAttribute("subcats")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
