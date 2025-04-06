@@ -1,6 +1,7 @@
 wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\imagenes\bebe.png
+wwwroot\imagenes\joyeria.png
 wwwroot\imagenes\lenca.gif
 wwwroot\imagenes\logo.png
 wwwroot\imagenes\maya.png

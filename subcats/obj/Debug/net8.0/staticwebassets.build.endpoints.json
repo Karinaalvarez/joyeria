@@ -249,6 +249,88 @@
       ]
     },
     {
+      "Route": "imagenes/joyeria.7eooopi2jj.png",
+      "AssetFile": "imagenes/joyeria.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "56624"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gbIymf1fHWexVhyz3d1BIsherr1qGSov2Ovv3iqOsBM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 06:23:35 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7eooopi2jj"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gbIymf1fHWexVhyz3d1BIsherr1qGSov2Ovv3iqOsBM="
+        },
+        {
+          "Name": "label",
+          "Value": "imagenes/joyeria.png"
+        }
+      ]
+    },
+    {
+      "Route": "imagenes/joyeria.png",
+      "AssetFile": "imagenes/joyeria.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "56624"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gbIymf1fHWexVhyz3d1BIsherr1qGSov2Ovv3iqOsBM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 06:23:35 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gbIymf1fHWexVhyz3d1BIsherr1qGSov2Ovv3iqOsBM="
+        }
+      ]
+    },
+    {
       "Route": "imagenes/lenca.gif",
       "AssetFile": "imagenes/lenca.gif",
       "Selectors": [],

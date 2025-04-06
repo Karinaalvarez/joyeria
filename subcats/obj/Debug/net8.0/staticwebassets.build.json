@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "c5dCF2FNGXV6YnQfzETPKSSuFw5LPSlpQvBBorlKum4=",
+  "Hash": "SSfUXmBd5Aj/8L7WNon+gzVxFuyytWrSQy8FMj700Pc=",
   "Source": "subcats",
   "BasePath": "_content/subcats",
   "Mode": "Default",
@@ -120,6 +120,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\imagenes\\bebe.png"
+    },
+    {
+      "Identity": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\joyeria.png",
+      "SourceId": "subcats",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\",
+      "BasePath": "_content/subcats",
+      "RelativePath": "imagenes/joyeria#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "7eooopi2jj",
+      "Integrity": "gbIymf1fHWexVhyz3d1BIsherr1qGSov2Ovv3iqOsBM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\joyeria.png"
     },
     {
       "Identity": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\lenca.gif",
@@ -1752,6 +1773,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-13zXx7XzO4N6OdEDcKLuEQicge4EVy2wE3IH17fbH3E="
+        }
+      ]
+    },
+    {
+      "Route": "imagenes/joyeria.7eooopi2jj.png",
+      "AssetFile": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\joyeria.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "56624"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gbIymf1fHWexVhyz3d1BIsherr1qGSov2Ovv3iqOsBM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 06:23:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7eooopi2jj"
+        },
+        {
+          "Name": "label",
+          "Value": "imagenes/joyeria.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gbIymf1fHWexVhyz3d1BIsherr1qGSov2Ovv3iqOsBM="
+        }
+      ]
+    },
+    {
+      "Route": "imagenes/joyeria.png",
+      "AssetFile": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\joyeria.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "56624"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gbIymf1fHWexVhyz3d1BIsherr1qGSov2Ovv3iqOsBM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 06:23:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gbIymf1fHWexVhyz3d1BIsherr1qGSov2Ovv3iqOsBM="
         }
       ]
     },
