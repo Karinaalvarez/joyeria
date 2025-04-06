@@ -21,12 +21,36 @@
 
 @if (esCategoriaBebe && esUsuarioNormal)
 {
-    <div class="text-center mb-4 px-0">
-        <img src="@Url.Content("~/imagenes/logo.png")" alt="Logo" class="img-fluid" style="max-height: 80px; display: block; margin: 0 auto;">
+    <style>
+        /* Eliminar todos los márgenes y padding del cuerpo */
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* Estilo para la imagen que elimina cualquier margen */
+        .imagen-fullwidth {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        
+        /* Logo centrado */
+        .logo-centrado {
+            display: block;
+            margin: 0 auto 20px auto;
+            max-height: 80px;
+        }
+    </style>
+    
+    <div class="text-center">
+        <img src="@Url.Content("~/imagenes/logo.png")" alt="Logo" class="logo-centrado">
     </div>
-    <div class="mb-4 px-0">
-        <img src="@Url.Content("~/imagenes/bebe.png")" alt="Categoría Bebés" class="img-fluid w-100" style="display: block;">
-    </div>
+    <img src="@Url.Content("~/imagenes/bebe.png")" alt="Categoría Bebés" class="imagen-fullwidth">
 }
 
 <div class="container mt-4">
