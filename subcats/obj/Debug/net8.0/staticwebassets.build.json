@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xgIc0HvorLVnCqKONF10ZGZvvkZpfkGONc5Q2fvaYp8=",
+  "Hash": "c5dCF2FNGXV6YnQfzETPKSSuFw5LPSlpQvBBorlKum4=",
   "Source": "subcats",
   "BasePath": "_content/subcats",
   "Mode": "Default",
@@ -122,6 +122,27 @@
       "OriginalItemSpec": "wwwroot\\imagenes\\bebe.png"
     },
     {
+      "Identity": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\lenca.gif",
+      "SourceId": "subcats",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\",
+      "BasePath": "_content/subcats",
+      "RelativePath": "imagenes/lenca#[.{fingerprint}]?.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "w0wqnvyp81",
+      "Integrity": "YCglmukhfXOH3yLy0wz+UOaphZxAUPxrJgX9pg1RXS4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\lenca.gif"
+    },
+    {
       "Identity": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\logo.png",
       "SourceId": "subcats",
       "SourceType": "Discovered",
@@ -162,6 +183,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\imagenes\\maya.png"
+    },
+    {
+      "Identity": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\mitierra.png",
+      "SourceId": "subcats",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\",
+      "BasePath": "_content/subcats",
+      "RelativePath": "imagenes/mitierra#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ya77m3uayo",
+      "Integrity": "Rr3SgYmzTJuOS18wWNi7jgCpFMmnA+i8reUTBLj76xg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\mitierra.png"
     },
     {
       "Identity": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\oro.png",
@@ -1714,6 +1756,88 @@
       ]
     },
     {
+      "Route": "imagenes/lenca.gif",
+      "AssetFile": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\lenca.gif",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "75788688"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/gif"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YCglmukhfXOH3yLy0wz+UOaphZxAUPxrJgX9pg1RXS4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 05 Apr 2025 23:19:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-YCglmukhfXOH3yLy0wz+UOaphZxAUPxrJgX9pg1RXS4="
+        }
+      ]
+    },
+    {
+      "Route": "imagenes/lenca.w0wqnvyp81.gif",
+      "AssetFile": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\lenca.gif",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "75788688"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/gif"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YCglmukhfXOH3yLy0wz+UOaphZxAUPxrJgX9pg1RXS4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 05 Apr 2025 23:19:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "w0wqnvyp81"
+        },
+        {
+          "Name": "label",
+          "Value": "imagenes/lenca.gif"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-YCglmukhfXOH3yLy0wz+UOaphZxAUPxrJgX9pg1RXS4="
+        }
+      ]
+    },
+    {
       "Route": "imagenes/logo.ovm6dffnyz.png",
       "AssetFile": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\logo.png",
       "Selectors": [],
@@ -1874,6 +1998,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-ejcbqLwdc+ATnQkFzx3RFgfXt6ZXeQqkI1CdnWRTlX0="
+        }
+      ]
+    },
+    {
+      "Route": "imagenes/mitierra.png",
+      "AssetFile": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\mitierra.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1189145"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Rr3SgYmzTJuOS18wWNi7jgCpFMmnA+i8reUTBLj76xg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 05 Apr 2025 23:20:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Rr3SgYmzTJuOS18wWNi7jgCpFMmnA+i8reUTBLj76xg="
+        }
+      ]
+    },
+    {
+      "Route": "imagenes/mitierra.ya77m3uayo.png",
+      "AssetFile": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\mitierra.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1189145"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Rr3SgYmzTJuOS18wWNi7jgCpFMmnA+i8reUTBLj76xg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 05 Apr 2025 23:20:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ya77m3uayo"
+        },
+        {
+          "Name": "label",
+          "Value": "imagenes/mitierra.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Rr3SgYmzTJuOS18wWNi7jgCpFMmnA+i8reUTBLj76xg="
         }
       ]
     },

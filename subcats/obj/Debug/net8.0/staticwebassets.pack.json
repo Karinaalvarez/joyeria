@@ -17,12 +17,20 @@
       "PackagePath": "staticwebassets\\imagenes\\bebe.png"
     },
     {
+      "Id": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\lenca.gif",
+      "PackagePath": "staticwebassets\\imagenes\\lenca.gif"
+    },
+    {
       "Id": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\logo.png",
       "PackagePath": "staticwebassets\\imagenes\\logo.png"
     },
     {
       "Id": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\maya.png",
       "PackagePath": "staticwebassets\\imagenes\\maya.png"
+    },
+    {
+      "Id": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\mitierra.png",
+      "PackagePath": "staticwebassets\\imagenes\\mitierra.png"
     },
     {
       "Id": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\oro.png",
