@@ -19,15 +19,17 @@
     Console.WriteLine($"NombreCategoria: {ViewBag.NombreCategoria}, EsCategoriaBebe: {esCategoriaBebe}, EsCategoriaOro: {esCategoriaOro}, EsCategoriaPlata: {esCategoriaPlata}, EsCategoriaReligiosa: {esCategoriaReligiosa}, EsCategoriaLenca: {esCategoriaLenca}, EsCategoriaLencaReal: {esCategoriaLencaReal}, EsCategoriamiTierra: {esCategoriamiTierra}, EsCategoriaAccesorio: {esCategoriaAccesorio}, Role: {role}, EsUsuarioNormal: {esUsuarioNormal}");
 }
 
+@if (esCategoriaBebe && esUsuarioNormal)
+{
+    <div class="text-center mb-4 px-0">
+        <img src="@Url.Content("~/imagenes/logo.png")" alt="Logo" class="img-fluid" style="max-height: 80px; display: block; margin: 0 auto;">
+    </div>
+    <div class="mb-4 px-0">
+        <img src="@Url.Content("~/imagenes/bebe.png")" alt="Categoría Bebés" class="img-fluid w-100" style="display: block;">
+    </div>
+}
+
 <div class="container mt-4">
-    @if (esCategoriaBebe && esUsuarioNormal)
-    {
-        <div class="text-center mb-4">
-            <img src="@Url.Content("~/imagenes/logo.png")" alt="Logo" class="img-fluid" style="max-height: 80px; display: block; margin: 0 auto;">
-            <img src="@Url.Content("~/imagenes/bebe.png")" alt="Categoría Bebés" class="img-fluid mt-3" style="max-width: 100%; display: block; margin: 0 auto;">
-        </div>
-    }
-    
     @if (esCategoriaOro && esUsuarioNormal)
     {
         <div class="text-center mb-4 border rounded p-3 shadow-sm" style="background-color: #FFF9F0;">
