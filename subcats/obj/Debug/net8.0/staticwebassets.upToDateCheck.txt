@@ -1,5 +1,6 @@
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\imagenes\bebe.png
 wwwroot\imagenes\logo.png
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\Boots.css

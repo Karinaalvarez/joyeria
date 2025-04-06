@@ -1,9 +1,27 @@
 @model List<subcats.dto.Producto>
 @{
     ViewData["Title"] = ViewBag.NombreCategoria != null ? ViewBag.NombreCategoria : "Catálogo de Productos";
+    // Obtener el ID de la categoría actual y comprobar si es la categoría de bebés
+    var categoriaId = ViewBag.CategoriaId;
+    var nombreCategoria = ViewBag.NombreCategoria?.ToString().ToLower() ?? "";
+    var esCategoriaBebe = nombreCategoria.Contains("bebe") || nombreCategoria.Contains("bebé") || nombreCategoria.Contains("bebés");
+    var role = Context.Session.GetString("Role");
+    var esUsuarioNormal = role != "Admin";
+    
+    // Debug - imprimir información para depuración
+    Console.WriteLine($"NombreCategoria: {ViewBag.NombreCategoria}, EsCategoriaBebe: {esCategoriaBebe}, Role: {role}, EsUsuarioNormal: {esUsuarioNormal}");
 }
 
 <div class="container mt-4">
+    @if (esCategoriaBebe && esUsuarioNormal)
+    {
+        <div class="text-center mb-4 border rounded p-3 shadow-sm" style="background-color: #FFF9F0;">
+            <h2 class="text-warning mb-3" style="color: #ff5733 !important;">Productos para Bebés</h2>
+            <img src="@Url.Content("~/imagenes/bebe.png")" alt="Categoría Bebés" class="img-fluid rounded" style="max-height: 300px; display: block; margin: 0 auto;">
+            <p class="mt-3 text-muted">Encuentra los mejores productos para tu bebé</p>
+        </div>
+    }
+    
     <div class="mb-4 d-flex justify-content-between align-items-center">
         <div>
             <h1 class="display-4">

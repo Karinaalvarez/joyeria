@@ -609,6 +609,7 @@ namespace subcats.Controllers
                     if (categoria != null)
                     {
                         nombreCategoria = categoria.Nombre;
+                        Console.WriteLine($"Mostrando categoría: {nombreCategoria} (ID: {id})");
                     }
                 }
                 
@@ -617,6 +618,7 @@ namespace subcats.Controllers
                 
                 // Verificar el rol del usuario
                 var role = HttpContext.Session.GetString("Role");
+                Console.WriteLine($"Rol del usuario: {role}");
                 
                 // Si es un usuario normal, mostrar una vista simplificada
                 if (role != "Admin")
@@ -628,10 +630,12 @@ namespace subcats.Controllers
                         ViewBag.TematicaActiva = tematicaActiva;
                     }
                     
+                    Console.WriteLine("Mostrando vista 'Catalogo' para usuario normal");
                     return View("Catalogo", productos);
                 }
                 
                 // Si es administrador, mostrar la vista completa
+                Console.WriteLine("Mostrando vista 'Index' para administrador");
                 return View("Index", productos);
             }
             catch (Exception ex)
@@ -639,6 +643,32 @@ namespace subcats.Controllers
                 TempData["ErrorMessage"] = "Error al obtener los productos: " + ex.Message;
                 return RedirectToAction("Index");
             }
+        }
+        
+        // GET: Productos/DebuggingInfo
+        public IActionResult DebuggingInfo()
+        {
+            // Verificar la existencia de las imágenes en la carpeta wwwroot/imagenes
+            string wwwrootPath = _webHostEnvironment.WebRootPath;
+            string imagePath = Path.Combine(wwwrootPath, "imagenes", "bebe.png");
+            
+            bool fileExists = System.IO.File.Exists(imagePath);
+            long fileSize = fileExists ? new FileInfo(imagePath).Length : 0;
+            
+            Console.WriteLine($"Path de la imagen: {imagePath}");
+            Console.WriteLine($"La imagen existe: {fileExists}");
+            Console.WriteLine($"Tamaño de la imagen: {fileSize} bytes");
+            
+            // Mostrar rutas importantes
+            Console.WriteLine($"WebRootPath: {_webHostEnvironment.WebRootPath}");
+            Console.WriteLine($"ContentRootPath: {_webHostEnvironment.ContentRootPath}");
+            
+            // Devolver algo para la vista
+            ViewBag.ImagePath = imagePath;
+            ViewBag.FileExists = fileExists;
+            ViewBag.FileSize = fileSize;
+            
+            return View();
         }
     }
 }
