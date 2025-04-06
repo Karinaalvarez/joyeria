@@ -83,9 +83,9 @@
     }
     
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary border-bottom box-shadow mb-3 py-0">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                <a class="navbar-brand py-1" asp-area="" asp-controller="Home" asp-action="Index">
                     <i class="bi bi-shop"></i> Mikasa
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -98,7 +98,7 @@
                         @if (!string.IsNullOrEmpty(userId))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">
+                                <a class="nav-link text-white py-2" asp-area="" asp-controller="Home" asp-action="Index">
                                     <i class="bi bi-house-door"></i> Inicio
                                 </a>
                             </li>
@@ -110,7 +110,7 @@
                         @if (!string.IsNullOrEmpty(userId))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Productos" asp-action="Index">
+                                <a class="nav-link text-white py-2" asp-area="" asp-controller="Productos" asp-action="Index">
                                     <i class="bi bi-grid-3x3-gap"></i> Productos
                                 </a>
                             </li>
@@ -121,7 +121,7 @@
                                 @foreach (var categoria in categorias)
                                 {
                                     <li class="nav-item">
-                                        <a class="nav-link text-white" asp-area="" asp-controller="Productos" asp-action="Categoria" asp-route-id="@categoria.Id">
+                                        <a class="nav-link text-white py-2" asp-area="" asp-controller="Productos" asp-action="Categoria" asp-route-id="@categoria.Id">
                                             <i class="bi bi-tag"></i> @categoria.Nombre
                                         </a>
                                     </li>
@@ -130,27 +130,27 @@
                             else
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" asp-area="" asp-controller="Tematicas" asp-action="Index">
+                                    <a class="nav-link text-white py-2" asp-area="" asp-controller="Tematicas" asp-action="Index">
                                         <i class="bi bi-palette"></i> Gestionar Temáticas
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" asp-area="" asp-controller="Categorias" asp-action="Index">
+                                    <a class="nav-link text-white py-2" asp-area="" asp-controller="Categorias" asp-action="Index">
                                         <i class="bi bi-tags"></i> Administrar Categorías
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" asp-area="" asp-controller="Proveedores" asp-action="Index">
+                                    <a class="nav-link text-white py-2" asp-area="" asp-controller="Proveedores" asp-action="Index">
                                         <i class="bi bi-truck"></i> Proveedores
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" asp-area="" asp-controller="Usuarios" asp-action="Index">
+                                    <a class="nav-link text-white py-2" asp-area="" asp-controller="Usuarios" asp-action="Index">
                                         <i class="bi bi-person-gear"></i> Usuarios
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" asp-area="" asp-controller="Reportes" asp-action="Index">
+                                    <a class="nav-link text-white py-2" asp-area="" asp-controller="Reportes" asp-action="Index">
                                         <i class="bi bi-graph-up"></i> Reportes
                                     </a>
                                 </li>
@@ -163,7 +163,7 @@
                         @if (!string.IsNullOrEmpty(userId))
                         {
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle text-white py-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-person-circle"></i> Hola, @username
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -174,7 +174,7 @@
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Auth" asp-action="Login">
+                                <a class="nav-link text-white py-2" asp-area="" asp-controller="Auth" asp-action="Login">
                                     <i class="bi bi-box-arrow-in-right"></i> Iniciar Sesión
                                 </a>
                             </li>
