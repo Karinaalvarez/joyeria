@@ -1,8 +1,6 @@
 @model List<subcats.dto.Producto>
 @{
     ViewData["Title"] = ViewBag.NombreCategoria != null ? ViewBag.NombreCategoria : "Catálogo de Productos";
-    // Obtener el ID de la categoría actual y comprobar si es la categoría adecuada
-    var categoriaId = ViewBag.CategoriaId;
     var nombreCategoria = ViewBag.NombreCategoria?.ToString().ToLower() ?? "";
     var esCategoriaBebe = nombreCategoria.Contains("bebe") || nombreCategoria.Contains("bebé") || nombreCategoria.Contains("bebés");
     var esCategoriaOro = nombreCategoria.Contains("oro");
@@ -14,9 +12,6 @@
     var esCategoriaAccesorio = nombreCategoria.Contains("accesorio");
     var role = Context.Session.GetString("Role");
     var esUsuarioNormal = role != "Admin";
-    
-    // Debug - imprimir información para depuración
-    Console.WriteLine($"NombreCategoria: {ViewBag.NombreCategoria}, EsCategoriaBebe: {esCategoriaBebe}, EsCategoriaOro: {esCategoriaOro}, EsCategoriaPlata: {esCategoriaPlata}, EsCategoriaReligiosa: {esCategoriaReligiosa}, EsCategoriaLenca: {esCategoriaLenca}, EsCategoriaLencaReal: {esCategoriaLencaReal}, EsCategoriamiTierra: {esCategoriamiTierra}, EsCategoriaAccesorio: {esCategoriaAccesorio}, Role: {role}, EsUsuarioNormal: {esUsuarioNormal}");
 }
 
 <style>
