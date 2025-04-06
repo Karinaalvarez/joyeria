@@ -11,11 +11,12 @@
     var esCategoriaLenca = nombreCategoria.Contains("maya");
     var esCategoriaLencaReal = nombreCategoria.Contains("lenca");
     var esCategoriamiTierra = nombreCategoria.Contains("tierra") || nombreCategoria.Contains("mitierra");
+    var esCategoriaAccesorio = nombreCategoria.Contains("accesorio");
     var role = Context.Session.GetString("Role");
     var esUsuarioNormal = role != "Admin";
     
     // Debug - imprimir información para depuración
-    Console.WriteLine($"NombreCategoria: {ViewBag.NombreCategoria}, EsCategoriaBebe: {esCategoriaBebe}, EsCategoriaOro: {esCategoriaOro}, EsCategoriaPlata: {esCategoriaPlata}, EsCategoriaReligiosa: {esCategoriaReligiosa}, EsCategoriaLenca: {esCategoriaLenca}, EsCategoriaLencaReal: {esCategoriaLencaReal}, EsCategoriamiTierra: {esCategoriamiTierra}, Role: {role}, EsUsuarioNormal: {esUsuarioNormal}");
+    Console.WriteLine($"NombreCategoria: {ViewBag.NombreCategoria}, EsCategoriaBebe: {esCategoriaBebe}, EsCategoriaOro: {esCategoriaOro}, EsCategoriaPlata: {esCategoriaPlata}, EsCategoriaReligiosa: {esCategoriaReligiosa}, EsCategoriaLenca: {esCategoriaLenca}, EsCategoriaLencaReal: {esCategoriaLencaReal}, EsCategoriamiTierra: {esCategoriamiTierra}, EsCategoriaAccesorio: {esCategoriaAccesorio}, Role: {role}, EsUsuarioNormal: {esUsuarioNormal}");
 }
 
 <div class="container mt-4">
@@ -72,6 +73,13 @@
         <div class="text-center mb-4 border rounded p-3 shadow-sm" style="background-color: #FFF9F0;">
             <img src="@Url.Content("~/imagenes/logo.png")" alt="Logo" class="img-fluid rounded" style="max-height: 80px; display: block; margin: 0 auto;">
             <img src="@Url.Content("~/imagenes/mitierra.png")" alt="Categoría Mi Tierra" class="img-fluid rounded mt-3" style="max-height: 300px; display: block; margin: 0 auto;">
+        </div>
+    }
+    
+    @if (esCategoriaAccesorio && esUsuarioNormal)
+    {
+        <div class="text-center mb-4 border rounded p-3 shadow-sm" style="background-color: #FFF9F0;">
+            <img src="@Url.Content("~/imagenes/logo.png")" alt="Logo" class="img-fluid rounded" style="max-height: 120px; display: block; margin: 0 auto;">
         </div>
     }
     
