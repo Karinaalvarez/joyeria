@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rq7Vrz4weiH+zfp3Em8MO1Q+4s9smZGjx9LRIQtaRFs=",
+  "Hash": "xgIc0HvorLVnCqKONF10ZGZvvkZpfkGONc5Q2fvaYp8=",
   "Source": "subcats",
   "BasePath": "_content/subcats",
   "Mode": "Default",
@@ -143,6 +143,27 @@
       "OriginalItemSpec": "wwwroot\\imagenes\\logo.png"
     },
     {
+      "Identity": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\maya.png",
+      "SourceId": "subcats",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\",
+      "BasePath": "_content/subcats",
+      "RelativePath": "imagenes/maya#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "qgi888g4dz",
+      "Integrity": "ejcbqLwdc+ATnQkFzx3RFgfXt6ZXeQqkI1CdnWRTlX0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\maya.png"
+    },
+    {
       "Identity": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\oro.png",
       "SourceId": "subcats",
       "SourceType": "Discovered",
@@ -162,6 +183,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\imagenes\\oro.png"
+    },
+    {
+      "Identity": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\plata.png",
+      "SourceId": "subcats",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\",
+      "BasePath": "_content/subcats",
+      "RelativePath": "imagenes/plata#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "1cmbnot0dr",
+      "Integrity": "LxPdj5BiCy3lPB7F4zW9LLHbCdWx962ZzwFOBB1Wj2E=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\plata.png"
+    },
+    {
+      "Identity": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\religiosa.png",
+      "SourceId": "subcats",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\",
+      "BasePath": "_content/subcats",
+      "RelativePath": "imagenes/religiosa#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "tswey322om",
+      "Integrity": "c3RDrs8ij2eiE0Y230/vQjLsZWwBQv0RAiWj1bBnfaA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\religiosa.png"
     },
     {
       "Identity": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\js\\site.js",
@@ -1733,6 +1796,88 @@
       ]
     },
     {
+      "Route": "imagenes/maya.png",
+      "AssetFile": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\maya.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "871939"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ejcbqLwdc+ATnQkFzx3RFgfXt6ZXeQqkI1CdnWRTlX0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 05 Apr 2025 23:16:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ejcbqLwdc+ATnQkFzx3RFgfXt6ZXeQqkI1CdnWRTlX0="
+        }
+      ]
+    },
+    {
+      "Route": "imagenes/maya.qgi888g4dz.png",
+      "AssetFile": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\maya.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "871939"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ejcbqLwdc+ATnQkFzx3RFgfXt6ZXeQqkI1CdnWRTlX0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 05 Apr 2025 23:16:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qgi888g4dz"
+        },
+        {
+          "Name": "label",
+          "Value": "imagenes/maya.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ejcbqLwdc+ATnQkFzx3RFgfXt6ZXeQqkI1CdnWRTlX0="
+        }
+      ]
+    },
+    {
       "Route": "imagenes/oro.ehcxi320mp.png",
       "AssetFile": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\oro.png",
       "Selectors": [],
@@ -1811,6 +1956,170 @@
         {
           "Name": "integrity",
           "Value": "sha256-juTi5zLkPFr9kTPm+TBrcN4GLU1hbPghc8Oo0MOGZDo="
+        }
+      ]
+    },
+    {
+      "Route": "imagenes/plata.1cmbnot0dr.png",
+      "AssetFile": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\plata.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1244663"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"LxPdj5BiCy3lPB7F4zW9LLHbCdWx962ZzwFOBB1Wj2E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 05 Apr 2025 23:12:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1cmbnot0dr"
+        },
+        {
+          "Name": "label",
+          "Value": "imagenes/plata.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-LxPdj5BiCy3lPB7F4zW9LLHbCdWx962ZzwFOBB1Wj2E="
+        }
+      ]
+    },
+    {
+      "Route": "imagenes/plata.png",
+      "AssetFile": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\plata.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1244663"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"LxPdj5BiCy3lPB7F4zW9LLHbCdWx962ZzwFOBB1Wj2E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 05 Apr 2025 23:12:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-LxPdj5BiCy3lPB7F4zW9LLHbCdWx962ZzwFOBB1Wj2E="
+        }
+      ]
+    },
+    {
+      "Route": "imagenes/religiosa.png",
+      "AssetFile": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\religiosa.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "686908"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"c3RDrs8ij2eiE0Y230/vQjLsZWwBQv0RAiWj1bBnfaA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 05 Apr 2025 23:15:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-c3RDrs8ij2eiE0Y230/vQjLsZWwBQv0RAiWj1bBnfaA="
+        }
+      ]
+    },
+    {
+      "Route": "imagenes/religiosa.tswey322om.png",
+      "AssetFile": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\religiosa.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "686908"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"c3RDrs8ij2eiE0Y230/vQjLsZWwBQv0RAiWj1bBnfaA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 05 Apr 2025 23:15:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "tswey322om"
+        },
+        {
+          "Name": "label",
+          "Value": "imagenes/religiosa.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-c3RDrs8ij2eiE0Y230/vQjLsZWwBQv0RAiWj1bBnfaA="
         }
       ]
     },

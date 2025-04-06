@@ -21,8 +21,20 @@
       "PackagePath": "staticwebassets\\imagenes\\logo.png"
     },
     {
+      "Id": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\maya.png",
+      "PackagePath": "staticwebassets\\imagenes\\maya.png"
+    },
+    {
       "Id": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\oro.png",
       "PackagePath": "staticwebassets\\imagenes\\oro.png"
+    },
+    {
+      "Id": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\plata.png",
+      "PackagePath": "staticwebassets\\imagenes\\plata.png"
+    },
+    {
+      "Id": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\religiosa.png",
+      "PackagePath": "staticwebassets\\imagenes\\religiosa.png"
     },
     {
       "Id": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\js\\site.js",

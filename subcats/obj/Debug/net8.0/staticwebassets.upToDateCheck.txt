@@ -2,7 +2,10 @@ wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\imagenes\bebe.png
 wwwroot\imagenes\logo.png
+wwwroot\imagenes\maya.png
 wwwroot\imagenes\oro.png
+wwwroot\imagenes\plata.png
+wwwroot\imagenes\religiosa.png
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\Boots.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
