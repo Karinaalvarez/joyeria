@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Karina\\Downloads\\examen\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\downloads\\examen\\subcats\\views\\productos\\catalogo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\views\\productos\\catalogo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\downloads\\examen\\subcats\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -55,6 +59,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Catalogo.cshtml",
+              "DocumentMoniker": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\Views\\Productos\\Catalogo.cshtml",
+              "RelativeDocumentMoniker": "subcats\\Views\\Productos\\Catalogo.cshtml",
+              "ToolTip": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\Views\\Productos\\Catalogo.cshtml",
+              "RelativeToolTip": "subcats\\Views\\Productos\\Catalogo.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAowBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-06T02:30:50.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "subcats\\Views\\Home\\Index.cshtml",
@@ -67,7 +84,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\Views\\Categorias\\Index.cshtml",
               "RelativeDocumentMoniker": "subcats\\Views\\Categorias\\Index.cshtml",
@@ -79,7 +96,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ProductosController.cs",
               "DocumentMoniker": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\Controllers\\ProductosController.cs",
               "RelativeDocumentMoniker": "subcats\\Controllers\\ProductosController.cs",
@@ -91,7 +108,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "SubCategorias.cs",
               "DocumentMoniker": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\dto\\SubCategorias.cs",
               "RelativeDocumentMoniker": "subcats\\dto\\SubCategorias.cs",
@@ -103,7 +120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Dao.cs",
               "DocumentMoniker": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\customClass\\Dao.cs",
               "RelativeDocumentMoniker": "subcats\\customClass\\Dao.cs",
@@ -115,7 +132,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Conection.cs",
               "DocumentMoniker": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\customClass\\Conection.cs",
               "RelativeDocumentMoniker": "subcats\\customClass\\Conection.cs",
@@ -127,7 +144,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\Program.cs",
               "RelativeDocumentMoniker": "subcats\\Program.cs",

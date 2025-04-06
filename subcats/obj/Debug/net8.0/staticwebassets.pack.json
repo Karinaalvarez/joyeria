@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\imagenes\\logo.png"
     },
     {
+      "Id": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\oro.png",
+      "PackagePath": "staticwebassets\\imagenes\\oro.png"
+    },
+    {
       "Id": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
