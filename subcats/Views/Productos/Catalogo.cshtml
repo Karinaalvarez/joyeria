@@ -19,96 +19,126 @@
     Console.WriteLine($"NombreCategoria: {ViewBag.NombreCategoria}, EsCategoriaBebe: {esCategoriaBebe}, EsCategoriaOro: {esCategoriaOro}, EsCategoriaPlata: {esCategoriaPlata}, EsCategoriaReligiosa: {esCategoriaReligiosa}, EsCategoriaLenca: {esCategoriaLenca}, EsCategoriaLencaReal: {esCategoriaLencaReal}, EsCategoriamiTierra: {esCategoriamiTierra}, EsCategoriaAccesorio: {esCategoriaAccesorio}, Role: {role}, EsUsuarioNormal: {esUsuarioNormal}");
 }
 
+<style>
+    /* Estilo para el logo */
+    .logo-imagen {
+        max-height: 80px;
+        width: auto;
+        display: block;
+        margin: 0 auto;
+    }
+    
+    /* Estilo para las imágenes de categoría */
+    .categoria-imagen {
+        max-height: 350px;
+        max-width: 100%;
+        width: auto;
+        display: block;
+        margin: 0 auto;
+        object-fit: contain;
+    }
+    
+    /* Contenedor de imágenes */
+    .imagen-container {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+</style>
+
 @if (esCategoriaBebe && esUsuarioNormal)
 {
-    <style>
-        /* Eliminar todos los márgenes y padding del cuerpo */
-        body {
-            overflow-x: hidden;
-        }
-        
-        /* Estilo para la imagen que elimina cualquier margen */
-        .imagen-fullwidth {
-            width: 100vw;
-            position: relative;
-            left: 50%;
-            right: 50%;
-            margin-left: -50vw;
-            margin-right: -50vw;
-            margin-top: 0;
-            margin-bottom: 20px;
-        }
-        
-        /* Logo centrado */
-        .logo-centrado {
-            display: block;
-            margin: 0 auto 20px auto;
-            max-height: 80px;
-        }
-    </style>
-    
-    <div class="text-center">
-        <img src="@Url.Content("~/imagenes/logo.png")" alt="Logo" class="logo-centrado">
+    <div class="container mt-4">
+        <div class="imagen-container">
+            <img src="@Url.Content("~/imagenes/logo.png")" alt="Logo" class="logo-imagen">
+        </div>
+        <div class="imagen-container">
+            <img src="@Url.Content("~/imagenes/bebe.png")" alt="Categoría Bebés" class="categoria-imagen">
+        </div>
     </div>
-    <img src="@Url.Content("~/imagenes/bebe.png")" alt="Categoría Bebés" class="imagen-fullwidth">
+}
+
+@if (esCategoriaOro && esUsuarioNormal)
+{
+    <div class="container mt-4">
+        <div class="imagen-container">
+            <img src="@Url.Content("~/imagenes/logo.png")" alt="Logo" class="logo-imagen">
+        </div>
+        <div class="imagen-container">
+            <img src="@Url.Content("~/imagenes/oro.png")" alt="Categoría Oro" class="categoria-imagen">
+        </div>
+    </div>
+}
+
+@if (esCategoriaPlata && esUsuarioNormal)
+{
+    <div class="container mt-4">
+        <div class="imagen-container">
+            <img src="@Url.Content("~/imagenes/logo.png")" alt="Logo" class="logo-imagen">
+        </div>
+        <div class="imagen-container">
+            <img src="@Url.Content("~/imagenes/plata.png")" alt="Categoría Plata" class="categoria-imagen">
+        </div>
+    </div>
+}
+
+@if (esCategoriaReligiosa && esUsuarioNormal)
+{
+    <div class="container mt-4">
+        <div class="imagen-container">
+            <img src="@Url.Content("~/imagenes/logo.png")" alt="Logo" class="logo-imagen">
+        </div>
+        <div class="imagen-container">
+            <img src="@Url.Content("~/imagenes/religiosa.png")" alt="Categoría Religiosa" class="categoria-imagen">
+        </div>
+    </div>
+}
+
+@if (esCategoriaLenca && esUsuarioNormal)
+{
+    <div class="container mt-4">
+        <div class="imagen-container">
+            <img src="@Url.Content("~/imagenes/logo.png")" alt="Logo" class="logo-imagen">
+        </div>
+        <div class="imagen-container">
+            <img src="@Url.Content("~/imagenes/maya.png")" alt="Categoría Maya" class="categoria-imagen">
+        </div>
+    </div>
+}
+
+@if (esCategoriaLencaReal && esUsuarioNormal)
+{
+    <div class="container mt-4">
+        <div class="imagen-container">
+            <img src="@Url.Content("~/imagenes/logo.png")" alt="Logo" class="logo-imagen">
+        </div>
+        <div class="imagen-container">
+            <img src="@Url.Content("~/imagenes/lenca.gif")" alt="Categoría Lenca" class="categoria-imagen">
+        </div>
+    </div>
+}
+
+@if (esCategoriamiTierra && esUsuarioNormal)
+{
+    <div class="container mt-4">
+        <div class="imagen-container">
+            <img src="@Url.Content("~/imagenes/logo.png")" alt="Logo" class="logo-imagen">
+        </div>
+        <div class="imagen-container">
+            <img src="@Url.Content("~/imagenes/mitierra.png")" alt="Categoría Mi Tierra" class="categoria-imagen">
+        </div>
+    </div>
+}
+
+@if (esCategoriaAccesorio && esUsuarioNormal)
+{
+    <div class="container mt-4">
+        <div class="imagen-container">
+            <img src="@Url.Content("~/imagenes/logo.png")" alt="Logo" class="logo-imagen" style="max-height: 120px;">
+        </div>
+    </div>
 }
 
 <div class="container mt-4">
-    @if (esCategoriaOro && esUsuarioNormal)
-    {
-        <div class="text-center mb-4 border rounded p-3 shadow-sm" style="background-color: #FFF9F0;">
-            <img src="@Url.Content("~/imagenes/logo.png")" alt="Logo" class="img-fluid rounded" style="max-height: 80px; display: block; margin: 0 auto;">
-            <img src="@Url.Content("~/imagenes/oro.png")" alt="Categoría Oro" class="img-fluid rounded mt-3" style="max-height: 300px; display: block; margin: 0 auto;">
-        </div>
-    }
-    
-    @if (esCategoriaPlata && esUsuarioNormal)
-    {
-        <div class="text-center mb-4 border rounded p-3 shadow-sm" style="background-color: #FFF9F0;">
-            <img src="@Url.Content("~/imagenes/logo.png")" alt="Logo" class="img-fluid rounded" style="max-height: 80px; display: block; margin: 0 auto;">
-            <img src="@Url.Content("~/imagenes/plata.png")" alt="Categoría Plata" class="img-fluid rounded mt-3" style="max-height: 300px; display: block; margin: 0 auto;">
-        </div>
-    }
-    
-    @if (esCategoriaReligiosa && esUsuarioNormal)
-    {
-        <div class="text-center mb-4 border rounded p-3 shadow-sm" style="background-color: #FFF9F0;">
-            <img src="@Url.Content("~/imagenes/logo.png")" alt="Logo" class="img-fluid rounded" style="max-height: 80px; display: block; margin: 0 auto;">
-            <img src="@Url.Content("~/imagenes/religiosa.png")" alt="Categoría Religiosa" class="img-fluid rounded mt-3" style="max-height: 300px; display: block; margin: 0 auto;">
-        </div>
-    }
-    
-    @if (esCategoriaLenca && esUsuarioNormal)
-    {
-        <div class="text-center mb-4 border rounded p-3 shadow-sm" style="background-color: #FFF9F0;">
-            <img src="@Url.Content("~/imagenes/logo.png")" alt="Logo" class="img-fluid rounded" style="max-height: 80px; display: block; margin: 0 auto;">
-            <img src="@Url.Content("~/imagenes/maya.png")" alt="Categoría Maya" class="img-fluid rounded mt-3" style="max-height: 300px; display: block; margin: 0 auto;">
-        </div>
-    }
-    
-    @if (esCategoriaLencaReal && esUsuarioNormal)
-    {
-        <div class="text-center mb-4 border rounded p-3 shadow-sm" style="background-color: #FFF9F0;">
-            <img src="@Url.Content("~/imagenes/logo.png")" alt="Logo" class="img-fluid rounded" style="max-height: 80px; display: block; margin: 0 auto;">
-            <img src="@Url.Content("~/imagenes/lenca.gif")" alt="Categoría Lenca" class="img-fluid rounded mt-3" style="max-height: 300px; display: block; margin: 0 auto;">
-        </div>
-    }
-    
-    @if (esCategoriamiTierra && esUsuarioNormal)
-    {
-        <div class="text-center mb-4 border rounded p-3 shadow-sm" style="background-color: #FFF9F0;">
-            <img src="@Url.Content("~/imagenes/logo.png")" alt="Logo" class="img-fluid rounded" style="max-height: 80px; display: block; margin: 0 auto;">
-            <img src="@Url.Content("~/imagenes/mitierra.png")" alt="Categoría Mi Tierra" class="img-fluid rounded mt-3" style="max-height: 300px; display: block; margin: 0 auto;">
-        </div>
-    }
-    
-    @if (esCategoriaAccesorio && esUsuarioNormal)
-    {
-        <div class="text-center mb-4 border rounded p-3 shadow-sm" style="background-color: #FFF9F0;">
-            <img src="@Url.Content("~/imagenes/logo.png")" alt="Logo" class="img-fluid rounded" style="max-height: 120px; display: block; margin: 0 auto;">
-        </div>
-    }
-    
     <div class="mb-4 d-flex justify-content-between align-items-center">
         <div>
             <h1 class="display-4">
