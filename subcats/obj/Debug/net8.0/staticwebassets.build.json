@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nZKiMuJqoaHpQuJTBX4sn270BP2mSzWkG3D2LusoWAA=",
+  "Hash": "5/5RzAtxv2Dinew4VINNcTDobJe03yrzoTMCt9iNcsE=",
   "Source": "subcats",
   "BasePath": "_content/subcats",
   "Mode": "Default",
@@ -99,6 +99,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\logo.png",
+      "SourceId": "subcats",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\",
+      "BasePath": "_content/subcats",
+      "RelativePath": "imagenes/logo#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ovm6dffnyz",
+      "Integrity": "VDIZwYWL5ZRb2aOvhhranWAMcnA+sTmHAUC+1D0brjo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\logo.png"
     },
     {
       "Identity": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\js\\site.js",
@@ -1502,6 +1523,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+        }
+      ]
+    },
+    {
+      "Route": "imagenes/logo.ovm6dffnyz.png",
+      "AssetFile": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "52659"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"VDIZwYWL5ZRb2aOvhhranWAMcnA+sTmHAUC+1D0brjo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 00:22:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ovm6dffnyz"
+        },
+        {
+          "Name": "label",
+          "Value": "imagenes/logo.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-VDIZwYWL5ZRb2aOvhhranWAMcnA+sTmHAUC+1D0brjo="
+        }
+      ]
+    },
+    {
+      "Route": "imagenes/logo.png",
+      "AssetFile": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "52659"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"VDIZwYWL5ZRb2aOvhhranWAMcnA+sTmHAUC+1D0brjo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 00:22:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-VDIZwYWL5ZRb2aOvhhranWAMcnA+sTmHAUC+1D0brjo="
         }
       ]
     },
