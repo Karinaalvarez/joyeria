@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "SSfUXmBd5Aj/8L7WNon+gzVxFuyytWrSQy8FMj700Pc=",
+  "Hash": "ZJ4PWyaa+GTP5h9YlxuKYRJfHMD3zCHcPnRuKChRiLc=",
   "Source": "subcats",
   "BasePath": "_content/subcats",
   "Mode": "Default",
@@ -99,6 +99,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\bannerAnillos.jpg",
+      "SourceId": "subcats",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\",
+      "BasePath": "_content/subcats",
+      "RelativePath": "imagenes/bannerAnillos#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "0522bw5d3m",
+      "Integrity": "rI0AaODN+oKPLENAMv1fy45RVIIxdBnLQk5bemLhV24=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\bannerAnillos.jpg"
     },
     {
       "Identity": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\bebe.png",
@@ -1691,6 +1712,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+        }
+      ]
+    },
+    {
+      "Route": "imagenes/bannerAnillos.0522bw5d3m.jpg",
+      "AssetFile": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\bannerAnillos.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "84511"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"rI0AaODN+oKPLENAMv1fy45RVIIxdBnLQk5bemLhV24=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 06:11:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0522bw5d3m"
+        },
+        {
+          "Name": "label",
+          "Value": "imagenes/bannerAnillos.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-rI0AaODN+oKPLENAMv1fy45RVIIxdBnLQk5bemLhV24="
+        }
+      ]
+    },
+    {
+      "Route": "imagenes/bannerAnillos.jpg",
+      "AssetFile": "C:\\Users\\Karina\\Downloads\\examen\\subcats\\wwwroot\\imagenes\\bannerAnillos.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "84511"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"rI0AaODN+oKPLENAMv1fy45RVIIxdBnLQk5bemLhV24=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 06:11:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-rI0AaODN+oKPLENAMv1fy45RVIIxdBnLQk5bemLhV24="
         }
       ]
     },

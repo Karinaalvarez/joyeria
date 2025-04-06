@@ -10,6 +10,7 @@
     var esCategoriaLencaReal = nombreCategoria.Contains("lenca");
     var esCategoriamiTierra = nombreCategoria.Contains("tierra") || nombreCategoria.Contains("mitierra");
     var esCategoriaAccesorio = nombreCategoria.Contains("accesorio");
+    var esCategoriaAnillos = nombreCategoria.Contains("anillo");
     var role = Context.Session.GetString("Role");
     var esUsuarioNormal = role != "Admin";
 }
@@ -129,6 +130,18 @@
     <div class="container mt-4">
         <div class="imagen-container">
             <img src="@Url.Content("~/imagenes/logo.png")" alt="Logo" class="logo-imagen" style="max-height: 120px;">
+        </div>
+    </div>
+}
+
+@if (esCategoriaAnillos && esUsuarioNormal)
+{
+    <div class="container mt-4">
+        <div class="imagen-container">
+            <img src="@Url.Content("~/imagenes/joyeria.png")" alt="Logo Joyería" class="logo-imagen" style="max-height: 100px;">
+        </div>
+        <div class="imagen-container">
+            <img src="@Url.Content("~/imagenes/bannerAnillos.jpg")" alt="Categoría Anillos" class="categoria-imagen">
         </div>
     </div>
 }

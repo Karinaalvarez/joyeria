@@ -1,5 +1,6 @@
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\imagenes\bannerAnillos.jpg
 wwwroot\imagenes\bebe.png
 wwwroot\imagenes\joyeria.png
 wwwroot\imagenes\lenca.gif
