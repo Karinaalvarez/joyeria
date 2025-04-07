@@ -30,17 +30,24 @@
     /* Estilo para las imágenes de categoría */
     .categoria-imagen {
         max-height: 350px;
-        max-width: 100%;
-        width: auto;
+        width: 100%;
         display: block;
         margin: 0 auto;
-        object-fit: contain;
+        object-fit: cover;
     }
     
     /* Contenedor de imágenes */
     .imagen-container {
         text-align: center;
         margin-bottom: 20px;
+        padding: 0;
+    }
+
+    /* Contenedor sin margen para banner */
+    .banner-container {
+        padding: 0;
+        margin: 0;
+        width: 100%;
     }
 </style>
 
@@ -163,12 +170,12 @@
 
 @if (esCategoriaCollares && esUsuarioNormal)
 {
-    <div class="container mt-4">
+    <div class="container-fluid p-0">
         <div class="imagen-container">
             <img src="@Url.Content("~/imagenes/logos2.png")" alt="Logo Joyería" class="logo-imagen">
         </div>
-        <div class="imagen-container">
-            <img src="@Url.Content("~/imagenes/bannerCollares.jpg")" alt="Categoría Collares" class="categoria-imagen">
+        <div class="banner-container">
+            <img src="@Url.Content("~/imagenes/bannerCollares2.jpg")" alt="Categoría Collares" class="categoria-imagen">
         </div>
     </div>
 }
