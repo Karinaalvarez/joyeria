@@ -9,7 +9,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card shadow-lg border-0 rounded-lg">
-                <div class="card-header bg-gradient-primary text-white text-center py-4" style="background: linear-gradient(135deg, #ff8c42 0%, #ff5733 100%);">
+                <div class="card-header text-white text-center py-4" style="background: linear-gradient(135deg, #E67A9E 0%, #D25A82 100%);">
                     <div class="text-center mb-3">
                         <img src="~/imagenes/logos2.png" alt="Logo" class="img-fluid" style="max-height: 120px;">
                     </div>
@@ -39,20 +39,35 @@
                         </div>
                         
                         <div class="d-grid gap-2 mb-3">
-                            <button type="submit" class="btn btn-lg text-white fw-bold" style="background: linear-gradient(135deg, #ff8c42 0%, #ff5733 100%); border-radius: 10px; transition: all 0.3s ease;">
+                            <button type="submit" class="btn btn-lg text-white fw-bold" style="background: linear-gradient(135deg, #E67A9E 0%, #D25A82 100%); border-radius: 10px; transition: all 0.3s ease;">
                                 Iniciar Sesión
                             </button>
                         </div>
                     </form>
                     
                     <div class="text-center mt-4">
-                        <p class="mb-0">¿No tienes una cuenta? <a asp-action="Register" class="fw-bold" style="color: #ff5733; text-decoration: none;">Regístrate aquí</a></p>
+                        <p class="mb-0">¿No tienes una cuenta? <a asp-action="Register" class="fw-bold" style="color: #D25A82; text-decoration: none;">Regístrate aquí</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    .card {
+        border-color: #E9D1DA;
+    }
+    
+    .form-control:focus {
+        border-color: #E67A9E;
+        box-shadow: 0 0 0 0.25rem rgba(230, 122, 158, 0.25);
+    }
+    
+    .btn:hover {
+        background: linear-gradient(135deg, #D25A82 0%, #BC4A70 100%) !important;
+    }
+</style>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
