@@ -378,10 +378,10 @@ C:\Users\Karina\Downloads\examen\subcats\obj\Debug\net8.0\staticwebassets\msbuil
 C:\Users\Karina\Downloads\examen\subcats\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.subcats.props
 C:\Users\Karina\Downloads\examen\subcats\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.subcats.props
 C:\Users\Karina\Downloads\examen\subcats\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\Karina\Downloads\examen\subcats\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Karina\Downloads\examen\subcats\obj\Debug\net8.0\subcats.csproj.Up2Date
 C:\Users\Karina\Downloads\examen\subcats\obj\Debug\net8.0\subcats.dll
 C:\Users\Karina\Downloads\examen\subcats\obj\Debug\net8.0\refint\subcats.dll
 C:\Users\Karina\Downloads\examen\subcats\obj\Debug\net8.0\subcats.pdb
 C:\Users\Karina\Downloads\examen\subcats\obj\Debug\net8.0\subcats.genruntimeconfig.cache
 C:\Users\Karina\Downloads\examen\subcats\obj\Debug\net8.0\ref\subcats.dll
+C:\Users\Karina\Downloads\examen\subcats\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
