@@ -35,7 +35,7 @@
             @foreach (var producto in Model)
             {
                 <div class="col">
-                    <div class="card h-100 shadow-sm">
+                    <div class="card h-100 shadow-sm" style="border: 2px solid #dee2e6; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;">
                         @if (producto.Imagen != null && producto.Imagen.Length > 0)
                         {
                             <img src="@Url.Action("GetImage", "Productos", new { id = producto.Id_producto })" 
