@@ -8,6 +8,7 @@ wwwroot\imagenes\bebe.png
 wwwroot\imagenes\joyeria.png
 wwwroot\imagenes\lenca.gif
 wwwroot\imagenes\logo.png
+wwwroot\imagenes\logos2.png
 wwwroot\imagenes\maya.png
 wwwroot\imagenes\mitierra.png
 wwwroot\imagenes\oro.png

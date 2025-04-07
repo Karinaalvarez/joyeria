@@ -823,6 +823,88 @@
       ]
     },
     {
+      "Route": "imagenes/logos2.nxk5y3snll.png",
+      "AssetFile": "imagenes/logos2.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12381"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"O8ex0CV+LMFyez+7/0yyhnP67N36rKjhFyeji7x7sE8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 07 Apr 2025 03:33:42 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nxk5y3snll"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-O8ex0CV+LMFyez+7/0yyhnP67N36rKjhFyeji7x7sE8="
+        },
+        {
+          "Name": "label",
+          "Value": "imagenes/logos2.png"
+        }
+      ]
+    },
+    {
+      "Route": "imagenes/logos2.png",
+      "AssetFile": "imagenes/logos2.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12381"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"O8ex0CV+LMFyez+7/0yyhnP67N36rKjhFyeji7x7sE8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 07 Apr 2025 03:33:42 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-O8ex0CV+LMFyez+7/0yyhnP67N36rKjhFyeji7x7sE8="
+        }
+      ]
+    },
+    {
       "Route": "imagenes/maya.png",
       "AssetFile": "imagenes/maya.png",
       "Selectors": [],
