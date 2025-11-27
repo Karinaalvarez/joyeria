@@ -385,3 +385,17 @@ C:\Users\Karina\Downloads\examen\subcats\obj\Debug\net8.0\subcats.pdb
 C:\Users\Karina\Downloads\examen\subcats\obj\Debug\net8.0\subcats.genruntimeconfig.cache
 C:\Users\Karina\Downloads\examen\subcats\obj\Debug\net8.0\ref\subcats.dll
 C:\Users\Karina\Downloads\examen\subcats\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\Karina\Downloads\examen\subcats\bin\Debug\net8.0\FSharp.Core.dll
+C:\Users\Karina\Downloads\examen\subcats\bin\Debug\net8.0\cs\FSharp.Core.resources.dll
+C:\Users\Karina\Downloads\examen\subcats\bin\Debug\net8.0\de\FSharp.Core.resources.dll
+C:\Users\Karina\Downloads\examen\subcats\bin\Debug\net8.0\es\FSharp.Core.resources.dll
+C:\Users\Karina\Downloads\examen\subcats\bin\Debug\net8.0\fr\FSharp.Core.resources.dll
+C:\Users\Karina\Downloads\examen\subcats\bin\Debug\net8.0\it\FSharp.Core.resources.dll
+C:\Users\Karina\Downloads\examen\subcats\bin\Debug\net8.0\ja\FSharp.Core.resources.dll
+C:\Users\Karina\Downloads\examen\subcats\bin\Debug\net8.0\ko\FSharp.Core.resources.dll
+C:\Users\Karina\Downloads\examen\subcats\bin\Debug\net8.0\pl\FSharp.Core.resources.dll
+C:\Users\Karina\Downloads\examen\subcats\bin\Debug\net8.0\pt-BR\FSharp.Core.resources.dll
+C:\Users\Karina\Downloads\examen\subcats\bin\Debug\net8.0\ru\FSharp.Core.resources.dll
+C:\Users\Karina\Downloads\examen\subcats\bin\Debug\net8.0\tr\FSharp.Core.resources.dll
+C:\Users\Karina\Downloads\examen\subcats\bin\Debug\net8.0\zh-Hans\FSharp.Core.resources.dll
+C:\Users\Karina\Downloads\examen\subcats\bin\Debug\net8.0\zh-Hant\FSharp.Core.resources.dll
