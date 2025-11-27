@@ -305,8 +305,12 @@
 @section Scripts {
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Cargar el carrito desde localStorage
-            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            // Obtener el ID de usuario actual desde el atributo data del body
+            const userId = document.body.getAttribute('data-user-id');
+            const cartKey = userId && userId !== '' ? `carrito_${userId}` : 'carrito_guest';
+
+            // Cargar el carrito desde localStorage usando la clave por usuario
+            let carrito = JSON.parse(localStorage.getItem(cartKey)) || [];
             actualizarContadorCarrito();
             
             // Agregar evento a los botones de agregar al carrito
@@ -342,8 +346,8 @@
                         });
                     }
                     
-                    // Guardar en localStorage
-                    localStorage.setItem('carrito', JSON.stringify(carrito));
+                    // Guardar en localStorage con la clave del usuario actual
+                    localStorage.setItem(cartKey, JSON.stringify(carrito));
                     
                     // Actualizar contador
                     actualizarContadorCarrito();

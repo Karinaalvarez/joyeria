@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\onedrive\\documents\\joyeria\\subcats\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|c:\\users\\karina\\onedrive\\documents\\joyeria\\subcats\\program.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}",
       "RelativeMoniker": "D:0:0:{56FD062A-D3E4-4229-B563-04E45E418B9B}|subcats\\subcats.csproj|solutionrelative:subcats\\program.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}"
     },
@@ -134,7 +138,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -150,7 +154,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "subcats\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "subcats\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAFgAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-27T21:20:40.808Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Dao.cs",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\customClass\\Dao.cs",
               "RelativeDocumentMoniker": "subcats\\customClass\\Dao.cs",
@@ -162,7 +179,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "WeatherForecast.fs",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\WeatherForecast.fs",
               "RelativeDocumentMoniker": "subcats\\WeatherForecast.fs",
@@ -174,7 +191,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "WeatherForecast.cs",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\WeatherForecast.cs",
               "RelativeDocumentMoniker": "subcats\\WeatherForecast.cs",
@@ -186,7 +203,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "subcats.http",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\subcats.http",
               "RelativeDocumentMoniker": "subcats\\subcats.http",
@@ -198,7 +215,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\Program.cs",
               "RelativeDocumentMoniker": "subcats\\Program.cs",
@@ -210,20 +227,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.fs",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\Program.fs",
               "RelativeDocumentMoniker": "subcats\\Program.fs",
               "ToolTip": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\Program.fs",
               "RelativeToolTip": "subcats\\Program.fs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAjwBkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAwwBkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2025-11-25T20:51:39.028Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "CreateUsuariosTable.sql",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\Scripts\\CreateUsuariosTable.sql",
               "RelativeDocumentMoniker": "subcats\\Scripts\\CreateUsuariosTable.sql",
@@ -234,7 +251,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "RemoveActivoColumn.sql",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\Scripts\\RemoveActivoColumn.sql",
               "RelativeDocumentMoniker": "subcats\\Scripts\\RemoveActivoColumn.sql",
@@ -245,7 +262,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "ModifyProductosTable_RemoveImageUrl.sql",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\Scripts\\ModifyProductosTable_RemoveImageUrl.sql",
               "RelativeDocumentMoniker": "subcats\\Scripts\\ModifyProductosTable_RemoveImageUrl.sql",
@@ -256,7 +273,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "EliminarColumnaImagenUrl.sql",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\Scripts\\EliminarColumnaImagenUrl.sql",
               "RelativeDocumentMoniker": "subcats\\Scripts\\EliminarColumnaImagenUrl.sql",
@@ -267,7 +284,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "AddProveedorToProductos.sql",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\Scripts\\AddProveedorToProductos.sql",
               "RelativeDocumentMoniker": "subcats\\Scripts\\AddProveedorToProductos.sql",
@@ -278,7 +295,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Catalogo.cshtml",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\Views\\Productos\\Catalogo.cshtml",
               "RelativeDocumentMoniker": "subcats\\Views\\Productos\\Catalogo.cshtml",
@@ -290,7 +307,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "CreateEmpleadosTable.sql",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\Scripts\\CreateEmpleadosTable.sql",
               "RelativeDocumentMoniker": "subcats\\Scripts\\CreateEmpleadosTable.sql",
@@ -301,7 +318,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "subcats\\wwwroot\\css\\site.css",
@@ -313,7 +330,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "site.js",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\wwwroot\\js\\site.js",
               "RelativeDocumentMoniker": "subcats\\wwwroot\\js\\site.js",
@@ -325,7 +342,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "subcats",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\subcats.csproj",
               "RelativeDocumentMoniker": "subcats\\subcats.csproj",
@@ -336,7 +353,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "Register.cshtml",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\Views\\Auth\\Register.cshtml",
               "RelativeDocumentMoniker": "subcats\\Views\\Auth\\Register.cshtml",
@@ -348,7 +365,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\Views\\Tematicas\\Index.cshtml",
               "RelativeDocumentMoniker": "subcats\\Views\\Tematicas\\Index.cshtml",
@@ -360,7 +377,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "UsuarioService.cs",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\customClass\\UsuarioService.cs",
               "RelativeDocumentMoniker": "subcats\\customClass\\UsuarioService.cs",
@@ -372,7 +389,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "ImprimirListado.cshtml",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\Views\\Reportes\\ImprimirListado.cshtml",
               "RelativeDocumentMoniker": "subcats\\Views\\Reportes\\ImprimirListado.cshtml",
@@ -384,7 +401,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "ImprimirDetalles.cshtml",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\Views\\Reportes\\ImprimirDetalles.cshtml",
               "RelativeDocumentMoniker": "subcats\\Views\\Reportes\\ImprimirDetalles.cshtml",
@@ -396,7 +413,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\Views\\Reportes\\Index.cshtml",
               "RelativeDocumentMoniker": "subcats\\Views\\Reportes\\Index.cshtml",
@@ -408,7 +425,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "TematicaService.cs",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\customClass\\TematicaService.cs",
               "RelativeDocumentMoniker": "subcats\\customClass\\TematicaService.cs",
@@ -420,7 +437,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "VentasDao.cs",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\customClass\\VentasDao.cs",
               "RelativeDocumentMoniker": "subcats\\customClass\\VentasDao.cs",
@@ -432,7 +449,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "CategoriaService.cs",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\customClass\\CategoriaService.cs",
               "RelativeDocumentMoniker": "subcats\\customClass\\CategoriaService.cs",
@@ -444,7 +461,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "Detalles.cshtml",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\Views\\Reportes\\Detalles.cshtml",
               "RelativeDocumentMoniker": "subcats\\Views\\Reportes\\Detalles.cshtml",
@@ -456,7 +473,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "subcats\\Views\\Home\\Index.cshtml",
@@ -468,7 +485,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\Views\\Categorias\\Index.cshtml",
               "RelativeDocumentMoniker": "subcats\\Views\\Categorias\\Index.cshtml",
@@ -480,7 +497,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "ProductosController.cs",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\Controllers\\ProductosController.cs",
               "RelativeDocumentMoniker": "subcats\\Controllers\\ProductosController.cs",
@@ -492,7 +509,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "SubCategorias.cs",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\dto\\SubCategorias.cs",
               "RelativeDocumentMoniker": "subcats\\dto\\SubCategorias.cs",
@@ -504,7 +521,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "Conection.cs",
               "DocumentMoniker": "C:\\Users\\Karina\\OneDrive\\Documents\\joyeria\\subcats\\customClass\\Conection.cs",
               "RelativeDocumentMoniker": "subcats\\customClass\\Conection.cs",

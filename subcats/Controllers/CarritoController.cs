@@ -164,7 +164,7 @@ namespace subcats.Controllers
             // Verificar si el usuario está autenticado
             if (HttpContext.Session.GetString("UserId") == null)
             {
-                return Json(new { success = false, message = "Usuario no autenticado" });
+                return Json(new { success = false, message = "Debes iniciar sesión para procesar la compra." });
             }
 
             try

@@ -88,6 +88,10 @@
             const confirmarVaciarBtn = document.getElementById('confirmar-vaciar');
             const procesarCompraBtn = document.getElementById('procesar-compra');
             
+            // Determinar la clave de carrito según el usuario actual
+            const userId = document.body.getAttribute('data-user-id');
+            const cartKey = userId && userId !== '' ? `carrito_${userId}` : 'carrito_guest';
+            
             // Modal de Bootstrap
             const vaciarCarritoModal = new bootstrap.Modal(document.getElementById('vaciarCarritoModal'));
             
@@ -101,7 +105,7 @@
             
             // Confirmar vaciar carrito
             confirmarVaciarBtn.addEventListener('click', function() {
-                localStorage.removeItem('carrito');
+                localStorage.removeItem(cartKey);
                 cargarCarrito();
                 vaciarCarritoModal.hide();
                 mostrarMensaje('Carrito vaciado correctamente');
@@ -109,7 +113,7 @@
             
             // Evento para procesar compra
             procesarCompraBtn.addEventListener('click', function(e) {
-                const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+                const carrito = JSON.parse(localStorage.getItem(cartKey)) || [];
                 if (carrito.length === 0) {
                     e.preventDefault();
                     mostrarMensaje('No hay productos en el carrito', 'danger');
@@ -130,7 +134,8 @@
                         // Continuar con la redirección al checkout
                         window.location.href = '/Carrito/Checkout';
                     } else {
-                        mostrarMensaje('Error: ' + data.message, 'danger');
+                        // Mostrar el mensaje devuelto por el servidor (por ejemplo: "Debes iniciar sesión para procesar la compra.")
+                        mostrarMensaje(data.message, 'info');
                         e.preventDefault();
                     }
                 })
@@ -145,7 +150,7 @@
             
             // Función para cargar el carrito
             function cargarCarrito() {
-                const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+                const carrito = JSON.parse(localStorage.getItem(cartKey)) || [];
                 
                 if (carrito.length === 0) {
                     carritoVacio.classList.remove('d-none');
@@ -214,7 +219,7 @@
             
             // Función para actualizar la cantidad de un producto
             function actualizarCantidad(id, cambio) {
-                const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+                const carrito = JSON.parse(localStorage.getItem(cartKey)) || [];
                 const item = carrito.find(item => item.id === id);
                 
                 if (!item) return;
@@ -232,15 +237,15 @@
                     return;
                 }
                 
-                localStorage.setItem('carrito', JSON.stringify(carrito));
+                localStorage.setItem(cartKey, JSON.stringify(carrito));
                 cargarCarrito();
             }
             
             // Función para eliminar un producto del carrito
             function eliminarItem(id) {
-                let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+                let carrito = JSON.parse(localStorage.getItem(cartKey)) || [];
                 carrito = carrito.filter(item => item.id !== id);
-                localStorage.setItem('carrito', JSON.stringify(carrito));
+                localStorage.setItem(cartKey, JSON.stringify(carrito));
                 cargarCarrito();
                 mostrarMensaje('Producto eliminado del carrito');
             }

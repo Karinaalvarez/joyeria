@@ -73,16 +73,22 @@
         }
     </style>
 </head>
-<body>
-    @{
-        var userId = HttpContextAccessor.HttpContext.Session.GetString("UserId");
-        var role = HttpContextAccessor.HttpContext.Session.GetString("Role");
-        var username = HttpContextAccessor.HttpContext.Session.GetString("Username");
-        var nombreCompleto = HttpContextAccessor.HttpContext.Session.GetString("NombreCompleto");
-        var categoriaService = new subcats.customClass.CategoriaService();
-        var categorias = role == "Admin" ? new List<subcats.dto.Categoria>() : categoriaService.ObtenerTodasCategorias();
-    }
-    
+@{
+    var httpContext = HttpContextAccessor.HttpContext;
+    var userId = httpContext?.Session.GetString("UserId");
+    var role = httpContext?.Session.GetString("Role") ?? string.Empty;
+    var username = httpContext?.Session.GetString("Username");
+    var nombreCompleto = httpContext?.Session.GetString("NombreCompleto");
+    var categoriaService = new subcats.customClass.CategoriaService();
+    var categorias = role == "Admin" ? new List<subcats.dto.Categoria>() : categoriaService.ObtenerTodasCategorias();
+
+    var actualController = ViewContext.RouteData.Values["controller"] as string;
+    var actualAction = ViewContext.RouteData.Values["action"] as string;
+    bool hideNavbarAndFooter = actualController == "Auth" && (actualAction == "Login" || actualAction == "Register");
+}
+<body data-user-id="@userId">
+    @if (!hideNavbarAndFooter)
+    {
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary border-bottom box-shadow mb-3 py-0">
             <div class="container-fluid">
@@ -96,66 +102,61 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <!-- Navegación izquierda -->
                     <ul class="navbar-nav">
-                        @if (!string.IsNullOrEmpty(userId))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-white py-2" asp-area="" asp-controller="Home" asp-action="Index">
-                                    <i class="bi bi-house-door"></i> Inicio
-                                </a>
-                            </li>
-                        }
+                        <li class="nav-item">
+                            <a class="nav-link text-white py-2" asp-area="" asp-controller="Home" asp-action="Index">
+                                <i class="bi bi-house-door"></i> Inicio
+                            </a>
+                        </li>
                     </ul>
                     
                     <!-- Navegación central -->
                     <ul class="navbar-nav mx-auto">
-                        @if (!string.IsNullOrEmpty(userId))
+                        <li class="nav-item">
+                            <a class="nav-link text-white py-2" asp-area="" asp-controller="Productos" asp-action="Index">
+                                <i class="bi bi-grid-3x3-gap"></i> Productos
+                            </a>
+                        </li>
+                        
+                        @if (role != "Admin")
                         {
+                            <!-- Mostrar categorías como pestañas para usuarios normales o visitantes -->
+                            @foreach (var categoria in categorias)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-white py-2" asp-area="" asp-controller="Productos" asp-action="Categoria" asp-route-id="@categoria.Id">
+                                        <i class="bi bi-tag"></i> @categoria.Nombre
+                                    </a>
+                                </li>
+                            }
+                        }
+                        else
+                        {
+                            <!-- Opciones solo para administradores -->
                             <li class="nav-item">
-                                <a class="nav-link text-white py-2" asp-area="" asp-controller="Productos" asp-action="Index">
-                                    <i class="bi bi-grid-3x3-gap"></i> Productos
+                                <a class="nav-link text-white py-2" asp-area="" asp-controller="Tematicas" asp-action="Index">
+                                    <i class="bi bi-palette"></i> Gestionar Temáticas
                                 </a>
                             </li>
-                            
-                            @if (role != "Admin")
-                            {
-                                <!-- Mostrar categorías como pestañas para usuarios normales -->
-                                @foreach (var categoria in categorias)
-                                {
-                                    <li class="nav-item">
-                                        <a class="nav-link text-white py-2" asp-area="" asp-controller="Productos" asp-action="Categoria" asp-route-id="@categoria.Id">
-                                            <i class="bi bi-tag"></i> @categoria.Nombre
-                                        </a>
-                                    </li>
-                                }
-                            }
-                            else
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link text-white py-2" asp-area="" asp-controller="Tematicas" asp-action="Index">
-                                        <i class="bi bi-palette"></i> Gestionar Temáticas
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white py-2" asp-area="" asp-controller="Categorias" asp-action="Index">
-                                        <i class="bi bi-tags"></i> Administrar Categorías
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white py-2" asp-area="" asp-controller="Proveedores" asp-action="Index">
-                                        <i class="bi bi-truck"></i> Proveedores
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white py-2" asp-area="" asp-controller="Usuarios" asp-action="Index">
-                                        <i class="bi bi-person-gear"></i> Usuarios
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white py-2" asp-area="" asp-controller="Reportes" asp-action="Index">
-                                        <i class="bi bi-graph-up"></i> Reportes
-                                    </a>
-                                </li>
-                            }
+                            <li class="nav-item">
+                                <a class="nav-link text-white py-2" asp-area="" asp-controller="Categorias" asp-action="Index">
+                                    <i class="bi bi-tags"></i> Administrar Categorías
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white py-2" asp-area="" asp-controller="Proveedores" asp-action="Index">
+                                    <i class="bi bi-truck"></i> Proveedores
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white py-2" asp-area="" asp-controller="Usuarios" asp-action="Index">
+                                    <i class="bi bi-person-gear"></i> Usuarios
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white py-2" asp-area="" asp-controller="Reportes" asp-action="Index">
+                                    <i class="bi bi-graph-up"></i> Reportes
+                                </a>
+                            </li>
                         }
                     </ul>
                     
@@ -212,6 +213,19 @@
             &copy; @DateTime.Now.Year - Joyería - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidad</a>
         </div>
     </footer>
+    }
+    else
+    {
+        <style>
+            body {
+                /* Degradado azul oscuro similar a tu ejemplo */
+                background: linear-gradient(180deg, #2b3f4f 0%, #1f3444 40%, #162836 100%);
+            }
+        </style>
+        <main role="main" class="min-vh-100 d-flex align-items-center justify-content-center">
+            @RenderBody()
+        </main>
+    }
     <!-- Cargar jQuery desde CDN con fallback a archivo local -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
             integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
