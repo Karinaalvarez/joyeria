@@ -18,20 +18,34 @@
                         <input type="hidden" asp-for="Id" />
                         
                         <div class="form-group mb-3">
-                            <label asp-for="Username" class="control-label">Nombre de Usuario</label>
-                            <input asp-for="Username" class="form-control" />
+                            <label asp-for="NombreCompleto" class="control-label">
+                                <i class="bi bi-person-fill"></i> Nombre Completo
+                            </label>
+                            <input asp-for="NombreCompleto" class="form-control" placeholder="Ej: Juan Pérez" />
+                            <span asp-validation-for="NombreCompleto" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-group mb-3">
+                            <label asp-for="Username" class="control-label">
+                                <i class="bi bi-envelope-fill"></i> Correo Electrónico (Gmail)
+                            </label>
+                            <input asp-for="Username" class="form-control" type="email" placeholder="ejemplo@gmail.com" />
                             <span asp-validation-for="Username" class="text-danger"></span>
                         </div>
                         
                         <div class="form-group mb-3">
-                            <label asp-for="Password" class="control-label">Contraseña (dejar en blanco para mantener la actual)</label>
-                            <input asp-for="Password" class="form-control" type="password" data-val="false" />
+                            <label asp-for="Password" class="control-label">
+                                <i class="bi bi-lock-fill"></i> Contraseña (dejar en blanco para mantener la actual)
+                            </label>
+                            <input asp-for="Password" class="form-control" type="password" data-val="false" placeholder="Nueva contraseña" />
                             <span asp-validation-for="Password" class="text-danger"></span>
                             <small class="form-text text-muted">Si no deseas cambiar la contraseña, deja este campo en blanco.</small>
                         </div>
                         
                         <div class="form-group mb-3">
-                            <label asp-for="Role" class="control-label">Rol</label>
+                            <label asp-for="Role" class="control-label">
+                                <i class="bi bi-shield-fill"></i> Rol
+                            </label>
                             <select asp-for="Role" class="form-control">
                                 <option value="">Seleccionar Rol</option>
                                 <option value="Admin">Administrador</option>
@@ -41,8 +55,12 @@
                         </div>
                         
                         <div class="form-group mt-4">
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                            <a asp-action="Index" class="btn btn-secondary">Volver</a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-check-lg"></i> Guardar
+                            </button>
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i> Volver
+                            </a>
                         </div>
                     </form>
                 </div>

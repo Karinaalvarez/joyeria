@@ -21,7 +21,8 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nombre de Usuario</th>
+                        <th>Nombre Completo</th>
+                        <th>Correo Electrónico</th>
                         <th>Rol</th>
                         <th>Acciones</th>
                     </tr>
@@ -31,6 +32,7 @@
                     {
                         <tr>
                             <td>@item.Id</td>
+                            <td>@(item.NombreCompleto ?? "-")</td>
                             <td>@item.Username</td>
                             <td>@item.Role</td>
                             <td>

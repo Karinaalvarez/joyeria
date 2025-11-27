@@ -19,20 +19,14 @@ namespace subcats.Controllers
 
         public IActionResult Index()
         {
-            // Verificar si el usuario está autenticado
-            if (HttpContext.Session.GetString("UserId") == null)
-            {
-                return RedirectToAction("Login", "Auth");
-            }
-
-            // Obtener la temática activa para mostrarla en la vista
+            // Obtener la temática activa (si existe) para mostrar la imagen superior
             var tematicaActiva = _tematicaService.ObtenerTematicaActiva();
             if (tematicaActiva != null)
             {
                 ViewBag.TematicaActiva = tematicaActiva;
             }
 
-            // Mostrar la vista de inicio con la temática
+            // Siempre mostrar la vista "Inicio" (buscador + logo)
             return View("Inicio");
         }
 

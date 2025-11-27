@@ -39,6 +39,7 @@ namespace subcats.Controllers
                     // Guardar información del usuario en la sesión
                     HttpContext.Session.SetString("UserId", usuario.Id.ToString());
                     HttpContext.Session.SetString("Username", usuario.Username);
+                    HttpContext.Session.SetString("NombreCompleto", usuario.NombreCompleto ?? usuario.Username);
                     HttpContext.Session.SetString("Role", usuario.Role);
 
                     // Se ha eliminado el mensaje temporal de diagnóstico
@@ -79,6 +80,7 @@ namespace subcats.Controllers
                 // Crear nuevo usuario con rol "User"
                 var nuevoUsuario = new Usuario
                 {
+                    NombreCompleto = registerDto.NombreCompleto,
                     Username = registerDto.Username,
                     Password = registerDto.Password,
                     Role = "User" // Por defecto, todos los usuarios registrados tendrán rol "User"

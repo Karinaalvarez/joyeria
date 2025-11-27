@@ -78,6 +78,7 @@
         var userId = HttpContextAccessor.HttpContext.Session.GetString("UserId");
         var role = HttpContextAccessor.HttpContext.Session.GetString("Role");
         var username = HttpContextAccessor.HttpContext.Session.GetString("Username");
+        var nombreCompleto = HttpContextAccessor.HttpContext.Session.GetString("NombreCompleto");
         var categoriaService = new subcats.customClass.CategoriaService();
         var categorias = role == "Admin" ? new List<subcats.dto.Categoria>() : categoriaService.ObtenerTodasCategorias();
     }
@@ -164,7 +165,7 @@
                         {
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-white py-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="bi bi-person-circle"></i> Hola, @username
+                                    <i class="bi bi-person-circle"></i> @nombreCompleto
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" asp-controller="Auth" asp-action="Logout"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a></li>

@@ -87,6 +87,7 @@ namespace subcats.Controllers
             var viewModel = new EditarUsuarioViewModel
             {
                 Id = usuario.Id,
+                NombreCompleto = usuario.NombreCompleto,
                 Username = usuario.Username,
                 Password = "", // No mostramos la contraseña actual por seguridad
                 Role = usuario.Role
@@ -137,6 +138,7 @@ namespace subcats.Controllers
                 var usuarioActualizado = new Usuario
                 {
                     Id = viewModel.Id,
+                    NombreCompleto = viewModel.NombreCompleto,
                     Username = viewModel.Username,
                     Role = viewModel.Role,
                     // Si no se proporciona una nueva contraseña, mantener la actual

@@ -7,7 +7,12 @@ namespace subcats.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "El nombre de usuario es obligatorio")]
+        [Display(Name = "Nombre Completo")]
+        public string NombreCompleto { get; set; }
+
+        [Required(ErrorMessage = "El correo electrónico es obligatorio")]
+        [EmailAddress(ErrorMessage = "Ingresa un correo válido")]
+        [Display(Name = "Correo Electrónico")]
         public string Username { get; set; }
 
         // Se ha eliminado el atributo Required para permitir editar usuarios sin cambiar la contraseña

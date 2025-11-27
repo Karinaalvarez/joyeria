@@ -4,8 +4,15 @@ namespace subcats.dto
 {
     public class RegisterDTO
     {
-        [Required(ErrorMessage = "El nombre de usuario es obligatorio")]
-        [StringLength(50, ErrorMessage = "El nombre de usuario no puede tener más de 50 caracteres")]
+        [Required(ErrorMessage = "El nombre completo es obligatorio")]
+        [StringLength(100, ErrorMessage = "El nombre no puede tener más de 100 caracteres")]
+        [Display(Name = "Nombre Completo")]
+        public string NombreCompleto { get; set; }
+
+        [Required(ErrorMessage = "El correo electrónico es obligatorio")]
+        [EmailAddress(ErrorMessage = "Ingresa un correo electrónico válido")]
+        [StringLength(50, ErrorMessage = "El correo no puede tener más de 50 caracteres")]
+        [Display(Name = "Correo Electrónico")]
         public string Username { get; set; }
 
         [Required(ErrorMessage = "La contraseña es obligatoria")]

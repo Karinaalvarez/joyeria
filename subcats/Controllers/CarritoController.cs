@@ -23,12 +23,6 @@ namespace subcats.Controllers
         // GET: Carrito
         public IActionResult Index()
         {
-            // Verificar si el usuario está autenticado
-            if (HttpContext.Session.GetString("UserId") == null)
-            {
-                return RedirectToAction("Login", "Auth");
-            }
-
             return View();
         }
 
@@ -38,6 +32,7 @@ namespace subcats.Controllers
             // Verificar si el usuario está autenticado
             if (HttpContext.Session.GetString("UserId") == null)
             {
+                TempData["ErrorMessage"] = "Debes iniciar sesión para procesar la compra.";
                 return RedirectToAction("Login", "Auth");
             }
 
@@ -139,6 +134,7 @@ namespace subcats.Controllers
             // Verificar si el usuario está autenticado
             if (HttpContext.Session.GetString("UserId") == null)
             {
+                TempData["ErrorMessage"] = "Debes iniciar sesión para ver la factura de tu compra.";
                 return RedirectToAction("Login", "Auth");
             }
 

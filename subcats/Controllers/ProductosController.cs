@@ -32,12 +32,6 @@ namespace subcats.Controllers
         // GET: Productos
         public IActionResult Index(string searchString)
         {
-            // Verificar si el usuario está autenticado
-            if (HttpContext.Session.GetString("UserId") == null)
-            {
-                return RedirectToAction("Login", "Auth");
-            }
-
             try
             {
                 var productos = _db.GetAllProductos();
@@ -80,12 +74,6 @@ namespace subcats.Controllers
         // GET: Productos/Details/5
         public IActionResult Details(int id)
         {
-            // Verificar si el usuario está autenticado
-            if (HttpContext.Session.GetString("UserId") == null)
-            {
-                return RedirectToAction("Login", "Auth");
-            }
-
             try
             {
                 var producto = _db.GetProducto(id.ToString());
@@ -580,12 +568,6 @@ namespace subcats.Controllers
         // GET: Productos/Categoria/5
         public IActionResult Categoria(int id)
         {
-            // Verificar si el usuario está autenticado
-            if (HttpContext.Session.GetString("UserId") == null)
-            {
-                return RedirectToAction("Login", "Auth");
-            }
-
             try
             {
                 List<Producto> productos;

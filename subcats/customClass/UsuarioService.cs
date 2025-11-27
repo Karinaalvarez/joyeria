@@ -20,10 +20,12 @@ namespace subcats.customClass
             try
             {
                 _conn.connection.Open();
-                string query = "SELECT Id, Username, Password, Role FROM Usuarios WHERE Username = @Username AND Password = @Password";
+                // Encriptar la contraseña con MD5 antes de comparar
+                string hashedPassword = HashHelper.ToMD5(password);
+                string query = "SELECT Id, NombreCompleto, Username, Password, Role FROM Usuarios WHERE Username = @Username AND Password = @Password";
                 _conn.sqlCommand = new SqlCommand(query, _conn.connection);
                 _conn.sqlCommand.Parameters.AddWithValue("@Username", username);
-                _conn.sqlCommand.Parameters.AddWithValue("@Password", password);
+                _conn.sqlCommand.Parameters.AddWithValue("@Password", hashedPassword);
 
                 _conn.sqlDataReader = _conn.sqlCommand.ExecuteReader();
 
@@ -32,6 +34,7 @@ namespace subcats.customClass
                     usuario = new Usuario
                     {
                         Id = Convert.ToInt32(_conn.sqlDataReader["Id"]),
+                        NombreCompleto = _conn.sqlDataReader["NombreCompleto"]?.ToString(),
                         Username = _conn.sqlDataReader["Username"].ToString(),
                         Password = _conn.sqlDataReader["Password"].ToString(),
                         Role = _conn.sqlDataReader["Role"].ToString()
@@ -56,7 +59,7 @@ namespace subcats.customClass
             try
             {
                 _conn.connection.Open();
-                string query = "SELECT Id, Username, Password, Role FROM Usuarios WHERE Username = @Username";
+                string query = "SELECT Id, NombreCompleto, Username, Password, Role FROM Usuarios WHERE Username = @Username";
                 _conn.sqlCommand = new SqlCommand(query, _conn.connection);
                 _conn.sqlCommand.Parameters.AddWithValue("@Username", username);
 
@@ -67,6 +70,7 @@ namespace subcats.customClass
                     usuario = new Usuario
                     {
                         Id = Convert.ToInt32(_conn.sqlDataReader["Id"]),
+                        NombreCompleto = _conn.sqlDataReader["NombreCompleto"]?.ToString(),
                         Username = _conn.sqlDataReader["Username"].ToString(),
                         Password = _conn.sqlDataReader["Password"].ToString(),
                         Role = _conn.sqlDataReader["Role"].ToString()
@@ -91,7 +95,7 @@ namespace subcats.customClass
             try
             {
                 _conn.connection.Open();
-                string query = "SELECT Id, Username, Password, Role FROM Usuarios";
+                string query = "SELECT Id, NombreCompleto, Username, Password, Role FROM Usuarios";
                 _conn.sqlCommand = new SqlCommand(query, _conn.connection);
 
                 _conn.sqlDataReader = _conn.sqlCommand.ExecuteReader();
@@ -101,6 +105,7 @@ namespace subcats.customClass
                     Usuario usuario = new Usuario
                     {
                         Id = Convert.ToInt32(_conn.sqlDataReader["Id"]),
+                        NombreCompleto = _conn.sqlDataReader["NombreCompleto"]?.ToString(),
                         Username = _conn.sqlDataReader["Username"].ToString(),
                         Password = _conn.sqlDataReader["Password"].ToString(),
                         Role = _conn.sqlDataReader["Role"].ToString()
@@ -126,10 +131,13 @@ namespace subcats.customClass
             try
             {
                 _conn.connection.Open();
-                string query = "INSERT INTO Usuarios (Username, Password, Role) VALUES (@Username, @Password, @Role)";
+                // Encriptar la contraseña con MD5 antes de guardar
+                string hashedPassword = HashHelper.ToMD5(usuario.Password);
+                string query = "INSERT INTO Usuarios (NombreCompleto, Username, Password, Role) VALUES (@NombreCompleto, @Username, @Password, @Role)";
                 _conn.sqlCommand = new SqlCommand(query, _conn.connection);
+                _conn.sqlCommand.Parameters.AddWithValue("@NombreCompleto", usuario.NombreCompleto ?? (object)DBNull.Value);
                 _conn.sqlCommand.Parameters.AddWithValue("@Username", usuario.Username);
-                _conn.sqlCommand.Parameters.AddWithValue("@Password", usuario.Password);
+                _conn.sqlCommand.Parameters.AddWithValue("@Password", hashedPassword);
                 _conn.sqlCommand.Parameters.AddWithValue("@Role", usuario.Role);
 
                 int filasAfectadas = _conn.sqlCommand.ExecuteNonQuery();
@@ -152,11 +160,14 @@ namespace subcats.customClass
             try
             {
                 _conn.connection.Open();
-                string query = "UPDATE Usuarios SET Username = @Username, Password = @Password, Role = @Role WHERE Id = @Id";
+                // Encriptar la contraseña con MD5 antes de actualizar
+                string hashedPassword = HashHelper.ToMD5(usuario.Password);
+                string query = "UPDATE Usuarios SET NombreCompleto = @NombreCompleto, Username = @Username, Password = @Password, Role = @Role WHERE Id = @Id";
                 _conn.sqlCommand = new SqlCommand(query, _conn.connection);
                 _conn.sqlCommand.Parameters.AddWithValue("@Id", usuario.Id);
+                _conn.sqlCommand.Parameters.AddWithValue("@NombreCompleto", usuario.NombreCompleto ?? (object)DBNull.Value);
                 _conn.sqlCommand.Parameters.AddWithValue("@Username", usuario.Username);
-                _conn.sqlCommand.Parameters.AddWithValue("@Password", usuario.Password);
+                _conn.sqlCommand.Parameters.AddWithValue("@Password", hashedPassword);
                 _conn.sqlCommand.Parameters.AddWithValue("@Role", usuario.Role);
 
                 int filasAfectadas = _conn.sqlCommand.ExecuteNonQuery();

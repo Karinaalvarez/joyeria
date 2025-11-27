@@ -1,19 +1,17 @@
 @model subcats.dto.RegisterDTO
 
 @{
-    ViewData["Title"] = "Registrarse";
+    ViewData["Title"] = "Crear Cuenta";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card shadow-lg border-0 rounded-lg">
-                <div class="card-header text-white text-center py-4" style="background: linear-gradient(135deg, #E67A9E 0%, #D25A82 100%);">
-                    <div class="text-center mb-3">
-                        <img src="~/imagenes/logos2.png" alt="Logo" class="img-fluid" style="max-height: 120px;">
-                    </div>
-                    <h3 class="mb-0 fw-bold">Crear una cuenta</h3>
+        <div class="col-md-5">
+            <div class="card shadow-lg border-0 rounded-lg overflow-hidden">
+                <div class="card-header text-white text-center py-4" style="background: linear-gradient(135deg, #37474f 0%, #546e7a 100%);">
+                    <h3 class="mb-1 fw-bold">Crear Cuenta</h3>
+                    <p class="mb-0 small opacity-75">Regístrate como cliente</p>
                 </div>
                 <div class="card-body p-4">
                     @if (ViewData["ErrorMessage"] != null)
@@ -26,33 +24,68 @@
                     <form asp-action="Register" method="post">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         
-                        <div class="form-floating mb-3">
-                            <input asp-for="Username" class="form-control" id="floatingUsername" placeholder="Nombre de Usuario" style="border-radius: 10px; border: 1px solid #ced4da;" />
-                            <label asp-for="Username" for="floatingUsername">Nombre de Usuario</label>
-                            <span asp-validation-for="Username" class="text-danger"></span>
+                        <!-- Nombre Completo -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold text-secondary">
+                                <i class="bi bi-person-fill me-1"></i> Nombre Completo
+                            </label>
+                            <input asp-for="NombreCompleto" class="form-control form-control-lg" placeholder="Ej: Juan Pérez" style="border-radius: 8px; border: 1px solid #dee2e6;" />
+                            <span asp-validation-for="NombreCompleto" class="text-danger small"></span>
                         </div>
                         
-                        <div class="form-floating mb-3">
-                            <input asp-for="Password" class="form-control" id="floatingPassword" type="password" placeholder="Contraseña" style="border-radius: 10px; border: 1px solid #ced4da;" />
-                            <label asp-for="Password" for="floatingPassword">Contraseña</label>
-                            <span asp-validation-for="Password" class="text-danger"></span>
+                        <!-- Correo Electrónico -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold text-secondary">
+                                <i class="bi bi-envelope-fill me-1"></i> Correo Electrónico
+                            </label>
+                            <input asp-for="Username" class="form-control form-control-lg" placeholder="ejemplo@correo.com" style="border-radius: 8px; border: 1px solid #dee2e6;" />
+                            <small class="text-muted">Este será tu usuario para iniciar sesión</small>
+                            <span asp-validation-for="Username" class="text-danger small d-block"></span>
                         </div>
                         
-                        <div class="form-floating mb-4">
-                            <input asp-for="ConfirmPassword" class="form-control" id="floatingConfirmPassword" type="password" placeholder="Confirmar Contraseña" style="border-radius: 10px; border: 1px solid #ced4da;" />
-                            <label asp-for="ConfirmPassword" for="floatingConfirmPassword">Confirmar Contraseña</label>
-                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        <!-- Contraseña -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold text-secondary">
+                                <i class="bi bi-lock-fill me-1"></i> Contraseña
+                            </label>
+                            <div class="input-group">
+                                <input asp-for="Password" class="form-control form-control-lg" id="passwordInput" type="password" placeholder="Mínimo 6 caracteres" style="border-radius: 8px 0 0 8px; border: 1px solid #dee2e6;" />
+                                <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('passwordInput', 'toggleIcon1')" style="border-radius: 0 8px 8px 0; border: 1px solid #dee2e6; border-left: none;">
+                                    <i class="bi bi-eye" id="toggleIcon1"></i>
+                                </button>
+                            </div>
+                            <span asp-validation-for="Password" class="text-danger small"></span>
+                        </div>
+                        
+                        <!-- Confirmar Contraseña -->
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold text-secondary">
+                                <i class="bi bi-lock-fill me-1"></i> Confirmar Contraseña
+                            </label>
+                            <div class="input-group">
+                                <input asp-for="ConfirmPassword" class="form-control form-control-lg" id="confirmPasswordInput" type="password" placeholder="Repite tu contraseña" style="border-radius: 8px 0 0 8px; border: 1px solid #dee2e6;" />
+                                <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('confirmPasswordInput', 'toggleIcon2')" style="border-radius: 0 8px 8px 0; border: 1px solid #dee2e6; border-left: none;">
+                                    <i class="bi bi-eye" id="toggleIcon2"></i>
+                                </button>
+                            </div>
+                            <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+                        </div>
+                        
+                        <div class="d-grid gap-2 mb-2">
+                            <button type="submit" class="btn btn-lg text-white fw-bold" style="background: linear-gradient(135deg, #37474f 0%, #546e7a 100%); border-radius: 8px;">
+                                <i class="bi bi-person-plus-fill me-2"></i> Registrarse
+                            </button>
                         </div>
                         
                         <div class="d-grid gap-2 mb-3">
-                            <button type="submit" class="btn btn-lg text-white fw-bold" style="background: linear-gradient(135deg, #E67A9E 0%, #D25A82 100%); border-radius: 10px; transition: all 0.3s ease;">
-                                Registrarse
-                            </button>
+                            <a asp-action="Login" class="btn btn-lg fw-bold" style="background: linear-gradient(135deg, #d4a574 0%, #c49464 100%); color: white; border-radius: 8px;">
+                                <i class="bi bi-arrow-left me-2"></i> Volver al Login
+                            </a>
                         </div>
                     </form>
                     
-                    <div class="text-center mt-4">
-                        <p class="mb-0">¿Ya tienes una cuenta? <a asp-action="Login" class="fw-bold" style="color: #D25A82; text-decoration: none;">Iniciar Sesión</a></p>
+                    <div class="text-center mt-3">
+                        <p class="mb-0 text-muted">¿Ya tienes cuenta? <a asp-action="Login" class="fw-bold text-decoration-none" style="color: #d4a574;">Inicia sesión aquí</a></p>
                     </div>
                 </div>
             </div>
@@ -61,20 +94,38 @@
 </div>
 
 <style>
-    .card {
-        border-color: #E9D1DA;
-    }
-    
     .form-control:focus {
-        border-color: #E67A9E;
-        box-shadow: 0 0 0 0.25rem rgba(230, 122, 158, 0.25);
+        border-color: #546e7a;
+        box-shadow: 0 0 0 0.2rem rgba(84, 110, 122, 0.25);
     }
     
     .btn:hover {
-        background: linear-gradient(135deg, #D25A82 0%, #BC4A70 100%) !important;
+        opacity: 0.9;
+        transform: translateY(-1px);
+        transition: all 0.2s ease;
+    }
+    
+    .input-group .btn:hover {
+        transform: none;
     }
 </style>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        function togglePassword(inputId, iconId) {
+            const input = document.getElementById(inputId);
+            const icon = document.getElementById(iconId);
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('bi-eye');
+                icon.classList.add('bi-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('bi-eye-slash');
+                icon.classList.add('bi-eye');
+            }
+        }
+    </script>
 }
