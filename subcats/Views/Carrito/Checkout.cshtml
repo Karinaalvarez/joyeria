@@ -104,9 +104,13 @@
             const resumenTotal = document.getElementById('resumen-total');
             const carritoJsonInput = document.getElementById('carritoJson');
             const checkoutForm = document.getElementById('checkout-form');
-            
-            // Cargar el carrito desde localStorage
-            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+            // Determinar la clave de carrito según el usuario actual (igual que en Catálogo y Carrito)
+            const userId = document.body.getAttribute('data-user-id');
+            const cartKey = userId && userId !== '' ? `carrito_${userId}` : 'carrito_guest';
+
+            // Cargar el carrito desde localStorage usando la misma clave
+            const carrito = JSON.parse(localStorage.getItem(cartKey)) || [];
             
             // Actualizar el input hidden con los datos del carrito
             carritoJsonInput.value = JSON.stringify(carrito);
@@ -150,14 +154,16 @@
             
             // Manejar el envío del formulario
             checkoutForm.addEventListener('submit', function(e) {
-                if (carrito.length === 0) {
+                const carritoActual = JSON.parse(localStorage.getItem(cartKey)) || [];
+
+                if (carritoActual.length === 0) {
                     e.preventDefault();
                     alert('Tu carrito está vacío. Agrega productos antes de continuar.');
                     return false;
                 }
                 
-                // Actualizar el input hidden con los datos del carrito
-                carritoJsonInput.value = JSON.stringify(carrito);
+                // Actualizar el input hidden con los datos del carrito actual
+                carritoJsonInput.value = JSON.stringify(carritoActual);
                 
                 // Continuar con el envío del formulario
                 return true;
